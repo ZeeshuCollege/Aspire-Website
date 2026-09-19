@@ -21,13 +21,11 @@ import {
 import Badge from '../components/Badge';
 import HighlightsStrip from '../components/HighlightsStrip';
 import CourseCard from '../components/CourseCard';
-import BatchCard from '../components/BatchCard';
 import TestimonialSlider from '../components/TestimonialSlider';
 import FAQAccordion from '../components/FAQAccordion';
 import CtaBanner from '../components/CtaBanner';
 
 import { coursesData } from '../data/coursesData';
-import { batchesData } from '../data/batchesData';
 import { methodologySteps } from '../data/methodologyData';
 import { faqData } from '../data/faqData';
 
@@ -172,29 +170,6 @@ export default function Home({ onOpenEnquiry }) {
         </div>
       </section>
 
-      {/* 5. FIND THE RIGHT BATCH FOR YOU */}
-      <section className="section section-batches-preview">
-        <div className="container">
-          <div className="section-header-row">
-            <div>
-              <Badge icon="calendar" text="Our Batches" variant="blue" />
-              <h2>Find the Right Batch for You</h2>
-              <p className="section-subtitle">
-                We offer flexible batch timings to suit your schedule and learning needs.
-              </p>
-            </div>
-            <Link to="/batches" className="view-all-link">
-              View All Batches <ArrowRight size={16} />
-            </Link>
-          </div>
-
-          <div className="batches-preview-grid">
-            {batchesData.slice(0, 4).map((batch) => (
-              <BatchCard key={batch.id} batch={batch} onSelectBatch={onOpenEnquiry} />
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* 7. METHODOLOGY */}
       <section className="section section-methodology">
