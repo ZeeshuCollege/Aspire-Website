@@ -51,7 +51,7 @@ export default function PrivacyPolicy() {
           <section>
             <h3 style={{ color: 'var(--color-navy)', marginBottom: '0.5rem' }}>5. Contact Information</h3>
             <p style={{ color: 'var(--text-muted)' }}>
-              For privacy-related questions, please contact our administrative coordinator at: <strong>aspirelearningcentre@outlook.com</strong> or visit Shop No. 12, Sunrise Complex, Andheri (E), Mumbai.
+              For privacy-related questions, please contact our administrative coordinator at: <strong>aspirelearningcentre@outlook.com</strong> or visit Falah Building, Room No. 102, Near Darul Falah Masjid, Kausa, Mumbra, Thane – 400612.
             </p>
           </section>
         </div>

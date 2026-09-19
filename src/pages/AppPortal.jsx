@@ -26,6 +26,7 @@ export default function AppPortal({ onOpenEnquiry }) {
   const [credentials, setCredentials] = useState({ id: '', password: '' });
   const [loginError, setLoginError] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loggedInRole, setLoggedInRole] = useState('');
   const [attendanceMarked, setAttendanceMarked] = useState(false);
 
   const handleLoginSubmit = (e) => {
@@ -36,12 +37,29 @@ export default function AppPortal({ onOpenEnquiry }) {
     // Teacher authentication for muneebkhann036@gmail.com / teacher@123
     if (enteredId === 'muneebkhann036@gmail.com' && enteredPass === 'teacher@123') {
       setIsLoggedIn(true);
+      setLoggedInRole('teacher');
+      setLoginError('');
+      return;
+    }
+
+    // Admin / Staff authentication for aspirelearningcentre@outlook.com / admin@123
+    if (
+      (enteredId === 'aspirelearningcentre@outlook.com' || enteredId === 'admin@aspire.com' || enteredId === 'admin') &&
+      (enteredPass === 'admin@123' || enteredPass === 'aspire@123')
+    ) {
+      setIsLoggedIn(true);
+      setLoggedInRole('admin');
       setLoginError('');
       return;
     }
 
     if (activeRole === 'teacher') {
       setLoginError('Invalid teacher credentials. Use registered email (muneebkhann036@gmail.com) and password (teacher@123).');
+      return;
+    }
+
+    if (activeRole === 'admin') {
+      setLoginError('Invalid admin credentials. Use admin email (aspirelearningcentre@outlook.com) and password (admin@123).');
       return;
     }
 
@@ -71,73 +89,135 @@ export default function AppPortal({ onOpenEnquiry }) {
                 <div className="faculty-dashboard-panel">
                   <div className="faculty-dash-header">
                     <div>
-                      <span className="faculty-status-pill">● Faculty Desk Online</span>
-                      <h3 style={{ marginTop: '0.4rem', color: 'var(--color-navy)' }}>Faculty Portal</h3>
+                      <span className="faculty-status-pill">
+                        {loggedInRole === 'admin' ? '● Staff Admin Online' : '● Faculty Desk Online'}
+                      </span>
+                      <h3 style={{ marginTop: '0.4rem', color: 'var(--color-navy)' }}>
+                        {loggedInRole === 'admin' ? 'Centre Admin Portal' : 'Faculty Portal'}
+                      </h3>
                     </div>
                     <button 
-                      onClick={() => { setIsLoggedIn(false); setCredentials({ id: '', password: '' }); }}
+                      onClick={() => { setIsLoggedIn(false); setLoggedInRole(''); setCredentials({ id: '', password: '' }); }}
                       className="faculty-logout-btn"
                     >
                       <LogOut size={16} /> Sign Out
                     </button>
                   </div>
 
-                  <div className="faculty-profile-card">
-                    <div className="faculty-avatar-circle">MK</div>
-                    <div className="faculty-info">
-                      <h4>Prof. Muneeb Khan</h4>
-                      <span className="faculty-email-text">muneebkhann036@gmail.com</span>
-                      <span className="faculty-role-tag">Senior Faculty & Academic Mentor</span>
-                    </div>
-                  </div>
-
-                  <div className="faculty-stats-row">
-                    <div className="faculty-stat-box">
-                      <strong>4</strong>
-                      <span>Batches</span>
-                    </div>
-                    <div className="faculty-stat-box">
-                      <strong>{attendanceMarked ? '32/32' : '30/32'}</strong>
-                      <span>Attendance</span>
-                    </div>
-                    <div className="faculty-stat-box">
-                      <strong>3</strong>
-                      <span>Doubts Open</span>
-                    </div>
-                  </div>
-
-                  <div className="faculty-batch-list">
-                    <span className="p-section-heading">Today's Teaching Schedule:</span>
-                    
-                    <div className="faculty-batch-item">
-                      <div>
-                        <strong>Foundation & 9th Batch</strong>
-                        <span>4:00 PM – 6:00 PM • Room 102</span>
+                  {loggedInRole === 'admin' ? (
+                    <>
+                      <div className="faculty-profile-card">
+                        <div className="faculty-avatar-circle" style={{ background: '#0F172A' }}>AD</div>
+                        <div className="faculty-info">
+                          <h4>ASPIRE Centre Administration</h4>
+                          <span className="faculty-email-text">aspirelearningcentre@outlook.com</span>
+                          <span className="faculty-role-tag">Centre Administrator • Kausa, Mumbra</span>
+                        </div>
                       </div>
-                      <button 
-                        className={`btn-mark-present ${attendanceMarked ? 'marked' : ''}`}
-                        onClick={() => setAttendanceMarked(!attendanceMarked)}
-                      >
-                        {attendanceMarked ? '✓ Saved' : 'Mark Attendance'}
-                      </button>
-                    </div>
 
-                    <div className="faculty-batch-item">
-                      <div>
-                        <strong>10th Board Champions</strong>
-                        <span>6:30 PM – 8:30 PM • Room 102</span>
+                      <div className="faculty-stats-row">
+                        <div className="faculty-stat-box">
+                          <strong>150+</strong>
+                          <span>Enrolled Students</span>
+                        </div>
+                        <div className="faculty-stat-box">
+                          <strong>4</strong>
+                          <span>Batches Active</span>
+                        </div>
+                        <div className="faculty-stat-box">
+                          <strong>5</strong>
+                          <span>Faculty Mentors</span>
+                        </div>
                       </div>
-                      <span className="badge badge-blue">Upcoming</span>
-                    </div>
 
-                    <div className="faculty-batch-item">
-                      <div>
-                        <strong>NEET / JEE Doubt Clinic</strong>
-                        <span>Daily 3:00 PM – 4:00 PM</span>
+                      <div className="faculty-batch-list">
+                        <span className="p-section-heading">Centre Overview & Operations:</span>
+                        
+                        <div className="faculty-batch-item">
+                          <div>
+                            <strong>Admissions Desk</strong>
+                            <span>Open for 9th, 10th, JEE & NEET 2026</span>
+                          </div>
+                          <span className="badge badge-teal">Accepting</span>
+                        </div>
+
+                        <div className="faculty-batch-item">
+                          <div>
+                            <strong>Facility Status</strong>
+                            <span>Falah Bldg, Room 102 • Open till 8:00 PM</span>
+                          </div>
+                          <span className="badge badge-blue">Operational</span>
+                        </div>
+
+                        <div className="faculty-batch-item">
+                          <div>
+                            <strong>Helpline Desk</strong>
+                            <span>+91 70212 20449</span>
+                          </div>
+                          <span className="badge badge-teal">Active</span>
+                        </div>
                       </div>
-                      <span className="badge badge-teal">3 Students Waiting</span>
-                    </div>
-                  </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="faculty-profile-card">
+                        <div className="faculty-avatar-circle">MK</div>
+                        <div className="faculty-info">
+                          <h4>Prof. Muneeb Khan</h4>
+                          <span className="faculty-email-text">muneebkhann036@gmail.com</span>
+                          <span className="faculty-role-tag">Senior Faculty & Academic Mentor</span>
+                        </div>
+                      </div>
+
+                      <div className="faculty-stats-row">
+                        <div className="faculty-stat-box">
+                          <strong>4</strong>
+                          <span>Batches</span>
+                        </div>
+                        <div className="faculty-stat-box">
+                          <strong>{attendanceMarked ? '32/32' : '30/32'}</strong>
+                          <span>Attendance</span>
+                        </div>
+                        <div className="faculty-stat-box">
+                          <strong>3</strong>
+                          <span>Doubts Open</span>
+                        </div>
+                      </div>
+
+                      <div className="faculty-batch-list">
+                        <span className="p-section-heading">Today's Teaching Schedule:</span>
+                        
+                        <div className="faculty-batch-item">
+                          <div>
+                            <strong>Foundation & 9th Batch</strong>
+                            <span>4:00 PM – 6:00 PM • Room 102</span>
+                          </div>
+                          <button 
+                            className={`btn-mark-present ${attendanceMarked ? 'marked' : ''}`}
+                            onClick={() => setAttendanceMarked(!attendanceMarked)}
+                          >
+                            {attendanceMarked ? '✓ Saved' : 'Mark Attendance'}
+                          </button>
+                        </div>
+
+                        <div className="faculty-batch-item">
+                          <div>
+                            <strong>10th Board Champions</strong>
+                            <span>6:30 PM – 8:30 PM • Room 102</span>
+                          </div>
+                          <span className="badge badge-blue">Upcoming</span>
+                        </div>
+
+                        <div className="faculty-batch-item">
+                          <div>
+                            <strong>NEET / JEE Doubt Clinic</strong>
+                            <span>Daily 3:00 PM – 4:00 PM</span>
+                          </div>
+                          <span className="badge badge-teal">3 Students Waiting</span>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               ) : (
                 <>
@@ -179,6 +259,8 @@ export default function AppPortal({ onOpenEnquiry }) {
                     <p>
                       {activeRole === 'teacher'
                         ? 'Enter registered teacher email and password to access the faculty desk.'
+                        : activeRole === 'admin'
+                        ? 'Enter registered admin email and password to access centre administration.'
                         : 'Enter your assigned ASPIRE Student ID or registered mobile number to proceed.'}
                     </p>
                   </div>
@@ -194,19 +276,40 @@ export default function AppPortal({ onOpenEnquiry }) {
                     </button>
                   )}
 
+                  {activeRole === 'admin' && (
+                    <button 
+                      type="button" 
+                      className="teacher-quick-fill-badge"
+                      onClick={() => setCredentials({ id: 'aspirelearningcentre@outlook.com', password: 'admin@123' })}
+                    >
+                      <span>👨‍💼 Click to Autofill Admin Login:</span>
+                      <code>aspirelearningcentre@outlook.com</code>
+                    </button>
+                  )}
+
                   <form onSubmit={handleLoginSubmit} className="login-form">
                     <div className="form-group">
                       <label className="input-label">
                         {activeRole === 'teacher' 
                           ? 'Teacher / Faculty Email' 
+                          : activeRole === 'admin'
+                          ? 'Admin / Staff Email'
                           : activeRole === 'student' 
                           ? 'ASPIRE Student ID / Roll No' 
                           : 'Registered Mobile Number'}
                       </label>
                       <input 
-                        type={activeRole === 'teacher' ? 'email' : 'text'} 
+                        type={activeRole === 'teacher' || activeRole === 'admin' ? 'email' : 'text'} 
                         required 
-                        placeholder={activeRole === 'teacher' ? 'muneebkhann036@gmail.com' : activeRole === 'student' ? 'e.g. ASP-2026-409' : 'e.g. 7021220449'} 
+                        placeholder={
+                          activeRole === 'teacher' 
+                            ? 'muneebkhann036@gmail.com' 
+                            : activeRole === 'admin'
+                            ? 'aspirelearningcentre@outlook.com'
+                            : activeRole === 'student' 
+                            ? 'e.g. ASP-2026-409' 
+                            : 'e.g. 7021220449'
+                        } 
                         className="input-field"
                         value={credentials.id}
                         onChange={(e) => setCredentials({ ...credentials, id: e.target.value })}
@@ -218,7 +321,13 @@ export default function AppPortal({ onOpenEnquiry }) {
                       <input 
                         type="password" 
                         required 
-                        placeholder={activeRole === 'teacher' ? 'teacher@123' : '••••••••'} 
+                        placeholder={
+                          activeRole === 'teacher' 
+                            ? 'teacher@123' 
+                            : activeRole === 'admin'
+                            ? 'admin@123'
+                            : '••••••••'
+                        } 
                         className="input-field"
                         value={credentials.password}
                         onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
