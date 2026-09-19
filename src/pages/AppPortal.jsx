@@ -45,7 +45,7 @@ export default function AppPortal({ onOpenEnquiry }) {
     // Admin / Staff authentication for aspirelearningcentre@outlook.com / admin@123
     if (
       (enteredId === 'aspirelearningcentre@outlook.com' || enteredId === 'admin@aspire.com' || enteredId === 'admin') &&
-      (enteredPass === 'admin@123' || enteredPass === 'aspire@123')
+      enteredPass === 'admin@123'
     ) {
       setIsLoggedIn(true);
       setLoggedInRole('admin');
