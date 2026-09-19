@@ -1,0 +1,75 @@
+:root {
+  /* ASPIRE Brand Colors */
+  --color-primary: #1769E8;
+  --color-primary-rgb: 23, 105, 232;
+  --color-primary-hover: #1255C2;
+  --color-primary-light: #EBF3FE;
+  --color-primary-ultra-light: #F4F8FF;
+
+  --color-navy: #102A56;
+  --color-navy-rgb: 16, 42, 86;
+  --color-navy-dark: #0A1B38;
+  --color-navy-surface: #133368;
+
+  --color-orange: #FF8A1F;
+  --color-orange-light: #FFF4EB;
+  
+  --color-teal: #14B8A6;
+  --color-teal-light: #E6FFFA;
+  
+  --color-violet: #7C5CFC;
+  --color-violet-light: #F3F0FF;
+  
+  --color-sky: #38BDF8;
+  --color-sky-light: #F0F9FF;
+
+  --color-emerald: #10B981;
+  --color-emerald-light: #ECFDF5;
+
+  --color-rose: #F06D8F;
+  --color-rose-light: #FFF1F5;
+
+  /* Neutral Surface & Background Colors */
+  --bg-page: #FFFFFF;
+  --bg-subtle: #F8FAFC;
+  --bg-soft-blue: #F0F6FF;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F8FBFF;
+  
+  /* Text Colors */
+  --text-main: #102033;
+  --text-muted: #5C6B7A;
+  --text-subtle: #8491A1;
+  --text-inverse: #FFFFFF;
+  
+  /* Borders */
+  --border-color: #E2E8F0;
+  --border-color-light: #EDF2F7;
+  --border-color-focus: #1769E8;
+  --border-subtle: 1px solid var(--border-color);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(16, 32, 51, 0.05);
+  --shadow-md: 0 4px 20px -2px rgba(16, 42, 86, 0.06);
+  --shadow-lg: 0 12px 32px -4px rgba(16, 42, 86, 0.08);
+  --shadow-hover: 0 16px 36px -6px rgba(23, 105, 232, 0.12);
+  --shadow-glow: 0 0 24px rgba(23, 105, 232, 0.2);
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Typography */
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-handwritten: 'Caveat', cursive, sans-serif;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}

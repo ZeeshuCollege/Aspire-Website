@@ -1,0 +1,84 @@
+.floating-contact-container {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+  z-index: 900;
+}
+
+.floating-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-bounce);
+  text-decoration: none;
+}
+
+.floating-btn:hover {
+  transform: translateY(-4px) scale(1.04);
+}
+
+.floating-whatsapp {
+  width: 48px;
+  height: 48px;
+  background-color: #25D366;
+  color: #ffffff;
+}
+
+.floating-call {
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-navy);
+  color: #ffffff;
+}
+
+.floating-enquiry {
+  height: 46px;
+  padding: 0 1.25rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  display: flex;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.floating-tooltip {
+  position: absolute;
+  right: 115%;
+  background: var(--color-navy);
+  color: #ffffff;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+
+.floating-btn:hover .floating-tooltip {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .floating-contact-container {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  .floating-pill-text {
+    display: none;
+  }
+  .floating-enquiry {
+    width: 46px;
+    padding: 0;
+  }
+}
