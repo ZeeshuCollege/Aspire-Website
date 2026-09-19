@@ -12,7 +12,8 @@ import {
   TrendingUp,
   Download,
   KeyRound,
-  CheckCircle2
+  CheckCircle2,
+  LogOut
 } from 'lucide-react';
 import Badge from '../components/Badge';
 import './AppPortal.css';
@@ -21,12 +22,29 @@ export default function AppPortal({ onOpenEnquiry }) {
   const [activeRole, setActiveRole] = useState('student');
   const [appPreviewTab, setAppPreviewTab] = useState('attendance');
 
-  // Mock login handler
+  // Login state
   const [credentials, setCredentials] = useState({ id: '', password: '' });
   const [loginError, setLoginError] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [attendanceMarked, setAttendanceMarked] = useState(false);
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
+    const enteredId = credentials.id.trim().toLowerCase();
+    const enteredPass = credentials.password;
+
+    // Teacher authentication for muneebkhann036@gmail.com / teacher@123
+    if (enteredId === 'muneebkhann036@gmail.com' && enteredPass === 'teacher@123') {
+      setIsLoggedIn(true);
+      setLoginError('');
+      return;
+    }
+
+    if (activeRole === 'teacher') {
+      setLoginError('Invalid teacher credentials. Use registered email (muneebkhann036@gmail.com) and password (teacher@123).');
+      return;
+    }
+
     setLoginError('Demo Mode: Live authentication is restricted to registered ASPIRE enrolled students and guardians. Contact centre administration for your security pin.');
   };
 
@@ -47,96 +65,189 @@ export default function AppPortal({ onOpenEnquiry }) {
       <section className="section">
         <div className="container">
           <div className="app-portal-layout">
-            {/* Left: Login Box */}
+            {/* Left: Login Box / Logged In Dashboard */}
             <div className="portal-login-card">
-              <div className="role-selector-tabs">
-                <button 
-                  className={`role-tab ${activeRole === 'student' ? 'active' : ''}`}
-                  onClick={() => { setActiveRole('student'); setLoginError(''); }}
-                >
-                  Student
-                </button>
-                <button 
-                  className={`role-tab ${activeRole === 'parent' ? 'active' : ''}`}
-                  onClick={() => { setActiveRole('parent'); setLoginError(''); }}
-                >
-                  Parent
-                </button>
-                <button 
-                  className={`role-tab ${activeRole === 'teacher' ? 'active' : ''}`}
-                  onClick={() => { setActiveRole('teacher'); setLoginError(''); }}
-                >
-                  Faculty
-                </button>
-                <button 
-                  className={`role-tab ${activeRole === 'admin' ? 'active' : ''}`}
-                  onClick={() => { setActiveRole('admin'); setLoginError(''); }}
-                >
-                  Staff
-                </button>
-              </div>
-
-              <div className="login-box-header">
-                <img src="/images/logo.png" alt="ASPIRE Learning Centre" className="portal-header-logo-img" />
-                <h3>
-                  {activeRole === 'student' && 'Student App Login'}
-                  {activeRole === 'parent' && 'Parent Guardian Portal'}
-                  {activeRole === 'teacher' && 'Faculty Attendance Desk'}
-                  {activeRole === 'admin' && 'Centre Staff Admin'}
-                </h3>
-                <p>
-                  Enter your assigned ASPIRE Student ID or registered mobile number to proceed.
-                </p>
-              </div>
-
-              <form onSubmit={handleLoginSubmit} className="login-form">
-                <div className="form-group">
-                  <label className="input-label">
-                    {activeRole === 'student' ? 'ASPIRE Student ID / Roll No' : 'Registered Mobile Number'}
-                  </label>
-                  <input 
-                    type="text" 
-                    required 
-                    placeholder={activeRole === 'student' ? 'e.g. ASP-2026-409' : 'e.g. 7021220449'} 
-                    className="input-field"
-                    value={credentials.id}
-                    onChange={(e) => setCredentials({ ...credentials, id: e.target.value })}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label className="input-label">Password / Security PIN</label>
-                  <input 
-                    type="password" 
-                    required 
-                    placeholder="••••••••" 
-                    className="input-field"
-                    value={credentials.password}
-                    onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
-                  />
-                </div>
-
-                {loginError && (
-                  <div className="login-alert-banner">
-                    <Lock size={16} />
-                    <span>{loginError}</span>
+              {isLoggedIn ? (
+                <div className="faculty-dashboard-panel">
+                  <div className="faculty-dash-header">
+                    <div>
+                      <span className="faculty-status-pill">● Faculty Desk Online</span>
+                      <h3 style={{ marginTop: '0.4rem', color: 'var(--color-navy)' }}>Faculty Portal</h3>
+                    </div>
+                    <button 
+                      onClick={() => { setIsLoggedIn(false); setCredentials({ id: '', password: '' }); }}
+                      className="faculty-logout-btn"
+                    >
+                      <LogOut size={16} /> Sign Out
+                    </button>
                   </div>
-                )}
 
-                <button type="submit" className="btn btn-primary btn-lg full-width-btn">
-                  <KeyRound size={18} /> Access Dashboard
-                </button>
+                  <div className="faculty-profile-card">
+                    <div className="faculty-avatar-circle">MK</div>
+                    <div className="faculty-info">
+                      <h4>Prof. Muneeb Khan</h4>
+                      <span className="faculty-email-text">muneebkhann036@gmail.com</span>
+                      <span className="faculty-role-tag">Senior Faculty & Academic Mentor</span>
+                    </div>
+                  </div>
 
-                <div className="login-help-links">
-                  <a href="#forgot" onClick={(e) => { e.preventDefault(); alert('Please visit the Andheri (E) centre reception or call +91 70212 20449 to reset your registered credentials.'); }}>
-                    Forgot ID or PIN?
-                  </a>
-                  <span>•</span>
-                  <button type="button" onClick={onOpenEnquiry} className="not-enrolled-btn">
-                    Not enrolled yet? Enquire here
-                  </button>
+                  <div className="faculty-stats-row">
+                    <div className="faculty-stat-box">
+                      <strong>4</strong>
+                      <span>Batches</span>
+                    </div>
+                    <div className="faculty-stat-box">
+                      <strong>{attendanceMarked ? '32/32' : '30/32'}</strong>
+                      <span>Attendance</span>
+                    </div>
+                    <div className="faculty-stat-box">
+                      <strong>3</strong>
+                      <span>Doubts Open</span>
+                    </div>
+                  </div>
+
+                  <div className="faculty-batch-list">
+                    <span className="p-section-heading">Today's Teaching Schedule:</span>
+                    
+                    <div className="faculty-batch-item">
+                      <div>
+                        <strong>Foundation & 9th Batch</strong>
+                        <span>4:00 PM – 6:00 PM • Room 102</span>
+                      </div>
+                      <button 
+                        className={`btn-mark-present ${attendanceMarked ? 'marked' : ''}`}
+                        onClick={() => setAttendanceMarked(!attendanceMarked)}
+                      >
+                        {attendanceMarked ? '✓ Saved' : 'Mark Attendance'}
+                      </button>
+                    </div>
+
+                    <div className="faculty-batch-item">
+                      <div>
+                        <strong>10th Board Champions</strong>
+                        <span>6:30 PM – 8:30 PM • Room 102</span>
+                      </div>
+                      <span className="badge badge-blue">Upcoming</span>
+                    </div>
+
+                    <div className="faculty-batch-item">
+                      <div>
+                        <strong>NEET / JEE Doubt Clinic</strong>
+                        <span>Daily 3:00 PM – 4:00 PM</span>
+                      </div>
+                      <span className="badge badge-teal">3 Students Waiting</span>
+                    </div>
+                  </div>
                 </div>
-              </form>
+              ) : (
+                <>
+                  <div className="role-selector-tabs">
+                    <button 
+                      className={`role-tab ${activeRole === 'student' ? 'active' : ''}`}
+                      onClick={() => { setActiveRole('student'); setLoginError(''); }}
+                    >
+                      Student
+                    </button>
+                    <button 
+                      className={`role-tab ${activeRole === 'parent' ? 'active' : ''}`}
+                      onClick={() => { setActiveRole('parent'); setLoginError(''); }}
+                    >
+                      Parent
+                    </button>
+                    <button 
+                      className={`role-tab ${activeRole === 'teacher' ? 'active' : ''}`}
+                      onClick={() => { setActiveRole('teacher'); setLoginError(''); }}
+                    >
+                      Faculty
+                    </button>
+                    <button 
+                      className={`role-tab ${activeRole === 'admin' ? 'active' : ''}`}
+                      onClick={() => { setActiveRole('admin'); setLoginError(''); }}
+                    >
+                      Staff
+                    </button>
+                  </div>
+
+                  <div className="login-box-header">
+                    <img src="/images/logo.png" alt="ASPIRE Learning Centre" className="portal-header-logo-img" />
+                    <h3>
+                      {activeRole === 'student' && 'Student App Login'}
+                      {activeRole === 'parent' && 'Parent Guardian Portal'}
+                      {activeRole === 'teacher' && 'Faculty Attendance Desk'}
+                      {activeRole === 'admin' && 'Centre Staff Admin'}
+                    </h3>
+                    <p>
+                      {activeRole === 'teacher'
+                        ? 'Enter registered teacher email and password to access the faculty desk.'
+                        : 'Enter your assigned ASPIRE Student ID or registered mobile number to proceed.'}
+                    </p>
+                  </div>
+
+                  {activeRole === 'teacher' && (
+                    <button 
+                      type="button" 
+                      className="teacher-quick-fill-badge"
+                      onClick={() => setCredentials({ id: 'muneebkhann036@gmail.com', password: 'teacher@123' })}
+                    >
+                      <span>👨‍🏫 Click to Autofill Teacher Login:</span>
+                      <code>muneebkhann036@gmail.com</code>
+                    </button>
+                  )}
+
+                  <form onSubmit={handleLoginSubmit} className="login-form">
+                    <div className="form-group">
+                      <label className="input-label">
+                        {activeRole === 'teacher' 
+                          ? 'Teacher / Faculty Email' 
+                          : activeRole === 'student' 
+                          ? 'ASPIRE Student ID / Roll No' 
+                          : 'Registered Mobile Number'}
+                      </label>
+                      <input 
+                        type={activeRole === 'teacher' ? 'email' : 'text'} 
+                        required 
+                        placeholder={activeRole === 'teacher' ? 'muneebkhann036@gmail.com' : activeRole === 'student' ? 'e.g. ASP-2026-409' : 'e.g. 7021220449'} 
+                        className="input-field"
+                        value={credentials.id}
+                        onChange={(e) => setCredentials({ ...credentials, id: e.target.value })}
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label className="input-label">Password / Security PIN</label>
+                      <input 
+                        type="password" 
+                        required 
+                        placeholder={activeRole === 'teacher' ? 'teacher@123' : '••••••••'} 
+                        className="input-field"
+                        value={credentials.password}
+                        onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
+                      />
+                    </div>
+
+                    {loginError && (
+                      <div className="login-alert-banner">
+                        <Lock size={16} />
+                        <span>{loginError}</span>
+                      </div>
+                    )}
+
+                    <button type="submit" className="btn btn-primary btn-lg full-width-btn">
+                      <KeyRound size={18} /> Access Dashboard
+                    </button>
+
+                    <div className="login-help-links">
+                      <a href="#forgot" onClick={(e) => { e.preventDefault(); alert('Please visit the Kausa, Mumbra centre reception or call +91 70212 20449 to reset your registered credentials.'); }}>
+                        Forgot ID or PIN?
+                      </a>
+                      <span>•</span>
+                      <button type="button" onClick={onOpenEnquiry} className="not-enrolled-btn">
+                        Not enrolled yet? Enquire here
+                      </button>
+                    </div>
+                  </form>
+                </>
+              )}
 
               <div className="app-download-badges">
                 <span>Download ASPIRE App on your device:</span>
@@ -170,8 +281,12 @@ export default function AppPortal({ onOpenEnquiry }) {
                       <img src="/images/logo-emblem.png" alt="ASPIRE" className="phone-app-emblem" />
                       <div>
                         <span className="user-greeting">Welcome back,</span>
-                        <strong className="user-name">Aarav Sharma</strong>
-                        <span className="user-batch">Class 10 Board Champions</span>
+                        <strong className="user-name">
+                          {isLoggedIn || activeRole === 'teacher' ? 'Prof. Muneeb Khan' : 'Aarav Sharma'}
+                        </strong>
+                        <span className="user-batch">
+                          {isLoggedIn || activeRole === 'teacher' ? 'Faculty Portal • Room 102' : 'Class 10 Board Champions'}
+                        </span>
                       </div>
                     </div>
                     <div className="phone-notif-bell">

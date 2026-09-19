@@ -1,5 +1,18 @@
 export const facultyData = [
   {
+    id: "fac-muneeb",
+    name: "Prof. Muneeb Khan",
+    email: "muneebkhann036@gmail.com",
+    subject: "Mathematics & Science",
+    tagColor: "blue",
+    experience: "8+ Years Experience",
+    quote: "Conceptual clarity and consistent practice turn challenges into high scores.",
+    degree: "M.Sc, Educator & Academic Mentor",
+    specialization: "Foundation, 9th, 10th, JEE & NEET Preparation",
+    image: "/images/faculty-rohit.png",
+    bio: "Dedicated senior educator and faculty mentor specializing in analytical problem-solving and foundational concept building for board and competitive examinations."
+  },
+  {
     id: "fac-rohit",
     name: "Mr. Rohit Sharma",
     subject: "Mathematics",
