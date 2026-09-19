@@ -6,7 +6,7 @@ export default function FloatingContact({ onOpenEnquiry }) {
   return (
     <div className="floating-contact-container">
       <a 
-        href="https://wa.me/919876543210?text=Hello%20ASPIRE%20Learning%20Centre,%20I%20would%20like%20to%20know%20more%20about%20your%20courses." 
+        href="https://wa.me/917021220449?text=Hello%20ASPIRE%20Learning%20Centre,%20I%20would%20like%20to%20know%20more%20about%20your%20courses." 
         target="_blank" 
         rel="noreferrer"
         className="floating-btn floating-whatsapp"
@@ -18,13 +18,13 @@ export default function FloatingContact({ onOpenEnquiry }) {
       </a>
 
       <a 
-        href="tel:+919876543210"
+        href="tel:+917021220449"
         className="floating-btn floating-call"
         aria-label="Call ASPIRE Centre"
         title="Call Helpline"
       >
         <Phone size={20} />
-        <span className="floating-tooltip">Call +91 98765 43210</span>
+        <span className="floating-tooltip">Call +91 70212 20449</span>
       </a>
 
       <button 

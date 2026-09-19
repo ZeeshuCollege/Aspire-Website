@@ -96,7 +96,7 @@ export default function AppPortal({ onOpenEnquiry }) {
                   <input 
                     type="text" 
                     required 
-                    placeholder={activeRole === 'student' ? 'e.g. ASP-2026-409' : 'e.g. 9876543210'} 
+                    placeholder={activeRole === 'student' ? 'e.g. ASP-2026-409' : 'e.g. 7021220449'} 
                     className="input-field"
                     value={credentials.id}
                     onChange={(e) => setCredentials({ ...credentials, id: e.target.value })}
@@ -127,7 +127,7 @@ export default function AppPortal({ onOpenEnquiry }) {
                 </button>
 
                 <div className="login-help-links">
-                  <a href="#forgot" onClick={(e) => { e.preventDefault(); alert('Please visit the Andheri (E) centre reception or call +91 98765 43210 to reset your registered credentials.'); }}>
+                  <a href="#forgot" onClick={(e) => { e.preventDefault(); alert('Please visit the Andheri (E) centre reception or call +91 70212 20449 to reset your registered credentials.'); }}>
                     Forgot ID or PIN?
                   </a>
                   <span>•</span>

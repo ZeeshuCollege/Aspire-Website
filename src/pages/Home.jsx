@@ -16,7 +16,8 @@ import {
   Send,
   Calendar,
   Compass,
-  GraduationCap
+  GraduationCap,
+  MessageCircle
 } from 'lucide-react';
 
 import Badge from '../components/Badge';
@@ -86,7 +87,7 @@ export default function Home({ onOpenEnquiry }) {
             {/* Social Proof */}
             <div className="hero-social-proof">
               <img 
-                src="/images/avatars.png" 
+                src="/images/avatars.png?v=2" 
                 alt="Trusted Students Avatars" 
                 className="hero-avatars-img"
                 onError={(e) => {
@@ -609,9 +610,18 @@ export default function Home({ onOpenEnquiry }) {
                 <div className="contact-channel-card">
                   <div className="channel-icon-circle blue"><Phone size={18} /></div>
                   <div>
-                    <span className="channel-label">Phone</span>
-                    <strong>+91 98765 43210</strong>
-                    <strong>+91 87654 32109</strong>
+                    <span className="channel-label">Phone & WhatsApp</span>
+                    <a href="tel:+917021220449" className="channel-contact-link">
+                      <strong>+91 70212 20449</strong>
+                    </a>
+                    <a 
+                      href="https://wa.me/917021220449?text=Hello%20ASPIRE%20Learning%20Centre,%20I%20would%20like%20to%20know%20more%20about%20your%20courses." 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="channel-whatsapp-link"
+                    >
+                      <MessageCircle size={14} /> WhatsApp Us Directly
+                    </a>
                     <span className="channel-hours">(Mon – Sat, 9:00 AM – 6:00 PM)</span>
                   </div>
                 </div>

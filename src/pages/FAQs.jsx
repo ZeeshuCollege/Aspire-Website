@@ -69,8 +69,17 @@ export default function FAQs({ onOpenEnquiry }) {
               <p>Our academic counsellors are available on phone and WhatsApp from 9:00 AM to 8:00 PM every day.</p>
             </div>
             <div className="faq-help-actions">
-              <a href="tel:+919876543210" className="btn btn-primary btn-md">
-                <Phone size={16} /> Call +91 98765 43210
+              <a href="tel:+917021220449" className="btn btn-primary btn-md">
+                <Phone size={16} /> Call +91 70212 20449
+              </a>
+              <a 
+                href="https://wa.me/917021220449?text=Hello%20ASPIRE%20Learning%20Centre,%20I%20have%20a%20question%20regarding%20courses." 
+                target="_blank" 
+                rel="noreferrer" 
+                className="btn btn-secondary btn-md"
+                style={{ color: '#16A34A' }}
+              >
+                <MessageCircle size={16} /> WhatsApp Us
               </a>
               <button onClick={onOpenEnquiry} className="btn btn-secondary btn-md">
                 Request Callback <ArrowRight size={16} />

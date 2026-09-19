@@ -61,6 +61,17 @@
   margin-top: 0.15rem;
 }
 
+.box-phone-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+.box-phone-link:hover strong {
+  color: var(--color-primary);
+}
+
 .address-p {
   font-size: 0.9rem;
   color: var(--text-muted);

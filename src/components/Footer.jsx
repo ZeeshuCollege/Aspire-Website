@@ -50,7 +50,7 @@ export default function Footer({ onOpenEnquiry }) {
             </div>
             <div className="footer-contact-item">
               <Phone size={16} className="text-primary" />
-              <a href="tel:+919876543210">+91 98765 43210</a>
+              <a href="tel:+917021220449">+91 70212 20449</a>
             </div>
             <div className="footer-contact-item">
               <Mail size={16} className="text-primary" />
@@ -124,7 +124,7 @@ export default function Footer({ onOpenEnquiry }) {
               <YoutubeIcon size={18} />
             </a>
             <a 
-              href="https://wa.me/919876543210" 
+              href="https://wa.me/917021220449" 
               target="_blank" 
               rel="noreferrer" 
               className="social-btn"

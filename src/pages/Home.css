@@ -724,6 +724,34 @@
   margin-top: 0.15rem;
 }
 
+.channel-contact-link {
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+.channel-contact-link:hover strong {
+  color: var(--color-primary);
+}
+
+.channel-whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: #16A34A;
+  text-decoration: none;
+  margin-top: 0.25rem;
+  transition: opacity var(--transition-fast);
+}
+
+.channel-whatsapp-link:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
 .contact-channel-card span {
   font-size: 0.85rem;
   color: var(--text-muted);

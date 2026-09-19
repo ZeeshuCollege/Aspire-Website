@@ -218,8 +218,8 @@ export default function CourseDetail({ onOpenEnquiry }) {
                   <button onClick={onOpenEnquiry} className="btn btn-primary btn-lg full-width-btn">
                     Book Free Trial Class
                   </button>
-                  <a href="tel:+919876543210" className="btn btn-secondary btn-md full-width-btn" style={{ marginTop: '0.75rem' }}>
-                    Call: +91 98765 43210
+                  <a href="tel:+917021220449" className="btn btn-secondary btn-md full-width-btn" style={{ marginTop: '0.75rem' }}>
+                    Call: +91 70212 20449
                   </a>
                 </div>
 

@@ -1,7 +1,7 @@
 export const centreData = {
   address: "Shop No. 12, Sunrise Complex, Near City Mall, Andheri (E), Mumbai - 400069",
   landmark: "Opposite City Mall Station, 5 mins walk from Andheri East Metro",
-  phones: ["+91 98765 43210", "+91 87654 32109"],
+  phones: ["+91 70212 20449"],
   email: "aspirelearningcentre@outlook.com",
   hours: "Monday – Saturday: 9:00 AM – 8:00 PM | Sunday: 9:00 AM – 2:00 PM",
   facilities: [

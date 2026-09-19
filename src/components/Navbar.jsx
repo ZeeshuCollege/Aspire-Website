@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, UserCheck, ArrowRight, Sparkles } from 'lucide-react';
+import { Menu, X, Phone, UserCheck, ArrowRight, Sparkles, MessageCircle } from 'lucide-react';
 import './Navbar.css';
 
 export default function Navbar({ onOpenEnquiry }) {
@@ -48,8 +48,8 @@ export default function Navbar({ onOpenEnquiry }) {
             <span className="top-bar-text">Std. 8–12, NEET & JEE 2026 Admissions Open!</span>
           </div>
           <div className="top-bar-right">
-            <a href="tel:+919876543210" className="top-bar-link">
-              <Phone size={13} /> +91 98765 43210
+            <a href="tel:+917021220449" className="top-bar-link">
+              <Phone size={13} /> +91 70212 20449
             </a>
             <span className="top-bar-divider">|</span>
             <Link to="/app/login" className="top-bar-link app-link">
@@ -133,6 +133,24 @@ export default function Navbar({ onOpenEnquiry }) {
             </div>
 
             <div className="mobile-drawer-footer">
+              <div className="mobile-contact-quick-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                <a 
+                  href="tel:+917021220449" 
+                  className="btn btn-secondary btn-sm" 
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', fontSize: '0.8rem', padding: '0.6rem 0.5rem' }}
+                >
+                  <Phone size={14} /> Call Helpline
+                </a>
+                <a 
+                  href="https://wa.me/917021220449?text=Hello%20ASPIRE%20Learning%20Centre,%20I%20would%20like%20to%20know%20more%20about%20your%20courses." 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="btn btn-secondary btn-sm" 
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', fontSize: '0.8rem', padding: '0.6rem 0.5rem', color: '#16A34A', borderColor: '#BBF7D0' }}
+                >
+                  <MessageCircle size={14} /> WhatsApp Us
+                </a>
+              </div>
               <Link to="/app/login" className="mobile-app-link">
                 <UserCheck size={16} /> Student & Parent App Portal
               </Link>

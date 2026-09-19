@@ -107,7 +107,7 @@ export default function Updates({ onOpenEnquiry }) {
               <div style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.65', marginBottom: '2rem' }}>
                 <p>{activeNotice.summary}</p>
                 <p style={{ marginTop: '1rem' }}>
-                  All registered students and parents are requested to review the schedule. For any clarifications, please contact the admissions desk at Sunrise Complex, Andheri (E) or call +91 98765 43210.
+                  All registered students and parents are requested to review the schedule. For any clarifications, please contact the admissions desk at Sunrise Complex, Andheri (E) or call <a href="tel:+917021220449" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>+91 70212 20449</a>.
                 </p>
               </div>
 

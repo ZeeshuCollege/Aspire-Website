@@ -64,10 +64,11 @@ export default function Contact({ onOpenEnquiry }) {
                 <div className="contact-box-item">
                   <div className="contact-icon-sq blue"><Phone size={20} /></div>
                   <div>
-                    <span className="box-lbl">Helpline Phones</span>
-                    <strong>+91 98765 43210</strong>
-                    <strong>+91 87654 32109</strong>
-                    <span className="box-sub">Mon – Sat: 9:00 AM – 6:00 PM</span>
+                    <span className="box-lbl">Helpline Phone</span>
+                    <a href="tel:+917021220449" className="box-phone-link">
+                      <strong>+91 70212 20449</strong>
+                    </a>
+                    <span className="box-sub">Mon – Sat: 9:00 AM – 6:00 PM (Tap to call)</span>
                   </div>
                 </div>
 
@@ -75,14 +76,21 @@ export default function Contact({ onOpenEnquiry }) {
                   <div className="contact-icon-sq green"><MessageCircle size={20} /></div>
                   <div>
                     <span className="box-lbl">WhatsApp Admissions</span>
-                    <strong>+91 98765 43210</strong>
                     <a 
-                      href="https://wa.me/919876543210" 
+                      href="https://wa.me/917021220449?text=Hello%20ASPIRE%20Learning%20Centre,%20I%20would%20like%20to%20know%20more%20about%20your%20courses." 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="box-phone-link"
+                    >
+                      <strong>+91 70212 20449</strong>
+                    </a>
+                    <a 
+                      href="https://wa.me/917021220449?text=Hello%20ASPIRE%20Learning%20Centre,%20I%20would%20like%20to%20know%20more%20about%20your%20courses." 
                       target="_blank" 
                       rel="noreferrer" 
                       className="chat-now-link"
                     >
-                      Chat with Counsellor <ArrowRight size={13} />
+                      Chat on WhatsApp <ArrowRight size={13} />
                     </a>
                   </div>
                 </div>
