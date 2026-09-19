@@ -11,7 +11,8 @@ import {
   ArrowRight,
   TrendingUp,
   Download,
-  KeyRound
+  KeyRound,
+  CheckCircle2
 } from 'lucide-react';
 import Badge from '../components/Badge';
 import './AppPortal.css';

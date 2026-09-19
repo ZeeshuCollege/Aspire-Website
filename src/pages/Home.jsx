@@ -14,7 +14,8 @@ import {
   Calendar,
   Compass,
   GraduationCap,
-  MessageCircle
+  MessageCircle,
+  MapPin
 } from 'lucide-react';
 
 import Badge from '../components/Badge';
