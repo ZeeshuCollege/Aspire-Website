@@ -56,8 +56,8 @@
 }
 
 .app-link {
-  color: #38BDF8;
-  font-weight: 500;
+  color: var(--color-orange);
+  font-weight: 600;
 }
 
 .top-bar-divider {

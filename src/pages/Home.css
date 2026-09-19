@@ -96,7 +96,7 @@
   left: 10%;
   width: 90%;
   height: 85%;
-  background: #E8F2FE;
+  background: linear-gradient(135deg, #EBF4FF 0%, #FFF5EB 100%);
   border-radius: 65% 35% 55% 45% / 45% 60% 40% 55%;
   z-index: 1;
 }

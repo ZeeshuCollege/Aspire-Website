@@ -1,59 +1,74 @@
 :root {
-  /* ASPIRE Brand Colors */
-  --color-primary: #1769E8;
-  --color-primary-rgb: 23, 105, 232;
-  --color-primary-hover: #1255C2;
-  --color-primary-light: #EBF3FE;
-  --color-primary-ultra-light: #F4F8FF;
+  /* ASPIRE Brand Colors (Exact Logo Palette) */
+  --color-primary: #0072F5;
+  --color-primary-rgb: 0, 114, 245;
+  --color-primary-hover: #005BCC;
+  --color-primary-light: #EBF4FF;
+  --color-primary-ultra-light: #F5F9FF;
 
-  --color-navy: #102A56;
-  --color-navy-rgb: 16, 42, 86;
-  --color-navy-dark: #0A1B38;
-  --color-navy-surface: #133368;
+  --color-navy: #05132B;
+  --color-navy-rgb: 5, 19, 43;
+  --color-navy-dark: #020B1A;
+  --color-navy-surface: #0B2044;
 
-  --color-orange: #FF8A1F;
-  --color-orange-light: #FFF4EB;
+  --color-orange: #FF6E00;
+  --color-orange-rgb: 255, 110, 0;
+  --color-orange-hover: #E65A00;
+  --color-orange-light: #FFF4EA;
+  --color-orange-ultra-light: #FFFBF7;
+
+  --color-gold: #FFB800;
+  --color-gold-light: #FFFBEB;
+
+  --color-azure: #00A3FF;
+  --color-azure-light: #EAF6FF;
   
-  --color-teal: #14B8A6;
+  --color-teal: #0D9488;
   --color-teal-light: #E6FFFA;
   
   --color-violet: #7C5CFC;
   --color-violet-light: #F3F0FF;
   
-  --color-sky: #38BDF8;
+  --color-sky: #00A3FF;
   --color-sky-light: #F0F9FF;
 
   --color-emerald: #10B981;
   --color-emerald-light: #ECFDF5;
 
-  --color-rose: #F06D8F;
+  --color-rose: #F43F5E;
   --color-rose-light: #FFF1F5;
+
+  /* Brand Signature Gradients */
+  --brand-gradient: linear-gradient(135deg, #FF6E00 0%, #0072F5 100%);
+  --brand-gradient-soft: linear-gradient(135deg, rgba(255, 110, 0, 0.08) 0%, rgba(0, 114, 245, 0.08) 100%);
+  --brand-gradient-blue: linear-gradient(135deg, #0072F5 0%, #0050B8 100%);
+  --brand-gradient-orange: linear-gradient(135deg, #FF8000 0%, #E65A00 100%);
 
   /* Neutral Surface & Background Colors */
   --bg-page: #FFFFFF;
   --bg-subtle: #F8FAFC;
-  --bg-soft-blue: #F0F6FF;
+  --bg-soft-blue: #F3F8FF;
   --bg-card: #FFFFFF;
   --bg-card-hover: #F8FBFF;
   
   /* Text Colors */
-  --text-main: #102033;
-  --text-muted: #5C6B7A;
-  --text-subtle: #8491A1;
+  --text-main: #05132B;
+  --text-muted: #526071;
+  --text-subtle: #8090A2;
   --text-inverse: #FFFFFF;
   
   /* Borders */
   --border-color: #E2E8F0;
   --border-color-light: #EDF2F7;
-  --border-color-focus: #1769E8;
+  --border-color-focus: #0072F5;
   --border-subtle: 1px solid var(--border-color);
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(16, 32, 51, 0.05);
-  --shadow-md: 0 4px 20px -2px rgba(16, 42, 86, 0.06);
-  --shadow-lg: 0 12px 32px -4px rgba(16, 42, 86, 0.08);
-  --shadow-hover: 0 16px 36px -6px rgba(23, 105, 232, 0.12);
-  --shadow-glow: 0 0 24px rgba(23, 105, 232, 0.2);
+  --shadow-sm: 0 1px 3px rgba(5, 19, 43, 0.05);
+  --shadow-md: 0 4px 20px -2px rgba(5, 19, 43, 0.07);
+  --shadow-lg: 0 12px 32px -4px rgba(5, 19, 43, 0.1);
+  --shadow-hover: 0 16px 36px -6px rgba(0, 114, 245, 0.16);
+  --shadow-glow: 0 0 24px rgba(0, 114, 245, 0.25);
 
   /* Radii */
   --radius-xs: 4px;

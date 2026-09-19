@@ -19,7 +19,7 @@ export default function CourseCard({ course }) {
   return (
     <div className="course-card">
       <div className="course-card-top">
-        <div className="course-card-icon" style={{ backgroundColor: course.color ? `${course.color}15` : '#EBF3FE', color: course.color || '#1769E8' }}>
+        <div className="course-card-icon" style={{ backgroundColor: course.color ? `${course.color}15` : 'var(--color-primary-light)', color: course.color || 'var(--color-primary)' }}>
           <IconComp size={20} />
         </div>
       </div>

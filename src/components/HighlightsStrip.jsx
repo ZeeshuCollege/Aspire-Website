@@ -6,29 +6,29 @@ export default function HighlightsStrip() {
   const highlights = [
     {
       icon: BookOpen,
-      iconBg: '#EBF3FE',
-      iconColor: '#1769E8',
+      iconBg: 'var(--color-primary-light)',
+      iconColor: 'var(--color-primary)',
       title: 'Expert Faculty',
       desc: 'Learn from experienced and dedicated teachers'
     },
     {
       icon: Users,
-      iconBg: '#EBF3FE',
-      iconColor: '#1769E8',
+      iconBg: 'var(--color-orange-light)',
+      iconColor: 'var(--color-orange)',
       title: 'Small Batches',
       desc: 'Personal attention for better learning'
     },
     {
       icon: TrendingUp,
-      iconBg: '#EBF3FE',
-      iconColor: '#1769E8',
+      iconBg: 'var(--color-primary-light)',
+      iconColor: 'var(--color-primary)',
       title: 'Proven Results',
       desc: 'Consistent track record of success'
     },
     {
       icon: Award,
-      iconBg: '#EBF3FE',
-      iconColor: '#1769E8',
+      iconBg: 'var(--color-gold-light)',
+      iconColor: '#D97706',
       title: 'Holistic Development',
       desc: 'Academic, personal and career guidance'
     }

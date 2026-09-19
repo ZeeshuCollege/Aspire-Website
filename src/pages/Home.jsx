@@ -66,7 +66,7 @@ export default function Home({ onOpenEnquiry }) {
               Lead <span className="text-primary relative-inline">
                 Tomorrow.
                 <svg className="hero-wavy-svg" viewBox="0 0 160 12" fill="none">
-                  <path d="M2 9C25 3 45 10 70 5C95 1 120 8 158 4" stroke="#1769E8" strokeWidth="4" strokeLinecap="round" />
+                  <path d="M2 9C25 3 45 10 70 5C95 1 120 8 158 4" stroke="var(--color-orange)" strokeWidth="4" strokeLinecap="round" />
                 </svg>
               </span>
             </h1>
@@ -114,7 +114,7 @@ export default function Home({ onOpenEnquiry }) {
                 <span style={{ marginTop: '0.2rem' }}>Brighter</span>
                 <span>Future</span>
                 <svg className="curved-arrow-svg" viewBox="0 0 50 40" fill="none">
-                  <path d="M5 5C25 15 35 25 40 35M40 35L30 35M40 35L42 25" stroke="#1769E8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M5 5C25 15 35 25 40 35M40 35L30 35M40 35L42 25" stroke="var(--color-primary)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
 
@@ -204,7 +204,7 @@ export default function Home({ onOpenEnquiry }) {
                 It's a <span className="text-primary relative-inline">
                   Future Builder.
                   <svg className="hero-wavy-svg" viewBox="0 0 160 12" fill="none">
-                    <path d="M2 9C25 3 45 10 70 5C95 1 120 8 158 4" stroke="#1769E8" strokeWidth="4" strokeLinecap="round" />
+                    <path d="M2 9C25 3 45 10 70 5C95 1 120 8 158 4" stroke="var(--color-orange)" strokeWidth="4" strokeLinecap="round" />
                   </svg>
                 </span>
               </h2>

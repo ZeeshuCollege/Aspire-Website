@@ -176,13 +176,13 @@ img {
 .btn-primary {
   background-color: var(--color-primary);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(23, 105, 232, 0.35);
+  box-shadow: 0 4px 14px rgba(var(--color-primary-rgb), 0.35);
 }
 
 .btn-primary:hover {
   background-color: var(--color-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(23, 105, 232, 0.45);
+  box-shadow: 0 8px 22px rgba(var(--color-primary-rgb), 0.45);
 }
 
 .btn-secondary {
@@ -267,19 +267,19 @@ img {
 .badge-blue {
   background-color: var(--color-primary-light);
   color: var(--color-primary);
-  border: 1px solid rgba(23, 105, 232, 0.15);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.2);
 }
 
 .badge-orange {
   background-color: var(--color-orange-light);
   color: var(--color-orange);
-  border: 1px solid rgba(255, 138, 31, 0.2);
+  border: 1px solid rgba(var(--color-orange-rgb), 0.25);
 }
 
 .badge-teal {
   background-color: var(--color-teal-light);
   color: #0D9488;
-  border: 1px solid rgba(20, 184, 166, 0.2);
+  border: 1px solid rgba(13, 148, 136, 0.2);
 }
 
 .badge-violet {
@@ -304,7 +304,7 @@ img {
 }
 
 .card:hover {
-  border-color: rgba(23, 105, 232, 0.3);
+  border-color: rgba(var(--color-primary-rgb), 0.35);
   box-shadow: var(--shadow-hover);
   transform: translateY(-4px);
 }
@@ -353,7 +353,7 @@ img {
 
 .input-field:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3.5px rgba(23, 105, 232, 0.14);
+  box-shadow: 0 0 0 3.5px rgba(var(--color-primary-rgb), 0.15);
 }
 
 .input-label {

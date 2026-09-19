@@ -12,8 +12,8 @@ export const batchesData = [
     filledSeats: 19,
     status: "Filling Fast",
     badgeColor: "blue",
-    iconBg: "#EBF3FE",
-    iconColor: "#1769E8"
+    iconBg: "var(--color-primary-light)",
+    iconColor: "var(--color-primary)"
   },
   {
     id: "batch-c9",
@@ -92,7 +92,7 @@ export const batchesData = [
     filledSeats: 22,
     status: "3 Seats Left",
     badgeColor: "blue",
-    iconBg: "#EBF3FE",
-    iconColor: "#1769E8"
+    iconBg: "var(--color-primary-light)",
+    iconColor: "var(--color-primary)"
   }
 ];
