@@ -54,9 +54,9 @@ export default function Centre({ onOpenEnquiry }) {
         <div className="container">
           <div className="section-header text-center">
             <span className="eyebrow-label">AUTHENTIC CAMPUS PHOTOGRAPHY</span>
-            <h2>Tour Our Andheri (E) Facility</h2>
+            <h2>Tour Our Kausa, Mumbra Facility</h2>
             <p className="section-subtitle">
-              Every photograph below is taken directly inside our centre at Sunrise Complex.
+              Every photograph below is taken directly inside our centre at Falah Building, Kausa.
             </p>
           </div>
 
@@ -92,7 +92,7 @@ export default function Centre({ onOpenEnquiry }) {
               <Badge icon="pin" text="Visit in Person" variant="blue" />
               <h2>How to Reach ASPIRE</h2>
               <p className="directions-desc">
-                Located centrally in Andheri East, Mumbai, our centre is easily accessible via Mumbai Metro Line 1 and Western/Harbour railway local lines.
+                Located in Kausa, Mumbra, Thane, our centre is easily accessible by road and public transport from Mumbra, Kalwa, Diva and nearby areas.
               </p>
 
               <div className="directions-address-box">
@@ -108,7 +108,7 @@ export default function Centre({ onOpenEnquiry }) {
 
               <div className="directions-actions">
                 <a 
-                  href="https://maps.google.com/?q=Sunrise+Complex+Andheri+East+Mumbai" 
+                  href="https://maps.google.com/?q=Falah+Building+Kausa+Mumbra+Thane" 
                   target="_blank" 
                   rel="noreferrer"
                   className="btn btn-primary btn-md"

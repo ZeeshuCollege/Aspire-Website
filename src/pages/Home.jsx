@@ -7,10 +7,7 @@ import {
   Users, 
   BookOpen, 
   Award, 
-  HeartHandshake, 
-  ShieldCheck, 
   TrendingUp,
-  MapPin,
   Phone,
   Mail,
   Send,
@@ -24,17 +21,14 @@ import Badge from '../components/Badge';
 import HighlightsStrip from '../components/HighlightsStrip';
 import CourseCard from '../components/CourseCard';
 import BatchCard from '../components/BatchCard';
-import FacultyCard from '../components/FacultyCard';
 import TestimonialSlider from '../components/TestimonialSlider';
 import FAQAccordion from '../components/FAQAccordion';
 import CtaBanner from '../components/CtaBanner';
 
 import { coursesData } from '../data/coursesData';
 import { batchesData } from '../data/batchesData';
-import { facultyData } from '../data/facultyData';
 import { methodologySteps } from '../data/methodologyData';
 import { faqData } from '../data/faqData';
-import { centreData } from '../data/centreData';
 
 import './Home.css';
 
@@ -84,21 +78,6 @@ export default function Home({ onOpenEnquiry }) {
               </Link>
             </div>
 
-            {/* Social Proof */}
-            <div className="hero-social-proof">
-              <img 
-                src="/images/avatars.png?v=2" 
-                alt="Trusted Students Avatars" 
-                className="hero-avatars-img"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                }}
-              />
-              <div className="social-proof-text">
-                <strong>Trusted by 500+ Students</strong>
-                <span>and their families</span>
-              </div>
-            </div>
           </div>
 
           {/* Right Column (Hero Graphic) */}
@@ -176,7 +155,7 @@ export default function Home({ onOpenEnquiry }) {
               <Badge icon="book" text="Our Courses" variant="blue" />
               <h2>Courses We Offer</h2>
               <p className="section-subtitle">
-                Comprehensive coaching for Class 8 to 12, designed to build strong concepts and boost confidence.
+                Comprehensive coaching for 9th, 10th, NEET and JEE — designed to build strong concepts and boost confidence.
               </p>
             </div>
             <Link to="/courses" className="view-all-link">
@@ -192,104 +171,7 @@ export default function Home({ onOpenEnquiry }) {
         </div>
       </section>
 
-      {/* 4. WHY CHOOSE ASPIRE (Matching Second section.png) */}
-      <section className="section section-why-aspire section-bg-subtle">
-        <div className="container">
-          <div className="why-aspire-grid">
-            {/* Left Content */}
-            <div className="why-aspire-content">
-              <Badge icon="sparkles" text="Why Choose Aspire?" variant="blue" />
-              <h2>
-                More Than Coaching,<br />
-                It's a <span className="text-primary relative-inline">
-                  Future Builder.
-                  <svg className="hero-wavy-svg" viewBox="0 0 160 12" fill="none">
-                    <path d="M2 9C25 3 45 10 70 5C95 1 120 8 158 4" stroke="var(--color-orange)" strokeWidth="4" strokeLinecap="round" />
-                  </svg>
-                </span>
-              </h2>
-
-              <p className="why-aspire-desc">
-                At Aspire Learning Centre, we focus on your complete growth — academic, personal and professional. With expert faculty, structured learning and a supportive environment, we help you turn your goals into reality.
-              </p>
-
-              <div className="why-features-grid">
-                <div className="why-feature-box">
-                  <div className="why-feature-icon blue">
-                    <Users size={20} />
-                  </div>
-                  <div>
-                    <h4>Experienced Faculty</h4>
-                    <p>Subject experts with proven track records</p>
-                  </div>
-                </div>
-
-                <div className="why-feature-box">
-                  <div className="why-feature-icon green">
-                    <HeartHandshake size={20} />
-                  </div>
-                  <div>
-                    <h4>Personal Mentorship</h4>
-                    <p>Individual attention for better results</p>
-                  </div>
-                </div>
-
-                <div className="why-feature-box">
-                  <div className="why-feature-icon blue">
-                    <BookOpen size={20} />
-                  </div>
-                  <div>
-                    <h4>Structured Curriculum</h4>
-                    <p>As per latest exam patterns and board guidelines</p>
-                  </div>
-                </div>
-
-                <div className="why-feature-box">
-                  <div className="why-feature-icon purple">
-                    <ShieldCheck size={20} />
-                  </div>
-                  <div>
-                    <h4>Supportive Environment</h4>
-                    <p>A place to learn, grow and succeed</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Visual with Stats Card */}
-            <div className="why-aspire-visual">
-              <div className="why-image-card">
-                <img 
-                  src="/images/student-studying.png" 
-                  alt="Student studying at ASPIRE" 
-                  className="why-student-img"
-                  onError={(e) => {
-                    e.target.src = 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=700&auto=format&fit=crop&q=80';
-                  }}
-                />
-
-                {/* Floating Stats Block */}
-                <div className="why-stats-badge">
-                  <div className="why-stat-row">
-                    <span className="why-stat-num">1000+</span>
-                    <span className="why-stat-lbl">Students Trained</span>
-                  </div>
-                  <div className="why-stat-row">
-                    <span className="why-stat-num">95%</span>
-                    <span className="why-stat-lbl">Success Rate</span>
-                  </div>
-                  <div className="why-stat-row">
-                    <span className="why-stat-num">5+</span>
-                    <span className="why-stat-lbl">Years of Excellence</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. FIND THE RIGHT BATCH FOR YOU (Second section.png) */}
+      {/* 5. FIND THE RIGHT BATCH FOR YOU */}
       <section className="section section-batches-preview">
         <div className="container">
           <div className="section-header-row">
@@ -313,79 +195,7 @@ export default function Home({ onOpenEnquiry }) {
         </div>
       </section>
 
-      {/* 6. LEARN FROM THE BEST IN THE INDUSTRY (Third section.png) */}
-      <section className="section section-faculty-spotlight section-bg-subtle">
-        <div className="container">
-          <div className="section-header-row">
-            <div>
-              <Badge icon="users" text="Our Faculty" variant="blue" />
-              <h2>Learn From the Best in the <span className="text-primary">Industry</span></h2>
-              <p className="section-subtitle">
-                Our experienced and dedicated faculty members bring real-world knowledge, proven teaching methods and a passion for student success.
-              </p>
-            </div>
-            <Link to="/faculty" className="view-all-link">
-              View All Faculty <ArrowRight size={16} />
-            </Link>
-          </div>
-
-          <div className="faculty-spotlight-layout">
-            <div className="faculty-benefits-column">
-              <div className="faculty-benefit-item">
-                <div className="benefit-icon-circle blue">
-                  <Users size={18} />
-                </div>
-                <div>
-                  <h4>Expert Faculty</h4>
-                  <p>Subject specialists with years of experience</p>
-                </div>
-              </div>
-
-              <div className="faculty-benefit-item">
-                <div className="benefit-icon-circle blue">
-                  <Award size={18} />
-                </div>
-                <div>
-                  <h4>Proven Track Record</h4>
-                  <p>Consistent results in board and competitive exams</p>
-                </div>
-              </div>
-
-              <div className="faculty-benefit-item">
-                <div className="benefit-icon-circle blue">
-                  <Sparkles size={18} />
-                </div>
-                <div>
-                  <h4>Personal Attention</h4>
-                  <p>Every student gets individual guidance and support</p>
-                </div>
-              </div>
-
-              <div className="faculty-benefit-item">
-                <div className="benefit-icon-circle blue">
-                  <TrendingUp size={18} />
-                </div>
-                <div>
-                  <h4>Supportive Mentors</h4>
-                  <p>Always there to guide, motivate and help</p>
-                </div>
-              </div>
-
-              <Link to="/faculty" className="btn btn-primary btn-md meet-faculty-btn">
-                Meet Our Faculty <ArrowRight size={16} />
-              </Link>
-            </div>
-
-            <div className="faculty-cards-column">
-              {facultyData.slice(0, 3).map((faculty) => (
-                <FacultyCard key={faculty.id} faculty={faculty} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. METHODOLOGY (Third section.png) */}
+      {/* 7. METHODOLOGY */}
       <section className="section section-methodology">
         <div className="container">
           <div className="section-header">
@@ -424,91 +234,6 @@ export default function Home({ onOpenEnquiry }) {
         </div>
       </section>
 
-      {/* 8. OUR CENTRE / INFRASTRUCTURE (Third section.png) */}
-      <section className="section section-centre-preview section-bg-subtle">
-        <div className="container">
-          <div className="centre-preview-grid">
-            <div className="centre-preview-content">
-              <Badge icon="pin" text="Our Centre" variant="blue" />
-              <h2>A Perfect Learning <span className="text-primary">Environment</span></h2>
-              <p className="centre-desc">
-                Our centre is designed to provide a focused, comfortable and inspiring atmosphere for students to learn, grow and achieve their goals.
-              </p>
-
-              <div className="centre-features-list">
-                <div className="centre-feat-item">
-                  <div className="feat-icon-sq blue"><GraduationCap size={18} /></div>
-                  <div>
-                    <h4>Spacious Classrooms</h4>
-                    <p>Well-ventilated & equipped</p>
-                  </div>
-                </div>
-
-                <div className="centre-feat-item">
-                  <div className="feat-icon-sq blue"><Compass size={18} /></div>
-                  <div>
-                    <h4>Digital Learning Tools</h4>
-                    <p>Smart boards & projectors</p>
-                  </div>
-                </div>
-
-                <div className="centre-feat-item">
-                  <div className="feat-icon-sq blue"><BookOpen size={18} /></div>
-                  <div>
-                    <h4>Library & Study Area</h4>
-                    <p>Peaceful & well-stocked</p>
-                  </div>
-                </div>
-
-                <div className="centre-feat-item">
-                  <div className="feat-icon-sq blue"><ShieldCheck size={18} /></div>
-                  <div>
-                    <h4>Safe & Secure</h4>
-                    <p>CCTV & staff support</p>
-                  </div>
-                </div>
-              </div>
-
-              <Link to="/centre" className="btn btn-primary btn-md explore-centre-btn">
-                Explore Our Centre <ArrowRight size={16} />
-              </Link>
-            </div>
-
-            {/* Images Collage */}
-            <div className="centre-preview-images">
-              <div className="centre-main-img-wrap">
-                <img 
-                  src="/images/centre-classroom.png" 
-                  alt="Modern Classrooms at ASPIRE" 
-                  className="centre-main-img"
-                  onError={(e) => {
-                    e.target.src = 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&auto=format&fit=crop&q=80';
-                  }}
-                />
-                <span className="image-caption-tag">
-                  <MapPin size={13} /> Modern Classrooms
-                </span>
-              </div>
-
-              <div className="centre-side-imgs">
-                <div className="centre-small-img-wrap">
-                  <img src="/images/centre-library.png" alt="ASPIRE Library" />
-                  <span className="image-caption-tag"><MapPin size={12} /> Library</span>
-                </div>
-                <div className="centre-small-img-wrap">
-                  <img src="/images/centre-study.png" alt="ASPIRE Study Area" />
-                  <span className="image-caption-tag"><MapPin size={12} /> Study Area</span>
-                </div>
-                <div className="centre-small-img-wrap">
-                  <img src="/images/centre-reception.png" alt="ASPIRE Reception" />
-                  <span className="image-caption-tag"><MapPin size={12} /> Reception</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* 9. TESTIMONIALS SLIDER (Second section.png) */}
       <TestimonialSlider />
 
@@ -534,7 +259,7 @@ export default function Home({ onOpenEnquiry }) {
               <div className="banner-stat-item">
                 <div className="stat-circle-icon blue"><Users size={18} /></div>
                 <div>
-                  <strong>1000+</strong>
+                  <strong>150+</strong>
                   <span>Students Enrolled</span>
                 </div>
               </div>
@@ -639,8 +364,8 @@ export default function Home({ onOpenEnquiry }) {
                   <div className="channel-icon-circle blue"><MapPin size={18} /></div>
                   <div>
                     <span className="channel-label">Address</span>
-                    <strong>Shop No. 12, Sunrise Complex,</strong>
-                    <span>Near City Mall, Andheri (E), Mumbai – 400069</span>
+                    <strong>Falah Building, Room No. 102,</strong>
+                    <span>Near Darul Falah Masjid, Kausa, Mumbra, Thane – 400612</span>
                   </div>
                 </div>
               </div>
@@ -659,9 +384,9 @@ export default function Home({ onOpenEnquiry }) {
                 />
                 <div className="map-overlay-badge">
                   <strong>Aspire Learning Centre</strong>
-                  <span>Shop No. 12, Sunrise Complex, Andheri (E)</span>
+                  <span>Falah Building, Kausa, Mumbra, Thane</span>
                   <a 
-                    href="https://maps.google.com/?q=Sunrise+Complex+Andheri+East+Mumbai" 
+                    href="https://maps.google.com/?q=Falah+Building+Kausa+Mumbra+Thane" 
                     target="_blank" 
                     rel="noreferrer"
                     className="view-map-link"

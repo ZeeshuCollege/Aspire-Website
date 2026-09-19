@@ -1,6 +1,6 @@
 export const centreData = {
-  address: "Shop No. 12, Sunrise Complex, Near City Mall, Andheri (E), Mumbai - 400069",
-  landmark: "Opposite City Mall Station, 5 mins walk from Andheri East Metro",
+  address: "Falah Building, Room No. 102, Near Darul Falah Masjid, Opp DCB Bank, St. Mary School, Kausa, Mumbra, Thane – 400612",
+  landmark: "Near Darul Falah Masjid, Opposite DCB Bank, St. Mary School, Kausa",
   phones: ["+91 70212 20449"],
   email: "aspirelearningcentre@outlook.com",
   hours: "Monday – Saturday: 9:00 AM – 8:00 PM | Sunday: 9:00 AM – 2:00 PM",

@@ -1,7 +1,7 @@
 export const updatesData = [
   {
     id: "up-1",
-    title: "Admissions Open for Academic Year 2026–27 (Std. 8 to 12, NEET & JEE)",
+    title: "Admissions Open for Academic Year 2026–27 (Foundation, 9th, 10th, NEET & JEE)",
     date: "September 15, 2026",
     category: "Admissions",
     badgeColor: "blue",
@@ -14,7 +14,7 @@ export const updatesData = [
     date: "September 10, 2026",
     category: "Scholarship",
     badgeColor: "orange",
-    summary: "Test date scheduled for the upcoming Sunday. Open for students entering Class 8, 9, 10, 11 and 12.",
+    summary: "Test date scheduled for the upcoming Sunday. Open for students enrolling in Foundation, 9th, 10th, 11th and 12th.",
     urgent: false
   },
   {

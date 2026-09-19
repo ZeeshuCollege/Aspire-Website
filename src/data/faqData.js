@@ -9,7 +9,7 @@ export const faqData = [
     id: "faq-2",
     category: "Admissions",
     question: "How do I enroll in a course?",
-    answer: "You can enroll by filling out our online Enquiry Form or visiting the ASPIRE Learning Centre in Andheri (E), Mumbai. Our academic counsellors will evaluate the student's current grade, arrange a diagnostic assessment/demo class, and finalize batch allocation."
+    answer: "You can enroll by filling out our online Enquiry Form or visiting the ASPIRE Learning Centre in Kausa, Mumbra, Thane. Our academic counsellors will evaluate the student's current grade, arrange a diagnostic assessment/demo class, and finalize batch allocation."
   },
   {
     id: "faq-3",
@@ -33,7 +33,7 @@ export const faqData = [
     id: "faq-6",
     category: "Admissions",
     question: "What is the fee structure?",
-    answer: "Fee structures vary depending on the course (Foundation Class 8-10, Senior Secondary Science 11-12, or NEET/JEE Entrance). We offer transparent, competitive offline coaching fees with flexible quarterly installment plans and merit scholarships based on our ASPIRE Talent Search Exam (ATSE)."
+    answer: "Fee structures vary depending on the course (Foundation, 9th, 10th, NEET, or JEE). We offer transparent, competitive offline coaching fees with flexible quarterly installment plans and merit scholarships based on our ASPIRE Talent Search Exam (ATSE)."
   },
   {
     id: "faq-7",
@@ -45,7 +45,7 @@ export const faqData = [
     id: "faq-8",
     category: "General",
     question: "Do you provide transport facility?",
-    answer: "While ASPIRE does not run private buses directly, our centre is conveniently located at Sunrise Complex near City Mall, just 5 minutes walk from Andheri East Metro & Railway Station, with easy connectivity for auto and bus transit."
+    answer: "While ASPIRE does not run private buses directly, our centre is conveniently located at Falah Building, Kausa, Mumbra, with easy accessibility from Mumbra Railway Station and nearby bus stops."
   },
   {
     id: "faq-9",

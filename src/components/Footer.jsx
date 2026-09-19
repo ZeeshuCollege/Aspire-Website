@@ -40,13 +40,13 @@ export default function Footer({ onOpenEnquiry }) {
             </div>
           </Link>
           <p className="footer-brand-desc">
-            ASPIRE Learning Centre is a premier offline coaching institute in Andheri (E), Mumbai, dedicated to conceptual clarity, personal mentorship, and consistent results for Std. 8 to 12, NEET, and JEE.
+            ASPIRE Learning Centre is a premier offline coaching institute in Kausa, Mumbra, Thane, dedicated to conceptual clarity, personal mentorship, and consistent results for Foundation, 9th, 10th, NEET, and JEE.
           </p>
 
           <div className="footer-contact-mini">
             <div className="footer-contact-item">
               <MapPin size={16} className="text-primary" />
-              <span>Sunrise Complex, Near City Mall, Andheri (E), Mumbai</span>
+              <span>Falah Building, Room No. 102, Kausa, Mumbra, Thane – 400612</span>
             </div>
             <div className="footer-contact-item">
               <Phone size={16} className="text-primary" />
@@ -77,12 +77,11 @@ export default function Footer({ onOpenEnquiry }) {
         <div className="footer-col">
           <h4 className="footer-col-title">Courses</h4>
           <ul className="footer-links-list">
-            <li><Link to="/courses/std-8">Class 8 Foundation</Link></li>
-            <li><Link to="/courses/std-9">Class 9 Foundation</Link></li>
-            <li><Link to="/courses/std-10">Class 10 Board Excellence</Link></li>
-            <li><Link to="/courses/std-11-12">Class 11 & 12 Science</Link></li>
-            <li><Link to="/courses/neet">NEET Medical Entrance</Link></li>
-            <li><Link to="/courses/jee-main">JEE Main & Advanced</Link></li>
+            <li><Link to="/courses/foundation">Foundation</Link></li>
+            <li><Link to="/courses/std-9">9th</Link></li>
+            <li><Link to="/courses/std-10">10th</Link></li>
+            <li><Link to="/courses/neet">NEET</Link></li>
+            <li><Link to="/courses/jee">JEE (Main + Adv.)</Link></li>
             <li><Link to="/test-series">ASPIRE Test Series</Link></li>
           </ul>
         </div>

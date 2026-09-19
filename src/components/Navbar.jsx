@@ -45,7 +45,7 @@ export default function Navbar({ onOpenEnquiry }) {
             <span className="top-bar-tag">
               <Sparkles size={12} className="text-orange" /> New Batches Starting
             </span>
-            <span className="top-bar-text">Std. 8–12, NEET & JEE 2026 Admissions Open!</span>
+            <span className="top-bar-text">Foundation, 9th, 10th, NEET & JEE 2026 Admissions Open!</span>
           </div>
           <div className="top-bar-right">
             <a href="tel:+917021220449" className="top-bar-link">
@@ -68,8 +68,17 @@ export default function Navbar({ onOpenEnquiry }) {
               <img 
                 src="/images/logo.png" 
                 alt="ASPIRE Learning Centre" 
-                className="brand-logo-img"
+                className="brand-logo-img desktop-logo"
               />
+              <img 
+                src="/images/logo-emblem.png" 
+                alt="ASPIRE Learning Centre" 
+                className="brand-logo-img mobile-logo"
+              />
+            </div>
+            <div className="brand-mobile-text">
+              <span className="brand-mobile-title">ASPIRE</span>
+              <span className="brand-mobile-subtitle">Learning Centre</span>
             </div>
           </Link>
 
@@ -114,7 +123,11 @@ export default function Navbar({ onOpenEnquiry }) {
         <div className={`mobile-nav-drawer ${mobileMenuOpen ? 'open' : ''}`}>
           <div className="mobile-nav-inner">
             <div className="mobile-drawer-brand">
-              <img src="/images/logo.png" alt="ASPIRE Learning Centre" className="mobile-drawer-logo-img" />
+              <img src="/images/logo-emblem.png" alt="ASPIRE Learning Centre" className="mobile-drawer-logo-img" />
+              <div className="brand-mobile-text">
+                <span className="brand-mobile-title">ASPIRE</span>
+                <span className="brand-mobile-subtitle">Learning Centre</span>
+              </div>
             </div>
             <div className="mobile-links-list">
               {navLinks.map((link) => (

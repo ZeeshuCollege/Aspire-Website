@@ -32,7 +32,7 @@ export default function Courses({ onOpenEnquiry }) {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const categories = ['All', 'Foundation', 'Senior Secondary', 'Competitive'];
+  const categories = ['All', 'Foundation', 'Competitive'];
 
   const filteredCourses = coursesData.filter((course) => {
     const matchesCategory = activeCategory === 'All' || course.category === activeCategory;
@@ -50,7 +50,7 @@ export default function Courses({ onOpenEnquiry }) {
           <Badge icon="book" text="Academic Catalog" variant="blue" />
           <h1 className="page-header-title">Our Academic Programs</h1>
           <p className="page-header-subtitle">
-            Focused, structured offline courses for Std. 8 to 12, NEET, and JEE Main & Advanced. Built for deep concepts, consistent practice, and verifiable success.
+            Focused, structured offline courses for Foundation, 9th, 10th, NEET, and JEE (Main + Adv.). Built for deep concepts, consistent practice, and verifiable success.
           </p>
         </div>
       </section>

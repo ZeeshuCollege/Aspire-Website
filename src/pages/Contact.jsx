@@ -108,9 +108,9 @@ export default function Contact({ onOpenEnquiry }) {
                   <div className="contact-icon-sq orange"><MapPin size={20} /></div>
                   <div>
                     <span className="box-lbl">Offline Campus Address</span>
-                    <strong>Shop No. 12, Sunrise Complex,</strong>
-                    <p className="address-p">Near City Mall, Andheri (E), Mumbai – 400069</p>
-                    <span className="box-sub">📍 5 mins walk from Andheri East Metro & Railway Station</span>
+                    <strong>Falah Building, Room No. 102,</strong>
+                    <p className="address-p">Near Darul Falah Masjid, Opp DCB Bank, Kausa, Mumbra, Thane – 400612</p>
+                    <span className="box-sub">📍 Near St. Mary School, Kausa</span>
                   </div>
                 </div>
               </div>
@@ -126,9 +126,9 @@ export default function Contact({ onOpenEnquiry }) {
                 />
                 <div className="map-floating-pin-card">
                   <strong>Aspire Learning Centre</strong>
-                  <span>Shop No. 12, Sunrise Complex, Andheri (E)</span>
+                  <span>Falah Building, Kausa, Mumbra, Thane</span>
                   <a 
-                    href="https://maps.google.com/?q=Sunrise+Complex+Andheri+East+Mumbai" 
+                    href="https://maps.google.com/?q=Falah+Building+Kausa+Mumbra+Thane" 
                     target="_blank" 
                     rel="noreferrer" 
                     className="view-gmaps-btn"

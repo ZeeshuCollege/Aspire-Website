@@ -158,7 +158,7 @@ export default function About({ onOpenEnquiry }) {
             <div className="loc-text">
               <MapPin size={22} className="text-primary" />
               <div>
-                <strong>Visit Us in Person:</strong> Shop No. 12, Sunrise Complex, Near City Mall, Andheri (E), Mumbai – 400069
+                <strong>Visit Us in Person:</strong> Falah Building, Room No. 102, Near Darul Falah Masjid, Kausa, Mumbra, Thane – 400612
               </div>
             </div>
             <button onClick={onOpenEnquiry} className="btn btn-primary btn-md">

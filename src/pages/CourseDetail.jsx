@@ -202,7 +202,7 @@ export default function CourseDetail({ onOpenEnquiry }) {
                   </div>
                   <div className="summary-row">
                     <span>Location:</span>
-                    <strong>Andheri (E), Mumbai</strong>
+                    <strong>Kausa, Mumbra, Thane</strong>
                   </div>
                   <div className="summary-row">
                     <span>Mode:</span>

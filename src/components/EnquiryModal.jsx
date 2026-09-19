@@ -237,7 +237,7 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
                 </li>
                 <li>
                   <MapPin size={16} className="text-teal" />
-                  <span><strong>Centre Visit:</strong> You can visit Sunrise Complex, Andheri (E) anytime between 9 AM to 8 PM.</span>
+                  <span><strong>Centre Visit:</strong> You can visit Falah Building, Kausa, Mumbra anytime between 9 AM to 8 PM.</span>
                 </li>
               </ul>
             </div>

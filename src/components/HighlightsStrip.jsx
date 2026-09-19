@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Users, TrendingUp, Award } from 'lucide-react';
+import { BookOpen, Users, TrendingUp } from 'lucide-react';
 import './HighlightsStrip.css';
 
 export default function HighlightsStrip() {
@@ -24,13 +24,6 @@ export default function HighlightsStrip() {
       iconColor: 'var(--color-primary)',
       title: 'Proven Results',
       desc: 'Consistent track record of success'
-    },
-    {
-      icon: Award,
-      iconBg: 'var(--color-gold-light)',
-      iconColor: '#D97706',
-      title: 'Holistic Development',
-      desc: 'Academic, personal and career guidance'
     }
   ];
 

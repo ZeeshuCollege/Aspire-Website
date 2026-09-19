@@ -1,11 +1,11 @@
 export const coursesData = [
   {
-    id: "std-8",
-    title: "Class 8",
-    slug: "std-8",
+    id: "foundation",
+    title: "Foundation",
+    slug: "foundation",
     category: "Foundation",
-    tagline: "Foundation for a Strong Future",
-    heroDesc: "Early conceptual building in Science & Mathematics for Std. 8 students, fostering analytical thinking and problem-solving habits.",
+    tagline: "Build a Strong Base from the Start",
+    heroDesc: "Early conceptual building in Science & Mathematics for junior students, fostering analytical thinking and problem-solving habits that last a lifetime.",
     duration: "1 Year Academic Program",
     schedule: "Mon - Fri | 4:00 PM - 6:00 PM",
     batchSize: "20-25 Students",
@@ -20,20 +20,20 @@ export const coursesData = [
       "Daily Doubt Resolution Counter (DDRC)",
       "Printed topic-wise concept workbooks"
     ],
-    overview: "Our Class 8 foundation program transitions students from memorization to logical conceptual understanding. Designed to prepare students early for school excellence and future NTSE/Olympiad exams.",
+    overview: "Our Foundation program transitions students from memorization to logical conceptual understanding. Designed to prepare students early for school excellence and future competitive exams like NTSE and Olympiads.",
     curriculum: [
-      { module: "Mathematics", topics: ["Rational Numbers", "Linear Equations", "Geometry & Mensuration", "Algebraic Expressions", "Data Handling"] },
+      { module: "Mathematics", topics: ["Number Systems", "Rational Numbers", "Linear Equations", "Geometry & Mensuration", "Algebraic Expressions", "Data Handling"] },
       { module: "Science (Physics & Chem)", topics: ["Force & Pressure", "Sound & Light", "Synthetic Materials", "Metals & Non-metals", "Combustion & Flame"] },
       { module: "Biology & Reasoning", topics: ["Cell Structure & Functions", "Crop Production", "Logical Reasoning", "Pattern Recognition"] }
     ]
   },
   {
     id: "std-9",
-    title: "Class 9",
+    title: "9th",
     slug: "std-9",
     category: "Foundation",
     tagline: "Build Concepts, Gain Confidence",
-    heroDesc: "Deep conceptual grounding in CBSE & ICSE Class 9 fundamentals — the crucial bridge for senior secondary and competitive success.",
+    heroDesc: "Deep conceptual grounding in CBSE & ICSE 9th fundamentals — the crucial bridge for senior secondary and competitive success.",
     duration: "1 Year Academic Program",
     schedule: "Mon - Fri | 6:30 PM - 8:30 PM",
     batchSize: "20-25 Students",
@@ -48,7 +48,7 @@ export const coursesData = [
       "Individual homework evaluation and correction",
       "Personal academic mentor assigned per student"
     ],
-    overview: "Class 9 is recognized as the academic turning point where concepts become substantially more rigorous. ASPIRE provides step-by-step guidance ensuring zero knowledge gaps.",
+    overview: "9th is recognized as the academic turning point where concepts become substantially more rigorous. ASPIRE provides step-by-step guidance ensuring zero knowledge gaps.",
     curriculum: [
       { module: "Mathematics", topics: ["Number Systems", "Polynomials", "Coordinate Geometry", "Euclid & Lines", "Triangles & Quadrilaterals", "Circles & Heron's Formula"] },
       { module: "Physics", topics: ["Motion & Equations", "Force and Laws of Motion", "Gravitation", "Work, Energy & Power", "Sound"] },
@@ -58,10 +58,10 @@ export const coursesData = [
   },
   {
     id: "std-10",
-    title: "Class 10",
+    title: "10th",
     slug: "std-10",
     category: "Foundation",
-    tagline: "Prepare for a Brighter Tomorrow",
+    tagline: "Ace Your Boards with Confidence",
     heroDesc: "Intensive board examination mastery coupled with rigorous test series to guarantee 90%+ in CBSE/State Boards and build a launchpad for JEE/NEET.",
     duration: "1 Year Comprehensive Board Program",
     schedule: "Mon - Fri | 5:00 PM - 7:00 PM",
@@ -77,7 +77,7 @@ export const coursesData = [
       "Past 10 years question paper drills (PYQ Mastery)",
       "Dedicated doubt counters open 6 days a week"
     ],
-    overview: "Our flagship Class 10 programme delivers consistent 90%+ board achievers year after year. We combine thorough subject teaching with meticulous answer-writing practice.",
+    overview: "Our 10th programme delivers consistent 90%+ board achievers year after year. We combine thorough subject teaching with meticulous answer-writing practice.",
     curriculum: [
       { module: "Mathematics", topics: ["Real Numbers & Polynomials", "Quadratic Equations & AP", "Triangles & Coordinate Geometry", "Trigonometry & Applications", "Surface Areas & Volumes", "Statistics & Probability"] },
       { module: "Physics", topics: ["Light - Reflection & Refraction", "Human Eye & Colourful World", "Electricity", "Magnetic Effects of Electric Current"] },
@@ -86,35 +86,8 @@ export const coursesData = [
     ]
   },
   {
-    id: "std-11-12",
-    title: "Class 11 & 12",
-    slug: "std-11-12",
-    category: "Senior Secondary",
-    tagline: "Specialized Coaching for Excellence",
-    heroDesc: "Rigorous senior secondary science coaching (PCM/PCB) integrating Board examinations with foundational problem solving for entrance exams.",
-    duration: "2-Year Integrated / 1-Year Targeted",
-    schedule: "Mon - Fri | 7:00 PM - 9:00 PM",
-    batchSize: "25-30 Students",
-    color: "var(--color-primary)",
-    badgeClass: "badge-blue",
-    subjects: ["Physics", "Chemistry", "Mathematics", "Biology"],
-    icon: "Layers",
-    features: [
-      "Comprehensive sync between Board & Competitive syllabus",
-      "Daily Practice Problems (DPP) with detailed solutions",
-      "Modern classrooms equipped with projection & lab models",
-      "Rigorous Chapter-End Tests & Cumulative Unit Tests",
-      "Continuous parent feedback and attendance tracking"
-    ],
-    overview: "Designed for Class 11 and 12 students who want to build unquestionable conceptual clarity in Physics, Chemistry, and Math/Biology without getting overwhelmed.",
-    curriculum: [
-      { module: "Class 11 Focus", topics: ["Kinematics & Dynamics", "Thermodynamics", "Atomic Structure & Chemical Bonding", "Calculus Basics", "Cell Biology & Physiology"] },
-      { module: "Class 12 Focus", topics: ["Electrodynamics & Optics", "Modern Physics", "Organic & Coordination Chemistry", "Advanced Calculus & Vectors", "Genetics & Ecology"] }
-    ]
-  },
-  {
     id: "neet",
-    title: "NEET Medical",
+    title: "NEET",
     slug: "neet",
     category: "Competitive",
     tagline: "Your Gateway to Top Medical Colleges",
@@ -141,13 +114,13 @@ export const coursesData = [
     ]
   },
   {
-    id: "jee-main",
-    title: "JEE Main",
-    slug: "jee-main",
+    id: "jee",
+    title: "JEE (Main + Adv.)",
+    slug: "jee",
     category: "Competitive",
-    tagline: "Engineering Excellence with Precision",
-    heroDesc: "Targeted engineering coaching focusing on conceptual depth, mathematical agility, and speed required to score 99+ percentile in JEE Main.",
-    duration: "1-Year / 2-Year Programs",
+    tagline: "Engineering Excellence — From Main to IIT",
+    heroDesc: "Comprehensive JEE coaching combining conceptual depth, mathematical agility, and advanced problem-solving mastery to crack both JEE Main and JEE Advanced.",
+    duration: "1-Year / 2-Year Integrated Programs",
     schedule: "Mon - Sat | Flexible Batches",
     batchSize: "25-30 Students",
     color: "var(--color-violet)",
@@ -156,44 +129,16 @@ export const coursesData = [
     icon: "Compass",
     features: [
       "Extensive Computer-Based Test (CBT) practice in our lab",
-      "Shortcut techniques & time allocation optimization",
-      "10-Year JEE Main Past Papers dissected chapter-wise",
+      "Multi-concept synthesis problems (Irodov, Pathfinder, Cengage level)",
+      "10-Year JEE Main & Advanced Past Papers dissected chapter-wise",
       "IITian faculty team with 10+ years mentoring experience",
       "Detailed test analysis identifying weak areas and silly mistakes"
     ],
-    overview: "Scoring high in JEE Main requires conceptual clarity combined with computer-based test mastery. Our students practice on simulated NTA test interfaces at the offline centre.",
+    overview: "Scoring high in JEE Main requires conceptual clarity combined with computer-based test mastery, while JEE Advanced demands deep problem-solving under pressure. Our integrated batch covers both with seamless progression.",
     curriculum: [
-      { module: "Mathematics", topics: ["Coordinate Geometry", "Differential & Integral Calculus", "Algebra & Matrices", "Vectors & 3D Geometry", "Probability"] },
-      { module: "Physics", topics: ["Rotational Motion", "Electromagnetism", "Modern Physics", "Wave Optics", "Fluids & Heat Transfer"] },
-      { module: "Chemistry", topics: ["Thermodynamics", "Chemical Kinetics", "Coordination Compounds", "General Organic Chemistry", "Polymers & Everyday Life"] }
-    ]
-  },
-  {
-    id: "jee-advanced",
-    title: "JEE Advanced",
-    slug: "jee-advanced",
-    category: "Competitive",
-    tagline: "Crack the IITs with Supreme Mastery",
-    heroDesc: "Deep-level problem solving, multi-concept questions, and mental stamina training crafted for serious aspirants targeting top 1000 ranks in IIT JEE.",
-    duration: "2-Year Integrated / Class 12 Advanced",
-    schedule: "Daily Sessions + Intensive Weekend Test Drills",
-    batchSize: "18-22 Students (Exclusive Batch)",
-    color: "var(--color-navy)",
-    badgeClass: "badge-blue",
-    subjects: ["Advanced Physics", "Higher Mathematics", "Physical, Organic & Inorganic Chemistry"],
-    icon: "Target",
-    features: [
-      "Multi-concept synthesis problems (Irodov, Pathfinder, Cengage level)",
-      "Subjective and multi-correct question solving workshops",
-      "Personal 1-on-1 mentoring by top IIT alumni",
-      "Two-shift full 6-hour test simulations simulating actual exam day",
-      "Rank booster test series with national benchmarking"
-    ],
-    overview: "JEE Advanced does not test memory; it tests deep conceptual understanding, creativity, and perseverance under pressure. Our advanced batch is curated for students aspiring for seats in IIT Bombay, Delhi, Madras, and other premier IITs.",
-    curriculum: [
-      { module: "Advanced Mathematics", topics: ["Complex Numbers & Advanced Geometry", "Multi-Variable Calculus & Differential Equations", "Combinatorics & Advanced Probability"] },
-      { module: "Advanced Physics", topics: ["Rigid Body Dynamics & Gyroscopes", "Electromagnetic Induction & Maxwell Equations", "Non-linear Optics & Quantum Physics"] },
-      { module: "Advanced Chemistry", topics: ["Multi-step Organic Synthesis", "Advanced Reaction Mechanisms & Stereochemistry", "Electrochemistry & Chemical Equilibria"] }
+      { module: "Mathematics", topics: ["Coordinate Geometry", "Differential & Integral Calculus", "Algebra & Matrices", "Vectors & 3D Geometry", "Probability & Complex Numbers"] },
+      { module: "Physics", topics: ["Rotational Motion", "Electromagnetism", "Modern Physics", "Wave Optics", "Rigid Body Dynamics"] },
+      { module: "Chemistry", topics: ["Thermodynamics", "Chemical Kinetics", "Coordination Compounds", "General Organic Chemistry", "Multi-step Organic Synthesis"] }
     ]
   }
 ];

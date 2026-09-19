@@ -91,6 +91,12 @@
 .navbar-brand {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-logo-wrap {
+  display: flex;
+  align-items: center;
 }
 
 .brand-logo-img {
@@ -99,6 +105,18 @@
   max-width: 140px;
   object-fit: contain;
   transition: transform var(--transition-fast);
+}
+
+.desktop-logo {
+  display: block;
+}
+
+.mobile-logo {
+  display: none;
+}
+
+.brand-mobile-text {
+  display: none;
 }
 
 .navbar-brand:hover .brand-logo-img {
@@ -111,10 +129,11 @@
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
+  gap: 0.75rem;
 }
 
 .mobile-drawer-logo-img {
-  height: 50px;
+  height: 48px;
   width: auto;
   object-fit: contain;
 }
@@ -262,6 +281,50 @@
 }
 
 @media (max-width: 960px) {
+  .desktop-logo {
+    display: none;
+  }
+
+  .mobile-logo {
+    display: block;
+    height: clamp(40px, 11vw, 48px);
+    width: auto;
+  }
+
+  .navbar-brand {
+    gap: 0.65rem;
+  }
+
+  .brand-mobile-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1;
+    text-align: left;
+    user-select: none;
+  }
+
+  .brand-mobile-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 4.5vw, 1.45rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    letter-spacing: 0.04em;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+
+  .brand-mobile-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(0.68rem, 2.2vw, 0.74rem);
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+
   .desktop-nav,
   .desktop-actions {
     display: none;
