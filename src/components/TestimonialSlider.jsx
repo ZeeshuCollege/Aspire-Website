@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ArrowLeft, ArrowRight, Star, Quote } from 'lucide-react';
 import { testimonialsData } from '../data/testimonialsData';
 import Badge from './Badge';

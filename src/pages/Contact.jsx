@@ -3,16 +3,13 @@ import {
   Phone, 
   Mail, 
   MapPin, 
-  Clock, 
   MessageCircle, 
   Send, 
   CheckCircle2, 
-  ArrowRight,
-  Sparkles
+  ArrowRight
 } from 'lucide-react';
 import Badge from '../components/Badge';
 import CtaBanner from '../components/CtaBanner';
-import { centreData } from '../data/centreData';
 import './Contact.css';
 
 export default function Contact({ onOpenEnquiry }) {

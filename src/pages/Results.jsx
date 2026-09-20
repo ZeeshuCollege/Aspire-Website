@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { 
-  Trophy, 
-  Award, 
-  Star, 
-  ArrowRight, 
   CheckCircle2, 
   GraduationCap, 
-  TrendingUp, 
   Quote 
 } from 'lucide-react';
 import Badge from '../components/Badge';

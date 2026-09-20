@@ -5,19 +5,12 @@ import {
   CheckCircle2, 
   Clock, 
   Users, 
-  BookOpen, 
-  Award, 
   Calendar, 
   ChevronRight,
-  GraduationCap,
-  Sparkles,
-  HelpCircle,
   ShieldCheck
 } from 'lucide-react';
 import { coursesData } from '../data/coursesData';
-import { facultyData } from '../data/facultyData';
 import { faqData } from '../data/faqData';
-import Badge from '../components/Badge';
 import FAQAccordion from '../components/FAQAccordion';
 import CtaBanner from '../components/CtaBanner';
 import './CourseDetail.css';

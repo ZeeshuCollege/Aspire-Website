@@ -2,19 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
-  Sparkles, 
   CheckCircle2, 
   Users, 
   BookOpen, 
   Award, 
-  TrendingUp,
-  Phone,
-  Mail,
-  Send,
-  Calendar,
-  Compass,
-  GraduationCap,
-  MessageCircle,
+  TrendingUp, 
+  Phone, 
+  Mail, 
+  Send, 
+  GraduationCap, 
+  MessageCircle, 
   MapPin
 } from 'lucide-react';
 

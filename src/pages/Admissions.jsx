@@ -1,18 +1,10 @@
 import React, { useState } from 'react';
 import { 
-  Sparkles, 
   CheckCircle2, 
-  ArrowRight, 
   Send, 
-  Phone, 
-  Calendar, 
-  Award, 
-  ShieldCheck,
-  FileCheck,
-  Users
+  ShieldCheck
 } from 'lucide-react';
 import Badge from '../components/Badge';
-import CtaBanner from '../components/CtaBanner';
 import confetti from 'canvas-confetti';
 import './Admissions.css';
 
@@ -55,7 +47,7 @@ export default function Admissions() {
           spread: 80,
           origin: { y: 0.6 }
         });
-      } catch (err) {}
+      } catch {}
     }, 600);
   };
 

@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import { 
-  MapPin, 
   Clock, 
-  Phone, 
-  Mail, 
   ShieldCheck, 
-  Monitor, 
-  BookOpen, 
-  GraduationCap, 
   ArrowRight,
   Maximize2
 } from 'lucide-react';
@@ -27,7 +21,7 @@ export default function Centre({ onOpenEnquiry }) {
           <Badge icon="pin" text="Infrastructure & Campus Tour" variant="blue" />
           <h1 className="page-header-title">A Focused Learning Environment</h1>
           <p className="page-header-subtitle">
-            Take a virtual tour of our modern offline centre in Andheri (E), Mumbai. Designed with ergonomic seating, smart interactive boards, quiet study cubicles, and 24/7 security.
+            Take a virtual tour of our modern offline centre in Kausa, Mumbra, Thane. Designed with ergonomic seating, smart interactive boards, quiet study cubicles, and 24/7 security.
           </p>
         </div>
       </section>

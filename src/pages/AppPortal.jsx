@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
 import { 
-  Smartphone, 
-  UserCheck, 
-  Calendar, 
-  ClipboardCheck, 
   FileText, 
   Bell, 
   Lock, 
-  ShieldCheck, 
-  ArrowRight,
-  TrendingUp,
-  Download,
-  KeyRound,
-  CheckCircle2,
+  Download, 
+  KeyRound, 
+  CheckCircle2, 
   LogOut
 } from 'lucide-react';
 import Badge from '../components/Badge';

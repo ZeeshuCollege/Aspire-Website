@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, HelpCircle, Phone, MessageCircle, ArrowRight } from 'lucide-react';
+import { Search, Phone, MessageCircle, ArrowRight } from 'lucide-react';
 import Badge from '../components/Badge';
 import FAQAccordion from '../components/FAQAccordion';
 import CtaBanner from '../components/CtaBanner';

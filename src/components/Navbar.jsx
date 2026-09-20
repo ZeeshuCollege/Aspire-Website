@@ -22,8 +22,9 @@ export default function Navbar({ onOpenEnquiry }) {
 
   // Close mobile menu on route change
   useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location]);
+    const timer = setTimeout(() => setMobileMenuOpen(false), 0);
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
 
   const navLinks = [
     { name: 'Home', path: '/' },

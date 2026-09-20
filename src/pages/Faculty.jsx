@@ -1,15 +1,6 @@
 import React, { useState } from 'react';
-import { 
-  GraduationCap, 
-  Award, 
-  BookOpen, 
-  ArrowRight, 
-  CheckCircle2, 
-  Star,
-  Quote
-} from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
 import Badge from '../components/Badge';
-import FacultyCard from '../components/FacultyCard';
 import CtaBanner from '../components/CtaBanner';
 import { facultyData } from '../data/facultyData';
 import './Faculty.css';

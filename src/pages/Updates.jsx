@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { 
-  Bell, 
   Calendar, 
   ArrowRight, 
-  Tag, 
-  AlertCircle,
-  Download,
-  Sparkles
+  AlertCircle
 } from 'lucide-react';
 import Badge from '../components/Badge';
 import CtaBanner from '../components/CtaBanner';

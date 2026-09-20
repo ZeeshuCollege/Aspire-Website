@@ -1,22 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
-  ClipboardCheck, 
-  BarChart3, 
-  Clock, 
-  Target, 
   AlertTriangle, 
-  CheckCircle2, 
-  ArrowRight, 
-  Sparkles,
-  TrendingUp,
-  FileText
+  CheckCircle2
 } from 'lucide-react';
 import Badge from '../components/Badge';
 import CtaBanner from '../components/CtaBanner';
 import './TestSeries.css';
 
 export default function TestSeries({ onOpenEnquiry }) {
-  const [activeTab, setActiveTab] = useState('neet');
 
   return (
     <div className="test-series-page">

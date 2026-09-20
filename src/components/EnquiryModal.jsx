@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, CheckCircle2, Phone, Sparkles, Send, Calendar, Clock, MapPin } from 'lucide-react';
+import { X, CheckCircle2, Phone, Sparkles, Send, Calendar, MapPin } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import './EnquiryModal.css';
 
@@ -50,7 +50,7 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
           spread: 70,
           origin: { y: 0.6 }
         });
-      } catch (err) {
+      } catch {
         // Confetti fallback
       }
     }, 600);

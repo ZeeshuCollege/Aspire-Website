@@ -1,14 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { 
-  Award, 
   BookOpen, 
   Users, 
-  Target, 
   CheckCircle2, 
   ArrowRight, 
   ShieldCheck,
-  GraduationCap,
   TrendingUp,
   MapPin
 } from 'lucide-react';

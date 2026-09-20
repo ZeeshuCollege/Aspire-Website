@@ -1,14 +1,9 @@
 import React from 'react';
 import { 
   BookOpen, 
-  Pencil, 
-  ClipboardCheck, 
-  Users, 
   CheckCircle2, 
   ArrowRight, 
-  Sparkles, 
-  RefreshCw,
-  HelpCircle
+  RefreshCw
 } from 'lucide-react';
 import Badge from '../components/Badge';
 import CtaBanner from '../components/CtaBanner';

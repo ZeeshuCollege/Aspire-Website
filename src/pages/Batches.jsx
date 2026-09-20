@@ -2,16 +2,12 @@ import React, { useState } from 'react';
 import { 
   Calendar, 
   Clock, 
-  Users, 
   ArrowRight, 
   Download, 
   Sparkles, 
-  CheckCircle2, 
-  AlertCircle,
   MapPin
 } from 'lucide-react';
 import Badge from '../components/Badge';
-import BatchCard from '../components/BatchCard';
 import CtaBanner from '../components/CtaBanner';
 import { batchesData } from '../data/batchesData';
 import './Batches.css';
@@ -19,7 +15,7 @@ import './Batches.css';
 export default function Batches({ onOpenEnquiry }) {
   const [filterClass, setFilterClass] = useState('All');
 
-  const classes = ['All', 'Class 8', 'Class 9', 'Class 10', 'Class 11 & 12', 'NEET', 'JEE'];
+  const classes = ['All', 'Foundation', '9th', '10th', 'NEET', 'JEE'];
 
   const filteredBatches = batchesData.filter(b => {
     if (filterClass === 'All') return true;
