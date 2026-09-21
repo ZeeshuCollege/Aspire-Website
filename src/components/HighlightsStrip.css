@@ -61,6 +61,7 @@
   font-weight: 700;
   color: var(--color-navy);
   margin-bottom: 0.2rem;
+  white-space: nowrap;
 }
 
 .highlight-desc {

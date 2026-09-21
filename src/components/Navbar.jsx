@@ -30,9 +30,7 @@ export default function Navbar({ onOpenEnquiry }) {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Courses', path: '/courses' },
-    { name: 'Batches', path: '/batches' },
     { name: 'Results', path: '/results' },
-    { name: 'Centre', path: '/centre' },
     { name: 'Faculty', path: '/faculty' },
     { name: 'Contact', path: '/contact' }
   ];
@@ -44,9 +42,9 @@ export default function Navbar({ onOpenEnquiry }) {
         <div className="container top-bar-inner">
           <div className="top-bar-left">
             <span className="top-bar-tag">
-              <Sparkles size={12} className="text-orange" /> New Batches Starting
+              <Sparkles size={12} className="text-orange" /> Admissions Open
             </span>
-            <span className="top-bar-text">Foundation, 9th, 10th, NEET & JEE 2026 Admissions Open!</span>
+            <span className="top-bar-text">JEE (Main + Adv), NEET, Foundation, 10th & 9th 2026 Admissions Open!</span>
           </div>
           <div className="top-bar-right">
             <a href="tel:+917021220449" className="top-bar-link">

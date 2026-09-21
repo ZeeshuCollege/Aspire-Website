@@ -5,10 +5,8 @@ import {
   CheckCircle2, 
   ArrowRight, 
   ShieldCheck,
-  TrendingUp,
-  MapPin
+  TrendingUp
 } from 'lucide-react';
-import Badge from '../components/Badge';
 import CtaBanner from '../components/CtaBanner';
 import './About.css';
 
@@ -18,7 +16,6 @@ export default function About({ onOpenEnquiry }) {
       {/* Page Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">
-          <Badge icon="graduation" text="About ASPIRE Learning Centre" variant="blue" />
           <h1 className="page-header-title">
             Committed to Offline Academic <span className="text-primary">Excellence</span>
           </h1>
@@ -32,7 +29,7 @@ export default function About({ onOpenEnquiry }) {
       <section className="section">
         <div className="container">
           <div className="about-split-grid">
-            <div className="about-split-content">
+            <div className="about-split-content reveal-on-scroll reveal-left">
               <span className="eyebrow-label">OUR CORE IDENTITY</span>
               <h2>Building Strong Concepts Since 2020</h2>
               <p className="about-p">
@@ -43,19 +40,19 @@ export default function About({ onOpenEnquiry }) {
               </p>
 
               <div className="about-pillars-list">
-                <div className="pillar-item">
+                <div className="pillar-item reveal-on-scroll reveal-left stagger-1">
                   <div className="pillar-check"><CheckCircle2 size={18} /></div>
                   <div>
                     <strong>Offline Classroom First:</strong> Dedicated physical environment with zero digital distractions during core lectures.
                   </div>
                 </div>
-                <div className="pillar-item">
+                <div className="pillar-item reveal-on-scroll reveal-left stagger-2">
                   <div className="pillar-check"><CheckCircle2 size={18} /></div>
                   <div>
                     <strong>Small Batch Sizes:</strong> Strictly limited to 20–25 students so every student's notebook is reviewed.
                   </div>
                 </div>
-                <div className="pillar-item">
+                <div className="pillar-item reveal-on-scroll reveal-left stagger-3">
                   <div className="pillar-check"><CheckCircle2 size={18} /></div>
                   <div>
                     <strong>Transparent Parent Partnership:</strong> Bi-weekly PTMs and real-time mobile app attendance & test score tracking.
@@ -64,7 +61,7 @@ export default function About({ onOpenEnquiry }) {
               </div>
             </div>
 
-            <div className="about-split-visual">
+            <div className="about-split-visual reveal-on-scroll reveal-right stagger-2">
               <div className="about-image-card">
                 <img 
                   src="/images/student-studying.png" 
@@ -84,8 +81,8 @@ export default function About({ onOpenEnquiry }) {
       {/* Director / Academic Dean's Message */}
       <section className="section section-bg-subtle">
         <div className="container">
-          <div className="director-message-card">
-            <div className="director-quote-col">
+          <div className="director-message-card reveal-on-scroll reveal-scale">
+            <div className="director-quote-col reveal-on-scroll reveal-left stagger-1">
               <span className="badge badge-orange">Director's Message</span>
               <h2 className="director-title">“We Teach How to Think, Not Just What to Remember.”</h2>
               <blockquote className="director-blockquote">
@@ -97,7 +94,7 @@ export default function About({ onOpenEnquiry }) {
                 <span className="director-creds">B.Tech, IIT Delhi | 12+ Years Teaching Experience</span>
               </div>
             </div>
-            <div className="director-photo-col">
+            <div className="director-photo-col reveal-on-scroll reveal-right stagger-2">
               <img 
                 src="/images/faculty-rohit.png" 
                 alt="Director Rohit Sharma" 
@@ -111,8 +108,7 @@ export default function About({ onOpenEnquiry }) {
       {/* Values Grid */}
       <section className="section">
         <div className="container">
-          <div className="section-header text-center">
-            <Badge icon="award" text="Our Values" variant="blue" />
+          <div className="section-header text-center reveal-on-scroll reveal-bottom">
             <h2>The Four Pillars of ASPIRE</h2>
             <p className="section-subtitle">
               The fundamental convictions that guide our teaching methodology and institutional culture every day.
@@ -120,25 +116,25 @@ export default function About({ onOpenEnquiry }) {
           </div>
 
           <div className="values-cards-grid">
-            <div className="value-card">
+            <div className="value-card reveal-on-scroll reveal-left stagger-1">
               <div className="value-icon-circle blue"><BookOpen size={24} /></div>
               <h3>Conceptual Integrity</h3>
               <p>No shortcuts or superficial tricks. We build concepts from first principles until the student can derive the formulas independently.</p>
             </div>
 
-            <div className="value-card">
+            <div className="value-card reveal-on-scroll reveal-bottom stagger-2">
               <div className="value-icon-circle green"><Users size={24} /></div>
               <h3>Empathy & Mentorship</h3>
               <p>Every child learns at their own pace. We provide patience, personalized guidance, and emotional support to eliminate exam stress.</p>
             </div>
 
-            <div className="value-card">
+            <div className="value-card reveal-on-scroll reveal-bottom stagger-3">
               <div className="value-icon-circle purple"><TrendingUp size={24} /></div>
               <h3>Data-Driven Growth</h3>
               <p>Through weekly diagnostic assessments and negative marking analysis, we pinpoint exact weaknesses before board and entrance exams.</p>
             </div>
 
-            <div className="value-card">
+            <div className="value-card reveal-on-scroll reveal-right stagger-4">
               <div className="value-icon-circle orange"><ShieldCheck size={24} /></div>
               <h3>Authentic Results</h3>
               <p>We believe in verified, genuine achievements. Every score and rank published on our website is 100% authentic and verifiable.</p>
@@ -147,22 +143,6 @@ export default function About({ onOpenEnquiry }) {
         </div>
       </section>
 
-      {/* Location Bar */}
-      <section className="section-tight section-bg-soft-blue">
-        <div className="container">
-          <div className="about-location-strip">
-            <div className="loc-text">
-              <MapPin size={22} className="text-primary" />
-              <div>
-                <strong>Visit Us in Person:</strong> Falah Building, Room No. 102, Near Darul Falah Masjid, Kausa, Mumbra, Thane – 400612
-              </div>
-            </div>
-            <button onClick={onOpenEnquiry} className="btn btn-primary btn-md">
-              Schedule Centre Visit <ArrowRight size={16} />
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Banner */}
       <CtaBanner onOpenEnquiry={onOpenEnquiry} />

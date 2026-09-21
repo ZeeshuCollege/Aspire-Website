@@ -129,7 +129,7 @@ export default function AppPortal({ onOpenEnquiry }) {
                         <div className="faculty-batch-item">
                           <div>
                             <strong>Admissions Desk</strong>
-                            <span>Open for 9th, 10th, JEE & NEET 2026</span>
+                            <span>Open for JEE, NEET, Foundation, 10th & 9th 2026</span>
                           </div>
                           <span className="badge badge-teal">Accepting</span>
                         </div>

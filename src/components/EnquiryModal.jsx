@@ -9,7 +9,7 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
     parentName: '',
     phone: '',
     email: '',
-    course: initialCourse || 'Class 10',
+    course: initialCourse || 'JEE (Main + Adv.)',
     batchTiming: 'Evening (5:00 PM - 7:00 PM)',
     message: ''
   });
@@ -156,14 +156,12 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
                     value={formData.course}
                     onChange={handleChange}
                   >
-                    <option value="Class 8">Class 8 Foundation</option>
-                    <option value="Class 9">Class 9 Foundation</option>
-                    <option value="Class 10">Class 10 Board Champions</option>
-                    <option value="Class 11 Science">Class 11 Science (PCM / PCB)</option>
-                    <option value="Class 12 Science">Class 12 Science (PCM / PCB)</option>
+                    <option value="JEE (Main + Adv.)">JEE (Main + Adv.)</option>
                     <option value="NEET Medical">NEET Medical Entrance</option>
-                    <option value="JEE Main">JEE Main Engineering</option>
-                    <option value="JEE Advanced">JEE Advanced Apex Program</option>
+                    <option value="Foundation">Class 8 Foundation</option>
+                    <option value="Class 10">Class 10 Board Champions</option>
+                    <option value="Class 9">Class 9 Foundation</option>
+                    <option value="Class 11 & 12 Science">Class 11 & 12 Science (PCM / PCB)</option>
                   </select>
                 </div>
 

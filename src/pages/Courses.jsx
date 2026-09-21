@@ -4,7 +4,6 @@ import {
   Search, 
   ArrowRight, 
   CheckCircle2, 
-  Clock, 
   Users, 
   GraduationCap, 
   BookOpen, 
@@ -13,7 +12,6 @@ import {
   Stethoscope, 
   Compass 
 } from 'lucide-react';
-import Badge from '../components/Badge';
 import CtaBanner from '../components/CtaBanner';
 import { coursesData } from '../data/coursesData';
 import './Courses.css';
@@ -47,10 +45,9 @@ export default function Courses({ onOpenEnquiry }) {
       {/* Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">
-          <Badge icon="book" text="Academic Catalog" variant="blue" />
           <h1 className="page-header-title">Our Academic Programs</h1>
           <p className="page-header-subtitle">
-            Focused, structured offline courses for Foundation, 9th, 10th, NEET, and JEE (Main + Adv.). Built for deep concepts, consistent practice, and verifiable success.
+            Focused, structured offline courses for JEE (Main + Adv.), NEET, Foundation, 10th, and 9th. Built for deep concepts, consistent practice, and verifiable success.
           </p>
         </div>
       </section>
@@ -95,9 +92,6 @@ export default function Courses({ onOpenEnquiry }) {
                       <span className={`badge ${course.badgeClass}`}>
                         {course.category}
                       </span>
-                      <span className="card-duration-text">
-                        <Clock size={13} /> {course.duration}
-                      </span>
                     </div>
 
                     <div className="card-title-group">
@@ -118,10 +112,6 @@ export default function Courses({ onOpenEnquiry }) {
                       <div className="spec-pill">
                         <Users size={14} className="text-primary" />
                         <span>Batch: {course.batchSize}</span>
-                      </div>
-                      <div className="spec-pill">
-                        <Clock size={14} className="text-orange" />
-                        <span>{course.schedule}</span>
                       </div>
                     </div>
 
@@ -168,21 +158,7 @@ export default function Courses({ onOpenEnquiry }) {
         </div>
       </section>
 
-      {/* Stream Guidance Counseling Banner */}
-      <section className="section-tight section-bg-subtle">
-        <div className="container">
-          <div className="counseling-help-card">
-            <div className="counseling-text">
-              <span className="badge badge-orange">Confused About Stream Selection?</span>
-              <h3>Need 1-on-1 Academic Counseling?</h3>
-              <p>Our senior educators provide free diagnostic evaluation and career counselling for Class 10 and 11 students choosing between Engineering (JEE), Medical (NEET), and Pure Sciences.</p>
-            </div>
-            <button onClick={onOpenEnquiry} className="btn btn-primary btn-lg">
-              Book Free Counselling Session <ArrowRight size={18} />
-            </button>
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA Banner */}
       <CtaBanner onOpenEnquiry={onOpenEnquiry} />

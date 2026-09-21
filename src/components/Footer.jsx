@@ -1,28 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  CheckCircle2, 
   Phone, 
   Mail, 
-  MapPin, 
-  ArrowRight 
+  MapPin 
 } from 'lucide-react';
 import { InstagramIcon, YoutubeIcon, FacebookIcon, WhatsAppIcon } from './SocialIcons';
 import './Footer.css';
 
 export default function Footer({ onOpenEnquiry }) {
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [newsletterSuccess, setNewsletterSuccess] = useState(false);
-
-  const handleNewsletterSubmit = (e) => {
-    e.preventDefault();
-    if (newsletterEmail.trim()) {
-      setNewsletterSuccess(true);
-      setNewsletterEmail('');
-      setTimeout(() => setNewsletterSuccess(false), 5000);
-    }
-  };
-
   return (
     <footer className="footer-wrap">
       <div className="container footer-main">
@@ -39,7 +25,7 @@ export default function Footer({ onOpenEnquiry }) {
             </div>
           </Link>
           <p className="footer-brand-desc">
-            ASPIRE Learning Centre is a premier offline coaching institute in Kausa, Mumbra, Thane, dedicated to conceptual clarity, personal mentorship, and consistent results for Foundation, 9th, 10th, NEET, and JEE.
+            ASPIRE Learning Centre is a premier offline coaching institute in Kausa, Mumbra, Thane, dedicated to conceptual clarity, personal mentorship, and consistent results for JEE (Main + Adv.), NEET, Foundation, 10th, and 9th.
           </p>
 
           <div className="footer-contact-mini">
@@ -65,7 +51,6 @@ export default function Footer({ onOpenEnquiry }) {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About Us</Link></li>
             <li><Link to="/courses">Courses</Link></li>
-            <li><Link to="/batches">Batches</Link></li>
             <li><Link to="/results">Results</Link></li>
             <li><Link to="/faculty">Faculty</Link></li>
             <li><Link to="/methodology">Teaching Methodology</Link></li>
@@ -76,11 +61,11 @@ export default function Footer({ onOpenEnquiry }) {
         <div className="footer-col">
           <h4 className="footer-col-title">Courses</h4>
           <ul className="footer-links-list">
-            <li><Link to="/courses/foundation">Foundation</Link></li>
-            <li><Link to="/courses/std-9">9th</Link></li>
-            <li><Link to="/courses/std-10">10th</Link></li>
-            <li><Link to="/courses/neet">NEET</Link></li>
             <li><Link to="/courses/jee">JEE (Main + Adv.)</Link></li>
+            <li><Link to="/courses/neet">NEET</Link></li>
+            <li><Link to="/courses/foundation">Foundation</Link></li>
+            <li><Link to="/courses/std-10">10th</Link></li>
+            <li><Link to="/courses/std-9">9th</Link></li>
             <li><Link to="/test-series">ASPIRE Test Series</Link></li>
           </ul>
         </div>
@@ -89,7 +74,6 @@ export default function Footer({ onOpenEnquiry }) {
         <div className="footer-col">
           <h4 className="footer-col-title">Resources</h4>
           <ul className="footer-links-list">
-            <li><Link to="/centre">Our Centre & Gallery</Link></li>
             <li><Link to="/contact">Contact & Location</Link></li>
             <li><Link to="/faqs">FAQs</Link></li>
             <li><Link to="/updates">Announcements</Link></li>
@@ -139,37 +123,6 @@ export default function Footer({ onOpenEnquiry }) {
             >
               <FacebookIcon size={18} />
             </a>
-          </div>
-
-          <h4 className="footer-col-title" style={{ marginTop: '1.75rem' }}>
-            Subscribe to our Newsletter
-          </h4>
-          <form onSubmit={handleNewsletterSubmit} className="newsletter-form">
-            <div className="newsletter-input-wrap">
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                value={newsletterEmail}
-                onChange={(e) => setNewsletterEmail(e.target.value)}
-                required
-                className="newsletter-input"
-              />
-              <button type="submit" className="newsletter-submit-btn" aria-label="Subscribe">
-                <ArrowRight size={18} />
-              </button>
-            </div>
-            {newsletterSuccess && (
-              <span className="newsletter-success-msg">
-                <CheckCircle2 size={14} /> Thank you for subscribing!
-              </span>
-            )}
-          </form>
-
-          <div className="footer-cta-box">
-            <span>Looking for academic counselling?</span>
-            <button onClick={onOpenEnquiry} className="btn btn-primary btn-sm" style={{ marginTop: '0.5rem' }}>
-              Request a Call Back
-            </button>
           </div>
         </div>
       </div>

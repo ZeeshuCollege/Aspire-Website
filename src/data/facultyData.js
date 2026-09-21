@@ -8,7 +8,7 @@ export const facultyData = [
     experience: "8+ Years Experience",
     quote: "Conceptual clarity and consistent practice turn challenges into high scores.",
     degree: "M.Sc, Educator & Academic Mentor",
-    specialization: "Foundation, 9th, 10th, JEE & NEET Preparation",
+    specialization: "JEE, NEET, Foundation, 10th & 9th Preparation",
     image: "/images/faculty-rohit.png",
     bio: "Dedicated senior educator and faculty mentor specializing in analytical problem-solving and foundational concept building for board and competitive examinations."
   },

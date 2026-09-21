@@ -1,5 +1,61 @@
 export const coursesData = [
   {
+    id: "jee",
+    title: "JEE (Main + Adv.)",
+    slug: "jee",
+    category: "Competitive",
+    tagline: "Engineering Excellence — From Main to IIT",
+    heroDesc: "Comprehensive JEE coaching combining conceptual depth, mathematical agility, and advanced problem-solving mastery to crack both JEE Main and JEE Advanced.",
+    duration: "1-Year / 2-Year Integrated Programs",
+    schedule: "Mon - Sat | Flexible Batches",
+    batchSize: "25-30 Students",
+    color: "var(--color-violet)",
+    badgeClass: "badge-violet",
+    subjects: ["Mathematics", "Physics", "Chemistry"],
+    icon: "Compass",
+    features: [
+      "Extensive Computer-Based Test (CBT) practice in our lab",
+      "Multi-concept synthesis problems (Irodov, Pathfinder, Cengage level)",
+      "10-Year JEE Main & Advanced Past Papers dissected chapter-wise",
+      "IITian faculty team with 10+ years mentoring experience",
+      "Detailed test analysis identifying weak areas and silly mistakes"
+    ],
+    overview: "Scoring high in JEE Main requires conceptual clarity combined with computer-based test mastery, while JEE Advanced demands deep problem-solving under pressure. Our integrated batch covers both with seamless progression.",
+    curriculum: [
+      { module: "Mathematics", topics: ["Coordinate Geometry", "Differential & Integral Calculus", "Algebra & Matrices", "Vectors & 3D Geometry", "Probability & Complex Numbers"] },
+      { module: "Physics", topics: ["Rotational Motion", "Electromagnetism", "Modern Physics", "Wave Optics", "Rigid Body Dynamics"] },
+      { module: "Chemistry", topics: ["Thermodynamics", "Chemical Kinetics", "Coordination Compounds", "General Organic Chemistry", "Multi-step Organic Synthesis"] }
+    ]
+  },
+  {
+    id: "neet",
+    title: "NEET",
+    slug: "neet",
+    category: "Competitive",
+    tagline: "Your Gateway to Top Medical Colleges",
+    heroDesc: "Specialized medical entrance coaching with NCERT line-by-line mastery, high-yield biology notes, and high-speed problem-solving techniques in Physics & Chemistry.",
+    duration: "1-Year (Target) / 2-Year (Class 11+12)",
+    schedule: "Mon - Sat | Morning & Evening Batches",
+    batchSize: "25-30 Students",
+    color: "var(--color-teal)",
+    badgeClass: "badge-teal",
+    subjects: ["Biology (Botany & Zoology)", "Physics", "Chemistry"],
+    icon: "Stethoscope",
+    features: [
+      "NCERT fingertip memorization & diagram drills",
+      "30+ Full-Syllabus OMR Mock Tests mimicking real NTA patterns",
+      "Speed & negative marking elimination strategies",
+      "Senior medical faculty with proven 650+ NEET alumni",
+      "Full access to ASPIRE Test Series analytics & rank predictor"
+    ],
+    overview: "NEET demands both speed and absolute precision across 180 questions. ASPIRE's NEET medical division breaks down every chapter into high-yield points, accompanied by rigorous timed mock tests.",
+    curriculum: [
+      { module: "Biology", topics: ["Diversity in Living World", "Structural Organisation", "Cell Biology", "Human & Plant Physiology", "Reproduction & Genetics", "Biotechnology & Ecology"] },
+      { module: "Physics", topics: ["Mechanics", "Thermodynamics", "Oscillations & Waves", "Electrostatics & Current", "Magnetism", "Optics & Modern Physics"] },
+      { module: "Chemistry", topics: ["Physical Chemistry (Equilibrium, Kinetics)", "Inorganic Chemistry (NCERT deep dive)", "Organic Chemistry Mechanisms & Reactions"] }
+    ]
+  },
+  {
     id: "foundation",
     title: "Foundation",
     slug: "foundation",
@@ -25,35 +81,6 @@ export const coursesData = [
       { module: "Mathematics", topics: ["Number Systems", "Rational Numbers", "Linear Equations", "Geometry & Mensuration", "Algebraic Expressions", "Data Handling"] },
       { module: "Science (Physics & Chem)", topics: ["Force & Pressure", "Sound & Light", "Synthetic Materials", "Metals & Non-metals", "Combustion & Flame"] },
       { module: "Biology & Reasoning", topics: ["Cell Structure & Functions", "Crop Production", "Logical Reasoning", "Pattern Recognition"] }
-    ]
-  },
-  {
-    id: "std-9",
-    title: "9th",
-    slug: "std-9",
-    category: "Foundation",
-    tagline: "Build Concepts, Gain Confidence",
-    heroDesc: "Deep conceptual grounding in CBSE & ICSE 9th fundamentals — the crucial bridge for senior secondary and competitive success.",
-    duration: "1 Year Academic Program",
-    schedule: "Mon - Fri | 6:30 PM - 8:30 PM",
-    batchSize: "20-25 Students",
-    color: "var(--color-emerald)",
-    badgeClass: "badge-emerald",
-    subjects: ["Mathematics", "Physics", "Chemistry", "Biology"],
-    icon: "BookOpen",
-    features: [
-      "Complete coverage of NCERT & Board syllabus",
-      "Early introduction to higher-order competitive thinking",
-      "Bi-weekly objective & subjective tests",
-      "Individual homework evaluation and correction",
-      "Personal academic mentor assigned per student"
-    ],
-    overview: "9th is recognized as the academic turning point where concepts become substantially more rigorous. ASPIRE provides step-by-step guidance ensuring zero knowledge gaps.",
-    curriculum: [
-      { module: "Mathematics", topics: ["Number Systems", "Polynomials", "Coordinate Geometry", "Euclid & Lines", "Triangles & Quadrilaterals", "Circles & Heron's Formula"] },
-      { module: "Physics", topics: ["Motion & Equations", "Force and Laws of Motion", "Gravitation", "Work, Energy & Power", "Sound"] },
-      { module: "Chemistry", topics: ["Matter in Our Surroundings", "Is Matter Around Us Pure", "Atoms and Molecules", "Structure of the Atom"] },
-      { module: "Biology", topics: ["The Fundamental Unit of Life", "Tissues", "Improvement in Food Resources"] }
     ]
   },
   {
@@ -86,59 +113,32 @@ export const coursesData = [
     ]
   },
   {
-    id: "neet",
-    title: "NEET",
-    slug: "neet",
-    category: "Competitive",
-    tagline: "Your Gateway to Top Medical Colleges",
-    heroDesc: "Specialized medical entrance coaching with NCERT line-by-line mastery, high-yield biology notes, and high-speed problem-solving techniques in Physics & Chemistry.",
-    duration: "1-Year (Target) / 2-Year (Class 11+12)",
-    schedule: "Mon - Sat | Morning & Evening Batches",
-    batchSize: "25-30 Students",
-    color: "var(--color-teal)",
-    badgeClass: "badge-teal",
-    subjects: ["Biology (Botany & Zoology)", "Physics", "Chemistry"],
-    icon: "Stethoscope",
+    id: "std-9",
+    title: "9th",
+    slug: "std-9",
+    category: "Foundation",
+    tagline: "Build Concepts, Gain Confidence",
+    heroDesc: "Deep conceptual grounding in CBSE & ICSE 9th fundamentals — the crucial bridge for senior secondary and competitive success.",
+    duration: "1 Year Academic Program",
+    schedule: "Mon - Fri | 6:30 PM - 8:30 PM",
+    batchSize: "20-25 Students",
+    color: "var(--color-emerald)",
+    badgeClass: "badge-emerald",
+    subjects: ["Mathematics", "Physics", "Chemistry", "Biology"],
+    icon: "BookOpen",
     features: [
-      "NCERT fingertip memorization & diagram drills",
-      "30+ Full-Syllabus OMR Mock Tests mimicking real NTA patterns",
-      "Speed & negative marking elimination strategies",
-      "Senior medical faculty with proven 650+ NEET alumni",
-      "Full access to ASPIRE Test Series analytics & rank predictor"
+      "Complete coverage of NCERT & Board syllabus",
+      "Early introduction to higher-order competitive thinking",
+      "Bi-weekly objective & subjective tests",
+      "Individual homework evaluation and correction",
+      "Personal academic mentor assigned per student"
     ],
-    overview: "NEET demands both speed and absolute precision across 180 questions. ASPIRE's NEET medical division breaks down every chapter into high-yield points, accompanied by rigorous timed mock tests.",
+    overview: "9th is recognized as the academic turning point where concepts become substantially more rigorous. ASPIRE provides step-by-step guidance ensuring zero knowledge gaps.",
     curriculum: [
-      { module: "Biology", topics: ["Diversity in Living World", "Structural Organisation", "Cell Biology", "Human & Plant Physiology", "Reproduction & Genetics", "Biotechnology & Ecology"] },
-      { module: "Physics", topics: ["Mechanics", "Thermodynamics", "Oscillations & Waves", "Electrostatics & Current", "Magnetism", "Optics & Modern Physics"] },
-      { module: "Chemistry", topics: ["Physical Chemistry (Equilibrium, Kinetics)", "Inorganic Chemistry (NCERT deep dive)", "Organic Chemistry Mechanisms & Reactions"] }
-    ]
-  },
-  {
-    id: "jee",
-    title: "JEE (Main + Adv.)",
-    slug: "jee",
-    category: "Competitive",
-    tagline: "Engineering Excellence — From Main to IIT",
-    heroDesc: "Comprehensive JEE coaching combining conceptual depth, mathematical agility, and advanced problem-solving mastery to crack both JEE Main and JEE Advanced.",
-    duration: "1-Year / 2-Year Integrated Programs",
-    schedule: "Mon - Sat | Flexible Batches",
-    batchSize: "25-30 Students",
-    color: "var(--color-violet)",
-    badgeClass: "badge-violet",
-    subjects: ["Mathematics", "Physics", "Chemistry"],
-    icon: "Compass",
-    features: [
-      "Extensive Computer-Based Test (CBT) practice in our lab",
-      "Multi-concept synthesis problems (Irodov, Pathfinder, Cengage level)",
-      "10-Year JEE Main & Advanced Past Papers dissected chapter-wise",
-      "IITian faculty team with 10+ years mentoring experience",
-      "Detailed test analysis identifying weak areas and silly mistakes"
-    ],
-    overview: "Scoring high in JEE Main requires conceptual clarity combined with computer-based test mastery, while JEE Advanced demands deep problem-solving under pressure. Our integrated batch covers both with seamless progression.",
-    curriculum: [
-      { module: "Mathematics", topics: ["Coordinate Geometry", "Differential & Integral Calculus", "Algebra & Matrices", "Vectors & 3D Geometry", "Probability & Complex Numbers"] },
-      { module: "Physics", topics: ["Rotational Motion", "Electromagnetism", "Modern Physics", "Wave Optics", "Rigid Body Dynamics"] },
-      { module: "Chemistry", topics: ["Thermodynamics", "Chemical Kinetics", "Coordination Compounds", "General Organic Chemistry", "Multi-step Organic Synthesis"] }
+      { module: "Mathematics", topics: ["Number Systems", "Polynomials", "Coordinate Geometry", "Euclid & Lines", "Triangles & Quadrilaterals", "Circles & Heron's Formula"] },
+      { module: "Physics", topics: ["Motion & Equations", "Force and Laws of Motion", "Gravitation", "Work, Energy & Power", "Sound"] },
+      { module: "Chemistry", topics: ["Matter in Our Surroundings", "Is Matter Around Us Pure", "Atoms and Molecules", "Structure of the Atom"] },
+      { module: "Biology", topics: ["The Fundamental Unit of Life", "Tissues", "Improvement in Food Resources"] }
     ]
   }
 ];

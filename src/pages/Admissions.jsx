@@ -15,7 +15,7 @@ export default function Admissions() {
     phone: '',
     email: '',
     currentClass: 'Class 10',
-    interestedCourse: 'Class 10 Board Champions',
+    interestedCourse: 'JEE (Main + Adv.)',
     previousSchool: '',
     board: 'CBSE',
     batchTiming: 'Evening (5:00 PM - 7:00 PM)',
@@ -243,13 +243,12 @@ export default function Admissions() {
                       value={formData.interestedCourse}
                       onChange={(e) => setFormData({ ...formData, interestedCourse: e.target.value })}
                     >
-                      <option value="Class 8 Foundation">Class 8 Foundation</option>
-                      <option value="Class 9 Foundation">Class 9 Foundation</option>
-                      <option value="Class 10 Board Champions">Class 10 Board Champions</option>
-                      <option value="Class 11 & 12 Science">Class 11 & 12 Science (PCM/PCB)</option>
+                      <option value="JEE (Main + Adv.)">JEE (Main + Adv.)</option>
                       <option value="NEET Medical">NEET Medical Entrance</option>
-                      <option value="JEE Main">JEE Main Engineering</option>
-                      <option value="JEE Advanced">JEE Advanced Apex Program</option>
+                      <option value="Class 8 Foundation">Class 8 Foundation</option>
+                      <option value="Class 10 Board Champions">Class 10 Board Champions</option>
+                      <option value="Class 9 Foundation">Class 9 Foundation</option>
+                      <option value="Class 11 & 12 Science">Class 11 & 12 Science (PCM/PCB)</option>
                     </select>
                   </div>
                 </div>

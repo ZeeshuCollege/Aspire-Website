@@ -15,6 +15,8 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 body {
@@ -22,6 +24,24 @@ body {
   overflow-x: hidden;
   line-height: 1.6;
   font-size: 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* Hide scrollbar for Firefox, IE and Edge */
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
 /* Typography Hierarchy */
@@ -401,6 +421,71 @@ img {
 
 .animate-float {
   animation: floatSlow 4s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Scroll Reveal Animations (Fast, hardware-accelerated scroll entry effects)
+   ========================================================================== */
+
+.reveal-on-scroll {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Default / From Bottom */
+.reveal-on-scroll.reveal-bottom,
+.reveal-on-scroll:not(.reveal-left):not(.reveal-right):not(.reveal-scale) {
+  transform: translateY(32px);
+}
+
+/* Fade in quickly from Left (Side) */
+.reveal-on-scroll.reveal-left {
+  transform: translateX(-38px);
+}
+
+/* Fade in quickly from Right (Side) */
+.reveal-on-scroll.reveal-right {
+  transform: translateX(38px);
+}
+
+/* Fade in quickly with Scale */
+.reveal-on-scroll.reveal-scale {
+  transform: scale(0.92) translateY(18px);
+}
+
+/* Revealed / Active State */
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* Rapid Stagger Delays */
+.reveal-on-scroll.stagger-1 { transition-delay: 50ms; }
+.reveal-on-scroll.stagger-2 { transition-delay: 100ms; }
+.reveal-on-scroll.stagger-3 { transition-delay: 150ms; }
+.reveal-on-scroll.stagger-4 { transition-delay: 200ms; }
+.reveal-on-scroll.stagger-5 { transition-delay: 250ms; }
+.reveal-on-scroll.stagger-6 { transition-delay: 300ms; }
+
+/* Responsive adjustments for Mobile */
+@media (max-width: 640px) {
+  .reveal-on-scroll.reveal-left {
+    transform: translateX(-20px);
+  }
+  .reveal-on-scroll.reveal-right {
+    transform: translateX(20px);
+  }
+}
+
+/* Accessibility: Disable motion for users who request reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* Responsive adjustments */

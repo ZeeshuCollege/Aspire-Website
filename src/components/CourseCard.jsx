@@ -13,11 +13,15 @@ const iconMap = {
   Compass: Compass
 };
 
-export default function CourseCard({ course }) {
+export default function CourseCard({ course, className = '', index = 0 }) {
   const IconComp = iconMap[course.icon] || GraduationCap;
 
+  // Alternating side and bottom animations: left, bottom, right
+  const directionClass = index % 3 === 0 ? 'reveal-left' : index % 3 === 2 ? 'reveal-right' : 'reveal-bottom';
+  const staggerClass = `stagger-${(index % 3) + 1}`;
+
   return (
-    <div className="course-card">
+    <div className={`course-card reveal-on-scroll ${directionClass} ${staggerClass} ${className}`.trim()}>
       <div className="course-card-top">
         <div className="course-card-icon" style={{ backgroundColor: course.color ? `${course.color}15` : 'var(--color-primary-light)', color: course.color || 'var(--color-primary)' }}>
           <IconComp size={20} />

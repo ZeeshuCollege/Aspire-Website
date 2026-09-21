@@ -8,7 +8,6 @@ import {
   CheckCircle2, 
   ArrowRight
 } from 'lucide-react';
-import Badge from '../components/Badge';
 import CtaBanner from '../components/CtaBanner';
 import './Contact.css';
 
@@ -38,7 +37,6 @@ export default function Contact({ onOpenEnquiry }) {
       {/* Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">
-          <Badge icon="phone" text="Get in Touch" variant="blue" />
           <h1 className="page-header-title">Contact & Centre Location</h1>
           <p className="page-header-subtitle">
             Have questions about admissions, course schedules, or want to book a centre visit? Reach out to us directly or visit our offline campus in Andheri East, Mumbai.

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { GraduationCap } from 'lucide-react';
-import Badge from '../components/Badge';
 import CtaBanner from '../components/CtaBanner';
 import { facultyData } from '../data/facultyData';
 import './Faculty.css';
@@ -20,7 +19,6 @@ export default function Faculty({ onOpenEnquiry }) {
       {/* Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">
-          <Badge icon="users" text="Our Academic Mentors" variant="blue" />
           <h1 className="page-header-title">Learn From Experienced Educators</h1>
           <p className="page-header-subtitle">
             Our faculty members are subject specialists from premier institutions like the IITs and top central universities, bringing a passion for concept clarity and student success.
@@ -32,18 +30,18 @@ export default function Faculty({ onOpenEnquiry }) {
       <section className="section-tight section-bg-subtle">
         <div className="container">
           <div className="faculty-philosophy-row">
-            <div className="fac-phil-box">
+            <div className="fac-phil-box reveal-on-scroll reveal-left stagger-1">
               <span className="fac-phil-num">100%</span>
               <strong>Permanent Full-Time Faculty</strong>
               <p>No guest lecturers or revolving teachers. Your faculty stays with your batch till exam day.</p>
             </div>
-            <div className="fac-phil-box">
+            <div className="fac-phil-box reveal-on-scroll reveal-bottom stagger-2">
               <span className="fac-phil-num">1-on-1</span>
               <strong>Daily Doubt Resolution</strong>
               <p>Faculty members are available daily in our doubt cubicles for personal assistance.</p>
             </div>
-            <div className="fac-phil-box">
-              <span className="fac-phil-num">10+ Yrs</span>
+            <div className="fac-phil-box reveal-on-scroll reveal-right stagger-3">
+              <span className="fac-phil-num">100+ Yrs</span>
               <strong>Average Teaching Experience</strong>
               <p>Seasoned educators who know common student pitfalls and exam marking schemes.</p>
             </div>
@@ -54,8 +52,8 @@ export default function Faculty({ onOpenEnquiry }) {
       {/* Faculty Directory */}
       <section className="section">
         <div className="container">
-          <div className="faculty-filter-tabs">
-            {subjects.map((sub) => (
+          <div className="faculty-filter-tabs reveal-on-scroll reveal-bottom">
+            {subjectTabs.map((sub) => (
               <button
                 key={sub}
                 onClick={() => setSubjectFilter(sub)}
@@ -67,19 +65,21 @@ export default function Faculty({ onOpenEnquiry }) {
           </div>
 
           <div className="faculty-full-grid">
-            {filteredFaculty.map((faculty) => (
-              <div key={faculty.id} className="faculty-detail-profile-card">
-                <div className="profile-img-wrap">
-                  <img 
-                    src={faculty.image} 
-                    alt={faculty.name} 
-                    className="profile-img"
-                    onError={(e) => {
-                      e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=80';
-                    }}
-                  />
-                  <span className="profile-subject-badge">{faculty.subject}</span>
-                </div>
+            {filteredFaculty.map((faculty, idx) => {
+              const dir = idx % 2 === 0 ? 'reveal-left' : 'reveal-right';
+              return (
+                <div key={faculty.id} className={`faculty-detail-profile-card reveal-on-scroll ${dir} stagger-${(idx % 4) + 1}`}>
+                  <div className="profile-img-wrap">
+                    <img 
+                      src={faculty.image} 
+                      alt={faculty.name} 
+                      className="profile-img"
+                      onError={(e) => {
+                        e.target.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=80';
+                      }}
+                    />
+                    <span className="profile-subject-badge">{faculty.subject}</span>
+                  </div>
 
                 <div className="profile-info-body">
                   <h3 className="profile-name">{faculty.name}</h3>
@@ -105,7 +105,8 @@ export default function Faculty({ onOpenEnquiry }) {
                   </button>
                 </div>
               </div>
-            ))}
+            );
+          })}
           </div>
         </div>
       </section>

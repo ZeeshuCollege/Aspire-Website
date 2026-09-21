@@ -4,7 +4,6 @@ import {
   GraduationCap, 
   Quote 
 } from 'lucide-react';
-import Badge from '../components/Badge';
 import CtaBanner from '../components/CtaBanner';
 import { resultsData, resultsStats } from '../data/resultsData';
 import './Results.css';
@@ -27,7 +26,6 @@ export default function Results({ onOpenEnquiry }) {
       {/* Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">
-          <Badge icon="award" text="Track Record of Excellence" variant="orange" />
           <h1 className="page-header-title">Our Results & Achievements</h1>
           <p className="page-header-subtitle">
             Results that reflect disciplined preparation, rigorous testing, and personal attention. Verified achievements of our students across Mumbai.
@@ -40,7 +38,7 @@ export default function Results({ onOpenEnquiry }) {
         <div className="container">
           <div className="results-stats-row">
             {resultsStats.map((stat, idx) => (
-              <div key={idx} className="result-stat-box">
+              <div key={idx} className={`result-stat-box reveal-on-scroll reveal-bottom stagger-${idx + 1}`}>
                 <span className="stat-big-val">{stat.value}</span>
                 <strong className="stat-main-lbl">{stat.label}</strong>
                 <span className="stat-sub-txt">{stat.subtext}</span>
@@ -87,12 +85,14 @@ export default function Results({ onOpenEnquiry }) {
 
           {/* Cards Grid */}
           <div className="results-cards-grid">
-            {filteredResults.map((res) => (
-              <div key={res.id} className="topper-result-card">
-                <div className="topper-header">
-                  <span className="topper-exam-badge">{res.exam}</span>
-                  <span className="topper-year-tag">{res.year}</span>
-                </div>
+            {filteredResults.map((res, idx) => {
+              const dir = idx % 3 === 0 ? 'reveal-left' : idx % 3 === 2 ? 'reveal-right' : 'reveal-bottom';
+              return (
+                <div key={res.id} className={`topper-result-card reveal-on-scroll ${dir} stagger-${(idx % 3) + 1}`}>
+                  <div className="topper-header">
+                    <span className="topper-exam-badge">{res.exam}</span>
+                    <span className="topper-year-tag">{res.year}</span>
+                  </div>
 
                 <div className="topper-score-highlight">
                   <span className="score-primary-val">{res.score}</span>
@@ -115,7 +115,8 @@ export default function Results({ onOpenEnquiry }) {
                   <span>{res.college}</span>
                 </div>
               </div>
-            ))}
+            );
+          })}
           </div>
 
           {/* Transparency / Verifiable Notice */}

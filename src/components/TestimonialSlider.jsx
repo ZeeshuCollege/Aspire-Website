@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, ArrowRight, Star, Quote } from 'lucide-react';
 import { testimonialsData } from '../data/testimonialsData';
-import Badge from './Badge';
 import './TestimonialSlider.css';
 
 export default function TestimonialSlider() {
@@ -22,8 +21,7 @@ export default function TestimonialSlider() {
       <div className="container">
         <div className="testimonials-layout">
           {/* Left Column: Heading & Controls */}
-          <div className="testimonials-header-col">
-            <Badge icon="users" text="What Our Students Say" variant="blue" />
+          <div className="testimonials-header-col reveal-on-scroll reveal-left">
             <h2 className="testimonials-main-title">
               Real Stories. <span className="text-primary">Real Results.</span>
             </h2>
@@ -61,7 +59,7 @@ export default function TestimonialSlider() {
           </div>
 
           {/* Right Column: Cards Grid */}
-          <div className="testimonials-cards-container">
+          <div className="testimonials-cards-container reveal-on-scroll reveal-right stagger-2">
             <div 
               className="testimonials-track"
               style={{

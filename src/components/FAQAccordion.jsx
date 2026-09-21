@@ -23,10 +23,10 @@ export default function FAQAccordion({ items, columns = 2 }) {
     });
   }
 
-  const renderItem = (item) => {
+  const renderItem = (item, index = 0, dir = 'reveal-bottom') => {
     const isOpen = openId === item.id;
     return (
-      <div key={item.id} className={`faq-item-card ${isOpen ? 'open' : ''}`}>
+      <div key={item.id} className={`faq-item-card reveal-on-scroll ${dir} stagger-${(index % 4) + 1} ${isOpen ? 'open' : ''}`}>
         <button 
           className="faq-question-btn"
           onClick={() => toggleItem(item.id)}
@@ -51,7 +51,7 @@ export default function FAQAccordion({ items, columns = 2 }) {
   if (columns === 1) {
     return (
       <div className="faq-grid-1-col">
-        {items.map(renderItem)}
+        {items.map((item, idx) => renderItem(item, idx, 'reveal-bottom'))}
       </div>
     );
   }
@@ -59,10 +59,10 @@ export default function FAQAccordion({ items, columns = 2 }) {
   return (
     <div className="faq-grid-2-col">
       <div className="faq-col">
-        {col1.map(renderItem)}
+        {col1.map((item, idx) => renderItem(item, idx, 'reveal-left'))}
       </div>
       <div className="faq-col">
-        {col2.map(renderItem)}
+        {col2.map((item, idx) => renderItem(item, idx, 'reveal-right'))}
       </div>
     </div>
   );

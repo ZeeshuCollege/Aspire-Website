@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 // Shared Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollRevealObserver from './components/ScrollRevealObserver';
 import EnquiryModal from './components/EnquiryModal';
 import FloatingContact from './components/FloatingContact';
 
@@ -13,11 +14,9 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Courses from './pages/Courses';
 import CourseDetail from './pages/CourseDetail';
-import Batches from './pages/Batches';
 import Results from './pages/Results';
 import Faculty from './pages/Faculty';
 import Methodology from './pages/Methodology';
-import Centre from './pages/Centre';
 import TestSeries from './pages/TestSeries';
 import Updates from './pages/Updates';
 import FAQs from './pages/FAQs';
@@ -40,6 +39,7 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
+      <ScrollRevealObserver />
       <div className="app-shell">
         <Navbar onOpenEnquiry={() => handleOpenEnquiry()} />
 
@@ -49,11 +49,11 @@ export default function App() {
             <Route path="/about" element={<About onOpenEnquiry={handleOpenEnquiry} />} />
             <Route path="/courses" element={<Courses onOpenEnquiry={handleOpenEnquiry} />} />
             <Route path="/courses/:courseId" element={<CourseDetail onOpenEnquiry={handleOpenEnquiry} />} />
-            <Route path="/batches" element={<Batches onOpenEnquiry={handleOpenEnquiry} />} />
+            <Route path="/batches" element={<Navigate to="/courses" replace />} />
             <Route path="/results" element={<Results onOpenEnquiry={handleOpenEnquiry} />} />
             <Route path="/faculty" element={<Faculty onOpenEnquiry={handleOpenEnquiry} />} />
             <Route path="/methodology" element={<Methodology onOpenEnquiry={handleOpenEnquiry} />} />
-            <Route path="/centre" element={<Centre onOpenEnquiry={handleOpenEnquiry} />} />
+            <Route path="/centre" element={<Navigate to="/about" replace />} />
             <Route path="/test-series" element={<TestSeries onOpenEnquiry={handleOpenEnquiry} />} />
             <Route path="/updates" element={<Updates onOpenEnquiry={handleOpenEnquiry} />} />
             <Route path="/faqs" element={<FAQs onOpenEnquiry={handleOpenEnquiry} />} />
