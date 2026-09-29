@@ -41,14 +41,8 @@ export default function HighlightsStrip() {
           <div className="highlights-grid">
             {highlights.map((item, index) => {
               const IconComp = item.icon;
-              // Directional: left for first, right for last, bottom for middle items
-              const directionClass = index === 0 
-                ? 'reveal-left' 
-                : index === highlights.length - 1 
-                  ? 'reveal-right' 
-                  : 'reveal-bottom';
               return (
-                <div key={index} className={`highlight-item reveal-on-scroll ${directionClass} stagger-${index + 1}`}>
+                <div key={index} className="highlight-item">
                   <div className="highlight-icon-wrap" style={{ backgroundColor: item.iconBg, color: item.iconColor }}>
                     <IconComp size={22} />
                   </div>

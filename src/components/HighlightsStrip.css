@@ -17,11 +17,13 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.75rem;
+  align-items: center;
 }
 
 .highlight-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.15rem;
   position: relative;
 }

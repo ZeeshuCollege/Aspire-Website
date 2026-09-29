@@ -15,6 +15,7 @@ import {
 
 import HighlightsStrip from '../components/HighlightsStrip';
 import CourseCard from '../components/CourseCard';
+import ClassesSlideshow from '../components/ClassesSlideshow';
 import TestimonialSlider from '../components/TestimonialSlider';
 import FAQAccordion from '../components/FAQAccordion';
 
@@ -47,9 +48,9 @@ export default function Home({ onOpenEnquiry }) {
           {/* Left Column */}
           <div className="hero-content">
             <h1 className="hero-headline">
-              Learn Today,<br />
-              Lead <span className="text-primary relative-inline">
-                Tomorrow.
+              Kota-Level Preparation.<br />
+              Now in <span className="text-primary relative-inline">
+                Mumbra.
                 <svg className="hero-wavy-svg" viewBox="0 0 160 12" fill="none">
                   <path d="M2 9C25 3 45 10 70 5C95 1 120 8 158 4" stroke="var(--color-orange)" strokeWidth="4" strokeLinecap="round" />
                 </svg>
@@ -57,7 +58,7 @@ export default function Home({ onOpenEnquiry }) {
             </h1>
 
             <p className="hero-description">
-              At Aspire Learning Centre, we provide expert guidance, structured learning and personal attention to help you achieve your academic goals and build a brighter future.
+              JEE &amp; NEET coaching built for serious results — without leaving Mumbra.
             </p>
 
             <div className="hero-actions">
@@ -141,6 +142,9 @@ export default function Home({ onOpenEnquiry }) {
           </div>
         </div>
       </section>
+
+      {/* 8. CLASSES SLIDESHOW */}
+      <ClassesSlideshow />
 
       {/* 9. TESTIMONIALS SLIDER (Second section.png) */}
       <TestimonialSlider />
