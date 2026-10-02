@@ -13,6 +13,7 @@ import {
   Compass 
 } from 'lucide-react';
 import CtaBanner from '../components/CtaBanner';
+import PageSEO from '../components/PageSEO';
 import { coursesData } from '../data/coursesData';
 import './Courses.css';
 
@@ -42,6 +43,11 @@ export default function Courses({ onOpenEnquiry }) {
 
   return (
     <div className="courses-page">
+      <PageSEO 
+        title="Courses & Academic Batches — JEE, NEET, Foundation & Boards"
+        description="Explore structured offline coaching programs for JEE (Main+Adv), NEET Medical, Class 10 Board Champions, 9th Foundation, and Class 11-12 Science at ASPIRE Mumbra."
+        canonicalPath="/courses"
+      />
       {/* Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">
@@ -131,7 +137,7 @@ export default function Courses({ onOpenEnquiry }) {
                       View Syllabus & Details <ArrowRight size={15} />
                     </Link>
                     <button 
-                      onClick={onOpenEnquiry} 
+                      onClick={() => onOpenEnquiry(course.title)} 
                       className="btn btn-primary btn-md"
                     >
                       Enquire Now

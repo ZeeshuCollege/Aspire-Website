@@ -19,7 +19,7 @@ export default function CtaBanner({ onOpenEnquiry }) {
 
             <div className="cta-banner-actions">
               <button 
-                onClick={onOpenEnquiry} 
+                onClick={() => onOpenEnquiry()} 
                 className="btn btn-white btn-lg cta-enroll-btn"
               >
                 Enroll Now <ArrowRight size={18} />
@@ -55,17 +55,27 @@ export default function CtaBanner({ onOpenEnquiry }) {
 
       {/* Video Modal */}
       {videoOpen && (
-        <div className="modal-backdrop" onClick={() => setVideoOpen(false)}>
-          <div className="video-modal-dialog" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close-btn" onClick={() => setVideoOpen(false)}>
+        <div 
+          className="modal-backdrop" 
+          onClick={() => setVideoOpen(false)}
+          onKeyDown={(e) => { if (e.key === 'Escape') setVideoOpen(false); }}
+        >
+          <div 
+            className="video-modal-dialog" 
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="video-tour-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="modal-close-btn" onClick={() => setVideoOpen(false)} aria-label="Close video tour modal">
               <X size={20} />
             </button>
             <div className="video-modal-content">
               <div className="video-screen-mockup">
                 <div className="video-overlay-info">
                   <span className="badge badge-blue">ASPIRE Campus Tour</span>
-                  <h3>A Day in the Life at ASPIRE Learning Centre</h3>
-                  <p>Step inside our smart classrooms, interact with our faculty, and discover our focused offline environment in Andheri (E), Mumbai.</p>
+                  <h3 id="video-tour-title">A Day in the Life at ASPIRE Learning Centre</h3>
+                  <p>Step inside our smart classrooms, interact with our faculty, and discover our focused offline environment in Kausa, Mumbra, Thane.</p>
                   <div className="video-features-chips">
                     <span>✓ Interactive Classrooms</span>
                     <span>✓ 1-on-1 Doubt Desk</span>

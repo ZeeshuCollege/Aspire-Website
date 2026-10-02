@@ -3,16 +3,21 @@ import {
   BookOpen, 
   Users, 
   CheckCircle2, 
-  ArrowRight, 
   ShieldCheck,
   TrendingUp
 } from 'lucide-react';
 import CtaBanner from '../components/CtaBanner';
+import PageSEO from '../components/PageSEO';
 import './About.css';
 
 export default function About({ onOpenEnquiry }) {
   return (
     <div className="about-page">
+      <PageSEO 
+        title="About Us — Offline Coaching Philosophy & Heritage"
+        description="Learn about ASPIRE Learning Centre in Kausa, Mumbra. Founded on disciplined offline classroom pedagogy, small batch sizes, and 1-on-1 teacher mentorship."
+        canonicalPath="/about"
+      />
       {/* Page Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">
@@ -20,7 +25,7 @@ export default function About({ onOpenEnquiry }) {
             Committed to Offline Academic <span className="text-primary">Excellence</span>
           </h1>
           <p className="page-header-subtitle">
-            Founded with a clear purpose: to bring back focused offline classroom coaching, disciplined preparation, and true 1-on-1 personal attention for students in Mumbai.
+            Founded with a clear purpose: to bring back focused offline classroom coaching, disciplined preparation, and true 1-on-1 personal attention for students in Mumbra and Thane.
           </p>
         </div>
       </section>
@@ -36,7 +41,7 @@ export default function About({ onOpenEnquiry }) {
                 At ASPIRE Learning Centre, we believe that real academic breakthroughs happen in the classroom — through live eye contact with experienced teachers, chalkboard problem solving, immediate doubt resolution, and healthy peer competition.
               </p>
               <p className="about-p">
-                Unlike impersonal online learning platforms where students easily get distracted, our centre in Sunrise Complex, Andheri (E) provides an inspiring, distraction-free sanctum designed exclusively for deep focus.
+                Unlike impersonal online learning platforms where students easily get distracted, our centre in Falah Building, Kausa, Mumbra provides an inspiring, distraction-free sanctum designed exclusively for deep focus.
               </p>
 
               <div className="about-pillars-list">
@@ -70,7 +75,7 @@ export default function About({ onOpenEnquiry }) {
                 />
                 <div className="about-floating-experience">
                   <span className="exp-num">5+</span>
-                  <span className="exp-text">Years of Trusted Coaching in Andheri (E)</span>
+                  <span className="exp-text">Years of Trusted Coaching in Kausa, Mumbra</span>
                 </div>
               </div>
             </div>

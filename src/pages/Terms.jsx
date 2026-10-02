@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
+import PageSEO from '../components/PageSEO';
 
 export default function Terms() {
   return (
     <div className="terms-page section">
+      <PageSEO
+        title="Terms & Conditions | ASPIRE Learning Centre"
+        description="Official student and parent terms and conditions for ASPIRE Learning Centre, Kausa, Mumbra. Classroom norms, batch allocation policy, and fee guidelines."
+        canonicalPath="/terms"
+      />
       <div className="container" style={{ maxWidth: '840px' }}>
         <nav className="breadcrumb-nav" style={{ marginBottom: '1.5rem' }}>
           <Link to="/">Home</Link>
@@ -16,7 +22,7 @@ export default function Terms() {
           Terms & Conditions
         </h1>
         <p style={{ color: 'var(--text-subtle)', fontSize: '0.85rem', marginBottom: '2.5rem' }}>
-          Effective: Academic Year 2026–27 | ASPIRE Learning Centre, Andheri (E), Mumbai
+          Effective: Academic Year 2026–27 | ASPIRE Learning Centre, Kausa, Mumbra, Thane – 400612
         </p>
 
         <div style={{ color: 'var(--text-main)', lineHeight: '1.7', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>

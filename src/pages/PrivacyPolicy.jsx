@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
+import PageSEO from '../components/PageSEO';
 
 export default function PrivacyPolicy() {
   return (
     <div className="privacy-page section">
+      <PageSEO
+        title="Privacy Policy | ASPIRE Learning Centre"
+        description="Official privacy policy for ASPIRE Learning Centre, Kausa, Mumbra. Details regarding information collection, student data privacy, and data protection practices."
+        canonicalPath="/privacy-policy"
+      />
       <div className="container" style={{ maxWidth: '840px' }}>
         <nav className="breadcrumb-nav" style={{ marginBottom: '1.5rem' }}>
           <Link to="/">Home</Link>

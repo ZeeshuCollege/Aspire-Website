@@ -28,7 +28,7 @@ export default function FloatingContact({ onOpenEnquiry }) {
       </a>
 
       <button 
-        onClick={onOpenEnquiry}
+        onClick={() => onOpenEnquiry()}
         className="floating-btn floating-enquiry"
         aria-label="Open Admission Enquiry"
         title="Enquire Now"

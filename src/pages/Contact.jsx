@@ -9,6 +9,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import CtaBanner from '../components/CtaBanner';
+import PageSEO from '../components/PageSEO';
 import './Contact.css';
 
 export default function Contact({ onOpenEnquiry }) {
@@ -24,6 +25,17 @@ export default function Contact({ onOpenEnquiry }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formState.name && formState.email) {
+      try {
+        const existing = JSON.parse(localStorage.getItem('aspire_contact_messages') || '[]');
+        const newMsg = {
+          id: `MSG-${Date.now().toString().slice(-5)}`,
+          ...formState,
+          date: new Date().toISOString()
+        };
+        localStorage.setItem('aspire_contact_messages', JSON.stringify([newMsg, ...existing]));
+      } catch {
+        // localStorage fallback
+      }
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);
@@ -34,12 +46,17 @@ export default function Contact({ onOpenEnquiry }) {
 
   return (
     <div className="contact-page">
+      <PageSEO
+        title="Contact ASPIRE Learning Centre | Location, Phone & Inquiry | Kausa, Mumbra"
+        description="Visit or contact ASPIRE Learning Centre in Kausa, Mumbra, Thane. Call +91 70212 20449 or WhatsApp for batch admissions, trial classes, and centre appointments."
+        canonicalPath="/contact"
+      />
       {/* Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">
           <h1 className="page-header-title">Contact & Centre Location</h1>
           <p className="page-header-subtitle">
-            Have questions about admissions, course schedules, or want to book a centre visit? Reach out to us directly or visit our offline campus in Andheri East, Mumbai.
+            Have questions about admissions, course schedules, or want to book a centre visit? Reach out to us directly or visit our offline campus in Kausa, Mumbra, Thane.
           </p>
         </div>
       </section>
@@ -116,7 +133,7 @@ export default function Contact({ onOpenEnquiry }) {
               <div className="map-view-container">
                 <img 
                   src="/images/map-preview.png" 
-                  alt="Map Location of ASPIRE Learning Centre in Andheri East Mumbai" 
+                  alt="Map Location of ASPIRE Learning Centre in Kausa, Mumbra, Thane" 
                   className="contact-map-img"
                 />
                 <div className="map-floating-pin-card">
@@ -125,7 +142,7 @@ export default function Contact({ onOpenEnquiry }) {
                   <a 
                     href="https://maps.google.com/?q=Falah+Building+Kausa+Mumbra+Thane" 
                     target="_blank" 
-                    rel="noreferrer" 
+                    rel="noopener noreferrer" 
                     className="view-gmaps-btn"
                   >
                     View on Google Maps <ArrowRight size={13} />
@@ -149,8 +166,9 @@ export default function Contact({ onOpenEnquiry }) {
                 ) : (
                   <form onSubmit={handleSubmit} className="contact-page-form">
                     <div className="form-group">
-                      <label className="input-label">Your Name *</label>
+                      <label htmlFor="contact-name" className="input-label">Your Name *</label>
                       <input 
+                        id="contact-name"
                         type="text" 
                         required 
                         placeholder="e.g. Priyanshu Sharma"
@@ -161,8 +179,9 @@ export default function Contact({ onOpenEnquiry }) {
                     </div>
 
                     <div className="form-group">
-                      <label className="input-label">Email Address *</label>
+                      <label htmlFor="contact-email" className="input-label">Email Address *</label>
                       <input 
+                        id="contact-email"
                         type="email" 
                         required 
                         placeholder="yourname@gmail.com"
@@ -173,8 +192,9 @@ export default function Contact({ onOpenEnquiry }) {
                     </div>
 
                     <div className="form-group">
-                      <label className="input-label">Phone Number</label>
+                      <label htmlFor="contact-phone" className="input-label">Phone Number</label>
                       <input 
+                        id="contact-phone"
                         type="tel" 
                         placeholder="10-digit mobile number"
                         className="input-field"
@@ -184,8 +204,9 @@ export default function Contact({ onOpenEnquiry }) {
                     </div>
 
                     <div className="form-group">
-                      <label className="input-label">Your Message *</label>
+                      <label htmlFor="contact-message" className="input-label">Your Message *</label>
                       <textarea 
+                        id="contact-message"
                         rows={4}
                         required
                         placeholder="Please ask about courses, batch timings, or fee structure..."

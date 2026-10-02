@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 // Shared Components
@@ -8,24 +8,27 @@ import ScrollToTop from './components/ScrollToTop';
 import ScrollRevealObserver from './components/ScrollRevealObserver';
 import EnquiryModal from './components/EnquiryModal';
 import FloatingContact from './components/FloatingContact';
+import ErrorBoundary from './components/ErrorBoundary';
+import PageLoader from './components/PageLoader';
+import './App.css';
 
-// Pages
-import Home from './pages/Home';
-import About from './pages/About';
-import Courses from './pages/Courses';
-import CourseDetail from './pages/CourseDetail';
-import Results from './pages/Results';
-import Faculty from './pages/Faculty';
-import Methodology from './pages/Methodology';
-import TestSeries from './pages/TestSeries';
-import Updates from './pages/Updates';
-import FAQs from './pages/FAQs';
-import Contact from './pages/Contact';
-import Admissions from './pages/Admissions';
-import AppPortal from './pages/AppPortal';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import Terms from './pages/Terms';
-import NotFound from './pages/NotFound';
+// Lazy Loaded Pages for performance and optimal Core Web Vitals
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Courses = lazy(() => import('./pages/Courses'));
+const CourseDetail = lazy(() => import('./pages/CourseDetail'));
+const Results = lazy(() => import('./pages/Results'));
+const Faculty = lazy(() => import('./pages/Faculty'));
+const Methodology = lazy(() => import('./pages/Methodology'));
+const TestSeries = lazy(() => import('./pages/TestSeries'));
+const Updates = lazy(() => import('./pages/Updates'));
+const FAQs = lazy(() => import('./pages/FAQs'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Admissions = lazy(() => import('./pages/Admissions'));
+const AppPortal = lazy(() => import('./pages/AppPortal'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const Terms = lazy(() => import('./pages/Terms'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 export default function App() {
   const [enquiryOpen, setEnquiryOpen] = useState(false);
@@ -41,35 +44,45 @@ export default function App() {
       <ScrollToTop />
       <ScrollRevealObserver />
       <div className="app-shell">
+        {/* Skip Navigation for Keyboard Accessibility (WCAG 2.2 AA) */}
+        <a href="#main-content" className="skip-to-content">
+          Skip to main content
+        </a>
+
         <Navbar onOpenEnquiry={() => handleOpenEnquiry()} />
 
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home onOpenEnquiry={handleOpenEnquiry} />} />
-            <Route path="/about" element={<About onOpenEnquiry={handleOpenEnquiry} />} />
-            <Route path="/courses" element={<Courses onOpenEnquiry={handleOpenEnquiry} />} />
-            <Route path="/courses/:courseId" element={<CourseDetail onOpenEnquiry={handleOpenEnquiry} />} />
-            <Route path="/batches" element={<Navigate to="/courses" replace />} />
-            <Route path="/results" element={<Results onOpenEnquiry={handleOpenEnquiry} />} />
-            <Route path="/faculty" element={<Faculty onOpenEnquiry={handleOpenEnquiry} />} />
-            <Route path="/methodology" element={<Methodology onOpenEnquiry={handleOpenEnquiry} />} />
-            <Route path="/centre" element={<Navigate to="/about" replace />} />
-            <Route path="/test-series" element={<TestSeries onOpenEnquiry={handleOpenEnquiry} />} />
-            <Route path="/updates" element={<Updates onOpenEnquiry={handleOpenEnquiry} />} />
-            <Route path="/faqs" element={<FAQs onOpenEnquiry={handleOpenEnquiry} />} />
-            <Route path="/contact" element={<Contact onOpenEnquiry={handleOpenEnquiry} />} />
-            <Route path="/admissions" element={<Admissions />} />
-            <Route path="/app/login" element={<AppPortal onOpenEnquiry={handleOpenEnquiry} />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+        <main id="main-content" className="main-content" tabIndex="-1">
+          <ErrorBoundary>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Home onOpenEnquiry={handleOpenEnquiry} />} />
+                <Route path="/about" element={<About onOpenEnquiry={handleOpenEnquiry} />} />
+                <Route path="/courses" element={<Courses onOpenEnquiry={handleOpenEnquiry} />} />
+                <Route path="/courses/:courseId" element={<CourseDetail onOpenEnquiry={handleOpenEnquiry} />} />
+                <Route path="/batches" element={<Navigate to="/courses" replace />} />
+                <Route path="/results" element={<Results onOpenEnquiry={handleOpenEnquiry} />} />
+                <Route path="/faculty" element={<Faculty onOpenEnquiry={handleOpenEnquiry} />} />
+                <Route path="/methodology" element={<Methodology onOpenEnquiry={handleOpenEnquiry} />} />
+                <Route path="/centre" element={<Navigate to="/about" replace />} />
+                <Route path="/test-series" element={<TestSeries onOpenEnquiry={handleOpenEnquiry} />} />
+                <Route path="/updates" element={<Updates onOpenEnquiry={handleOpenEnquiry} />} />
+                <Route path="/faqs" element={<FAQs onOpenEnquiry={handleOpenEnquiry} />} />
+                <Route path="/contact" element={<Contact onOpenEnquiry={handleOpenEnquiry} />} />
+                <Route path="/admissions" element={<Admissions />} />
+                <Route path="/app/login" element={<AppPortal onOpenEnquiry={handleOpenEnquiry} />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </ErrorBoundary>
         </main>
 
         <Footer onOpenEnquiry={() => handleOpenEnquiry()} />
         <FloatingContact onOpenEnquiry={() => handleOpenEnquiry()} />
 
         <EnquiryModal 
+          key={`${enquiryOpen ? 'open' : 'closed'}-${initialCourse}`}
           isOpen={enquiryOpen} 
           onClose={() => setEnquiryOpen(false)} 
           initialCourse={initialCourse}

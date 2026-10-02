@@ -13,6 +13,7 @@ import { coursesData } from '../data/coursesData';
 import { faqData } from '../data/faqData';
 import FAQAccordion from '../components/FAQAccordion';
 import CtaBanner from '../components/CtaBanner';
+import PageSEO from '../components/PageSEO';
 import './CourseDetail.css';
 
 export default function CourseDetail({ onOpenEnquiry }) {
@@ -26,6 +27,22 @@ export default function CourseDetail({ onOpenEnquiry }) {
 
   return (
     <div className="course-detail-page">
+      <PageSEO 
+        title={`${course.title} Coaching Course in Mumbra`}
+        description={course.heroDesc}
+        canonicalPath={`/courses/${course.slug}`}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": course.title,
+          "description": course.heroDesc,
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "ASPIRE Learning Centre",
+            "sameAs": "https://aspirelearningcentre.com"
+          }
+        }}
+      />
       {/* Breadcrumb Header */}
       <section className="course-detail-hero section-bg-soft-blue">
         <div className="container">
@@ -72,7 +89,7 @@ export default function CourseDetail({ onOpenEnquiry }) {
 
               <div className="course-hero-actions">
                 <button 
-                  onClick={onOpenEnquiry} 
+                  onClick={() => onOpenEnquiry(course.title)} 
                   className="btn btn-primary btn-lg"
                 >
                   Enroll / Book Trial Class <ArrowRight size={18} />
@@ -208,7 +225,7 @@ export default function CourseDetail({ onOpenEnquiry }) {
                 </div>
 
                 <div className="sidebar-action-box">
-                  <button onClick={onOpenEnquiry} className="btn btn-primary btn-lg full-width-btn">
+                  <button onClick={() => onOpenEnquiry(course.title)} className="btn btn-primary btn-lg full-width-btn">
                     Book Free Trial Class
                   </button>
                   <a href="tel:+917021220449" className="btn btn-secondary btn-md full-width-btn" style={{ marginTop: '0.75rem' }}>

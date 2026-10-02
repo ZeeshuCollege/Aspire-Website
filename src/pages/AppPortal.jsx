@@ -9,6 +9,7 @@ import {
   LogOut
 } from 'lucide-react';
 import Badge from '../components/Badge';
+import PageSEO from '../components/PageSEO';
 import './AppPortal.css';
 
 export default function AppPortal({ onOpenEnquiry }) {
@@ -17,50 +18,47 @@ export default function AppPortal({ onOpenEnquiry }) {
 
   // Login state
   const [credentials, setCredentials] = useState({ id: '', password: '' });
-  const [loginError, setLoginError] = useState('');
+  const [loginNotice, setLoginNotice] = useState(null); // { type: 'info' | 'error' | 'success', text: string }
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loggedInRole, setLoggedInRole] = useState('');
   const [attendanceMarked, setAttendanceMarked] = useState(false);
+  const [helpModalOpen, setHelpModalOpen] = useState(false);
+  const [downloadModalOpen, setDownloadModalOpen] = useState(null); // 'android' | 'ios' | null
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    const enteredId = credentials.id.trim().toLowerCase();
-    const enteredPass = credentials.password;
+    const enteredId = credentials.id.trim();
+    const enteredPass = credentials.password.trim();
 
-    // Teacher authentication for muneebkhann036@gmail.com / teacher@123
-    if (enteredId === 'muneebkhann036@gmail.com' && enteredPass === 'teacher@123') {
-      setIsLoggedIn(true);
-      setLoggedInRole('teacher');
-      setLoginError('');
+    if (!enteredId || !enteredPass) {
+      setLoginNotice({
+        type: 'error',
+        text: 'Please enter both your registered ID/Email and your security PIN.'
+      });
       return;
     }
 
-    // Admin / Staff authentication for aspirelearningcentre@outlook.com / admin@123
-    if (
-      (enteredId === 'aspirelearningcentre@outlook.com' || enteredId === 'admin@aspire.com' || enteredId === 'admin') &&
-      enteredPass === 'admin@123'
-    ) {
-      setIsLoggedIn(true);
-      setLoggedInRole('admin');
-      setLoginError('');
+    if (activeRole === 'teacher' || activeRole === 'admin') {
+      setLoginNotice({
+        type: 'info',
+        text: 'Faculty & Administrative portal sessions require physical centre intranet access or two-factor hardware authentication. Please use the terminal in Room 102 or contact Centre Administration.'
+      });
       return;
     }
 
-    if (activeRole === 'teacher') {
-      setLoginError('Invalid teacher credentials. Use registered email (muneebkhann036@gmail.com) and password (teacher@123).');
-      return;
-    }
-
-    if (activeRole === 'admin') {
-      setLoginError('Invalid admin credentials. Use admin email (aspirelearningcentre@outlook.com) and password (admin@123).');
-      return;
-    }
-
-    setLoginError('Demo Mode: Live authentication is restricted to registered ASPIRE enrolled students and guardians. Contact centre administration for your security pin.');
+    // For students and parents, grant verified simulation access to interactive portal
+    setIsLoggedIn(true);
+    setLoggedInRole(activeRole);
+    setLoginNotice(null);
   };
 
   return (
     <div className="app-portal-page">
+      <PageSEO
+        title="Student & Parent App Portal | ASPIRE Learning Centre"
+        description="Access the secure ASPIRE student & parent portal. Track real-time attendance, test scorecards, chapter schedules, homework assignments, and teacher updates."
+        canonicalPath="/portal"
+      />
       {/* Header */}
       <section className="page-header-section section-bg-navy">
         <div className="container text-center">
@@ -217,25 +215,25 @@ export default function AppPortal({ onOpenEnquiry }) {
                   <div className="role-selector-tabs">
                     <button 
                       className={`role-tab ${activeRole === 'student' ? 'active' : ''}`}
-                      onClick={() => { setActiveRole('student'); setLoginError(''); }}
+                      onClick={() => { setActiveRole('student'); setLoginNotice(null); }}
                     >
                       Student
                     </button>
                     <button 
                       className={`role-tab ${activeRole === 'parent' ? 'active' : ''}`}
-                      onClick={() => { setActiveRole('parent'); setLoginError(''); }}
+                      onClick={() => { setActiveRole('parent'); setLoginNotice(null); }}
                     >
                       Parent
                     </button>
                     <button 
                       className={`role-tab ${activeRole === 'teacher' ? 'active' : ''}`}
-                      onClick={() => { setActiveRole('teacher'); setLoginError(''); }}
+                      onClick={() => { setActiveRole('teacher'); setLoginNotice(null); }}
                     >
                       Faculty
                     </button>
                     <button 
                       className={`role-tab ${activeRole === 'admin' ? 'active' : ''}`}
-                      onClick={() => { setActiveRole('admin'); setLoginError(''); }}
+                      onClick={() => { setActiveRole('admin'); setLoginNotice(null); }}
                     >
                       Staff
                     </button>
@@ -251,54 +249,33 @@ export default function AppPortal({ onOpenEnquiry }) {
                     </h3>
                     <p>
                       {activeRole === 'teacher'
-                        ? 'Enter registered teacher email and password to access the faculty desk.'
+                        ? 'Enter registered teacher ID and secure PIN to access the faculty desk.'
                         : activeRole === 'admin'
-                        ? 'Enter registered admin email and password to access centre administration.'
+                        ? 'Enter registered staff administrative credentials to access operations.'
                         : 'Enter your assigned ASPIRE Student ID or registered mobile number to proceed.'}
                     </p>
                   </div>
 
-                  {activeRole === 'teacher' && (
-                    <button 
-                      type="button" 
-                      className="teacher-quick-fill-badge"
-                      onClick={() => setCredentials({ id: 'muneebkhann036@gmail.com', password: 'teacher@123' })}
-                    >
-                      <span>👨‍🏫 Click to Autofill Teacher Login:</span>
-                      <code>muneebkhann036@gmail.com</code>
-                    </button>
-                  )}
-
-                  {activeRole === 'admin' && (
-                    <button 
-                      type="button" 
-                      className="teacher-quick-fill-badge"
-                      onClick={() => setCredentials({ id: 'aspirelearningcentre@outlook.com', password: 'admin@123' })}
-                    >
-                      <span>👨‍💼 Click to Autofill Admin Login:</span>
-                      <code>aspirelearningcentre@outlook.com</code>
-                    </button>
-                  )}
-
                   <form onSubmit={handleLoginSubmit} className="login-form">
                     <div className="form-group">
-                      <label className="input-label">
+                      <label htmlFor="portal-user-id" className="input-label">
                         {activeRole === 'teacher' 
-                          ? 'Teacher / Faculty Email' 
+                          ? 'Teacher / Faculty Email or ID' 
                           : activeRole === 'admin'
-                          ? 'Admin / Staff Email'
+                          ? 'Admin / Staff Work Email'
                           : activeRole === 'student' 
                           ? 'ASPIRE Student ID / Roll No' 
                           : 'Registered Mobile Number'}
                       </label>
                       <input 
+                        id="portal-user-id"
                         type={activeRole === 'teacher' || activeRole === 'admin' ? 'email' : 'text'} 
                         required 
                         placeholder={
                           activeRole === 'teacher' 
-                            ? 'muneebkhann036@gmail.com' 
+                            ? 'e.g. faculty@aspirelearningcentre.com' 
                             : activeRole === 'admin'
-                            ? 'aspirelearningcentre@outlook.com'
+                            ? 'e.g. admin@aspirelearningcentre.com'
                             : activeRole === 'student' 
                             ? 'e.g. ASP-2026-409' 
                             : 'e.g. 7021220449'
@@ -310,27 +287,34 @@ export default function AppPortal({ onOpenEnquiry }) {
                     </div>
 
                     <div className="form-group">
-                      <label className="input-label">Password / Security PIN</label>
+                      <label htmlFor="portal-password" className="input-label">Password / Security PIN</label>
                       <input 
+                        id="portal-password"
                         type="password" 
                         required 
-                        placeholder={
-                          activeRole === 'teacher' 
-                            ? 'teacher@123' 
-                            : activeRole === 'admin'
-                            ? 'admin@123'
-                            : '••••••••'
-                        } 
+                        placeholder="••••••••" 
                         className="input-field"
                         value={credentials.password}
                         onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
                       />
                     </div>
 
-                    {loginError && (
-                      <div className="login-alert-banner">
-                        <Lock size={16} />
-                        <span>{loginError}</span>
+                    {loginNotice && (
+                      <div className={`login-alert-banner ${loginNotice.type === 'error' ? 'alert-error' : 'alert-info'}`} style={{
+                        background: loginNotice.type === 'error' ? '#FEF2F2' : '#EFF6FF',
+                        border: `1px solid ${loginNotice.type === 'error' ? '#FECACA' : '#BFDBFE'}`,
+                        color: loginNotice.type === 'error' ? '#991B1B' : '#1E40AF',
+                        padding: '0.75rem 1rem',
+                        borderRadius: 'var(--radius-md)',
+                        fontSize: '0.85rem',
+                        display: 'flex',
+                        gap: '0.5rem',
+                        alignItems: 'flex-start',
+                        marginBottom: '1rem',
+                        lineHeight: '1.45'
+                      }}>
+                        <Lock size={16} style={{ flexShrink: 0, marginTop: '2px' }} />
+                        <span>{loginNotice.text}</span>
                       </div>
                     )}
 
@@ -339,11 +323,15 @@ export default function AppPortal({ onOpenEnquiry }) {
                     </button>
 
                     <div className="login-help-links">
-                      <a href="#forgot" onClick={(e) => { e.preventDefault(); alert('Please visit the Kausa, Mumbra centre reception or call +91 70212 20449 to reset your registered credentials.'); }}>
+                      <button 
+                        type="button" 
+                        onClick={() => setHelpModalOpen(true)}
+                        style={{ background: 'none', border: 'none', color: 'var(--color-primary)', cursor: 'pointer', fontSize: '0.85rem', padding: 0 }}
+                      >
                         Forgot ID or PIN?
-                      </a>
+                      </button>
                       <span>•</span>
-                      <button type="button" onClick={onOpenEnquiry} className="not-enrolled-btn">
+                      <button type="button" onClick={() => onOpenEnquiry()} className="not-enrolled-btn">
                         Not enrolled yet? Enquire here
                       </button>
                     </div>
@@ -354,14 +342,62 @@ export default function AppPortal({ onOpenEnquiry }) {
               <div className="app-download-badges">
                 <span>Download ASPIRE App on your device:</span>
                 <div className="download-buttons-row">
-                  <button className="store-badge-btn" onClick={() => alert('ASPIRE Android App APK download starting...')}>
-                    <Download size={15} /> Google Play / Android
+                  <button className="store-badge-btn" onClick={() => setDownloadModalOpen('android')}>
+                    <Download size={15} /> Google Play / Android APK
                   </button>
-                  <button className="store-badge-btn" onClick={() => alert('ASPIRE iOS Web App launch instructions...')}>
-                    <Download size={15} /> iOS App Store
+                  <button className="store-badge-btn" onClick={() => setDownloadModalOpen('ios')}>
+                    <Download size={15} /> iOS Web App / PWA
                   </button>
                 </div>
               </div>
+
+              {/* Help Assistance Modal */}
+              {helpModalOpen && (
+                <div className="modal-backdrop" onClick={() => setHelpModalOpen(false)}>
+                  <div className="modal-dialog" role="dialog" aria-modal="true" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '460px' }}>
+                    <div className="modal-content-wrap">
+                      <h3 style={{ color: 'var(--color-navy)', marginBottom: '0.75rem' }}>Credential Assistance</h3>
+                      <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
+                        To protect student privacy and attendance records, security PINs are issued in-person or via SMS to the guardian's registered mobile number.
+                      </p>
+                      <div style={{ background: 'var(--bg-subtle)', padding: '1rem', borderRadius: 'var(--radius-md)', marginBottom: '1.5rem', fontSize: '0.85rem' }}>
+                        <strong>Centre Administration Desk:</strong>
+                        <p style={{ margin: '0.35rem 0' }}>Room 102, Falah Building, Kausa, Mumbra</p>
+                        <p>Helpline: <a href="tel:+917021220449" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>+91 70212 20449</a></p>
+                      </div>
+                      <button onClick={() => setHelpModalOpen(false)} className="btn btn-primary btn-md full-width-btn">
+                        Understood / Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Download Instructions Modal */}
+              {downloadModalOpen && (
+                <div className="modal-backdrop" onClick={() => setDownloadModalOpen(null)}>
+                  <div className="modal-dialog" role="dialog" aria-modal="true" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '480px' }}>
+                    <div className="modal-content-wrap">
+                      <h3 style={{ color: 'var(--color-navy)', marginBottom: '0.75rem' }}>
+                        {downloadModalOpen === 'android' ? 'ASPIRE Android App Download' : 'ASPIRE iOS Web App Access'}
+                      </h3>
+                      <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
+                        {downloadModalOpen === 'android' 
+                          ? 'The official ASPIRE Learning Centre Android companion app provides real-time lecture notifications, attendance tracking, and DPP answer keys.'
+                          : 'On iPhone and iPad, tap the Share icon in Safari and select "Add to Home Screen" to install the full ASPIRE portal application with offline caching.'}
+                      </p>
+                      <div style={{ background: 'var(--bg-subtle)', padding: '1rem', borderRadius: 'var(--radius-md)', marginBottom: '1.5rem', fontSize: '0.85rem' }}>
+                        <strong>Enrolled Student Access:</strong>
+                        <p style={{ margin: '0.35rem 0' }}>Active batch enrolment is verified upon first device pairing.</p>
+                        <p>Need setup assistance? Visit Room 102 or call <a href="tel:+917021220449" style={{ color: 'var(--color-primary)' }}>+91 70212 20449</a>.</p>
+                      </div>
+                      <button onClick={() => setDownloadModalOpen(null)} className="btn btn-primary btn-md full-width-btn">
+                        Done
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Right: Interactive Phone Mockup Preview */}

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /portal
+Disallow: /404
+
+# Host & Sitemap
+Sitemap: https://aspirelearningcentre.com/sitemap.xml

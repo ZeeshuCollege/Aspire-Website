@@ -5,12 +5,18 @@ import {
 } from 'lucide-react';
 import Badge from '../components/Badge';
 import CtaBanner from '../components/CtaBanner';
+import PageSEO from '../components/PageSEO';
 import './TestSeries.css';
 
 export default function TestSeries({ onOpenEnquiry }) {
 
   return (
     <div className="test-series-page">
+      <PageSEO
+        title="Test Series & Performance Analytics | JEE, NEET, Board Mocks | ASPIRE"
+        description="Rigorous weekly chapter tests, monthly cumulative exams, and full-length board/competitive mock test series with OMR evaluation and performance diagnostics at ASPIRE."
+        canonicalPath="/test-series"
+      />
       {/* Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">

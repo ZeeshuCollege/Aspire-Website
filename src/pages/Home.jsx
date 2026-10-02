@@ -18,6 +18,7 @@ import CourseCard from '../components/CourseCard';
 import ClassesSlideshow from '../components/ClassesSlideshow';
 import TestimonialSlider from '../components/TestimonialSlider';
 import FAQAccordion from '../components/FAQAccordion';
+import PageSEO from '../components/PageSEO';
 
 import { coursesData } from '../data/coursesData';
 import { methodologySteps } from '../data/methodologyData';
@@ -34,6 +35,17 @@ export default function Home({ onOpenEnquiry }) {
   const handleQuickContact = (e) => {
     e.preventDefault();
     if (contactForm.name && (contactForm.email || contactForm.phone)) {
+      try {
+        const existing = JSON.parse(localStorage.getItem('aspire_quick_inquiries') || '[]');
+        const newRecord = {
+          id: `QCK-${Date.now().toString().slice(-5)}`,
+          ...contactForm,
+          date: new Date().toISOString()
+        };
+        localStorage.setItem('aspire_quick_inquiries', JSON.stringify([newRecord, ...existing]));
+      } catch {
+        // Fallback
+      }
       setContactSent(true);
       setContactForm({ name: '', email: '', phone: '', message: '' });
       setTimeout(() => setContactSent(false), 5000);
@@ -42,6 +54,29 @@ export default function Home({ onOpenEnquiry }) {
 
   return (
     <div className="home-page-wrap">
+      <PageSEO 
+        title="Kota-Level Preparation in Mumbra | Std. 8–12, NEET & JEE Coaching"
+        description="ASPIRE Learning Centre: Top offline coaching institute in Kausa, Mumbra, Thane. Focused batches, expert faculty, daily doubt counters & regular testing for JEE, NEET, and Boards."
+        canonicalPath="/"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "EducationalOrganization",
+          "name": "ASPIRE Learning Centre",
+          "alternateName": "Aspire Classes Mumbra",
+          "url": "https://aspirelearningcentre.com",
+          "logo": "https://aspirelearningcentre.com/images/logo.png",
+          "telephone": "+917021220449",
+          "email": "aspirelearningcentre@outlook.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Falah Building, Room No. 102, Near Darul Falah Masjid, Opp DCB Bank, Kausa",
+            "addressLocality": "Mumbra, Thane",
+            "postalCode": "400612",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+          }
+        }}
+      />
       {/* 1. HERO SECTION (Matching First section.png) */}
       <section className="hero-section">
         <div className="container hero-container">

@@ -5,6 +5,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import Badge from '../components/Badge';
+import PageSEO from '../components/PageSEO';
 import confetti from 'canvas-confetti';
 import './Admissions.css';
 
@@ -76,6 +77,11 @@ export default function Admissions() {
 
   return (
     <div className="admissions-page">
+      <PageSEO
+        title="Admissions 2026–27 | Enrolment Process & Scholarship | ASPIRE Kausa, Mumbra"
+        description="Apply for admissions at ASPIRE Learning Centre in Kausa, Mumbra for JEE, NEET, Class 9 & 10 State & CBSE boards. Transparent fees, scholarship test, and 2 free trial lectures."
+        canonicalPath="/admissions"
+      />
       {/* Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">
@@ -155,8 +161,9 @@ export default function Admissions() {
               <form onSubmit={handleSubmit} className="admissions-full-form">
                 <div className="form-grid-2">
                   <div className="form-group">
-                    <label className="input-label">Student Full Name *</label>
+                    <label htmlFor="adm-student-name" className="input-label">Student Full Name *</label>
                     <input 
+                      id="adm-student-name"
                       type="text" 
                       required 
                       placeholder="e.g. Aryan Sharma" 
@@ -167,8 +174,9 @@ export default function Admissions() {
                   </div>
 
                   <div className="form-group">
-                    <label className="input-label">Parent / Guardian Name *</label>
+                    <label htmlFor="adm-parent-name" className="input-label">Parent / Guardian Name *</label>
                     <input 
+                      id="adm-parent-name"
                       type="text" 
                       required 
                       placeholder="e.g. Rajesh Sharma" 
@@ -181,8 +189,9 @@ export default function Admissions() {
 
                 <div className="form-grid-2">
                   <div className="form-group">
-                    <label className="input-label">Mobile Number *</label>
+                    <label htmlFor="adm-phone" className="input-label">Mobile Number *</label>
                     <input 
+                      id="adm-phone"
                       type="tel" 
                       required 
                       pattern="[0-9]{10}"
@@ -194,8 +203,9 @@ export default function Admissions() {
                   </div>
 
                   <div className="form-group">
-                    <label className="input-label">Email Address (Optional)</label>
+                    <label htmlFor="adm-email" className="input-label">Email Address (Optional)</label>
                     <input 
+                      id="adm-email"
                       type="email" 
                       placeholder="name@gmail.com" 
                       className="input-field"
@@ -207,8 +217,9 @@ export default function Admissions() {
 
                 <div className="form-grid-3">
                   <div className="form-group">
-                    <label className="input-label">Current Grade / Standard *</label>
+                    <label htmlFor="adm-class" className="input-label">Current Grade / Standard *</label>
                     <select 
+                      id="adm-class"
                       className="input-field"
                       value={formData.currentClass}
                       onChange={(e) => setFormData({ ...formData, currentClass: e.target.value })}
@@ -223,8 +234,9 @@ export default function Admissions() {
                   </div>
 
                   <div className="form-group">
-                    <label className="input-label">Education Board *</label>
+                    <label htmlFor="adm-board" className="input-label">Education Board *</label>
                     <select 
+                      id="adm-board"
                       className="input-field"
                       value={formData.board}
                       onChange={(e) => setFormData({ ...formData, board: e.target.value })}
@@ -237,8 +249,9 @@ export default function Admissions() {
                   </div>
 
                   <div className="form-group">
-                    <label className="input-label">Interested Course *</label>
+                    <label htmlFor="adm-course" className="input-label">Interested Course *</label>
                     <select 
+                      id="adm-course"
                       className="input-field"
                       value={formData.interestedCourse}
                       onChange={(e) => setFormData({ ...formData, interestedCourse: e.target.value })}
@@ -254,10 +267,11 @@ export default function Admissions() {
                 </div>
 
                 <div className="form-group">
-                  <label className="input-label">Previous School / College Name (Optional)</label>
+                  <label htmlFor="adm-school" className="input-label">Previous School / College Name (Optional)</label>
                   <input 
+                    id="adm-school"
                     type="text" 
-                    placeholder="e.g. Podar International School, Andheri"
+                    placeholder="e.g. St. Mary's High School / Symbiosis Convent, Kausa"
                     className="input-field"
                     value={formData.previousSchool}
                     onChange={(e) => setFormData({ ...formData, previousSchool: e.target.value })}
@@ -265,8 +279,9 @@ export default function Admissions() {
                 </div>
 
                 <div className="form-group">
-                  <label className="input-label">Any specific questions or request for trial class date?</label>
+                  <label htmlFor="adm-message" className="input-label">Any specific questions or request for trial class date?</label>
                   <textarea 
+                    id="adm-message"
                     rows={3}
                     placeholder="e.g. Looking to attend demo lecture this Friday evening..."
                     className="input-field"

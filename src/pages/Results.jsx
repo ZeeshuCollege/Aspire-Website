@@ -5,6 +5,7 @@ import {
   Quote 
 } from 'lucide-react';
 import CtaBanner from '../components/CtaBanner';
+import PageSEO from '../components/PageSEO';
 import { resultsData, resultsStats } from '../data/resultsData';
 import './Results.css';
 
@@ -23,6 +24,11 @@ export default function Results({ onOpenEnquiry }) {
 
   return (
     <div className="results-page">
+      <PageSEO 
+        title="Results & Hall of Fame — JEE, NEET & Board Toppers"
+        description="Explore 100% verified results of ASPIRE Learning Centre students in JEE Advanced, JEE Main, NEET UG, and Class 10/12 Board examinations."
+        canonicalPath="/results"
+      />
       {/* Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">

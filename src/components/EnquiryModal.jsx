@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, Phone, Sparkles, Send, Calendar, MapPin } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import './EnquiryModal.css';
@@ -17,6 +17,18 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // Handle Escape key to close modal
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const handleChange = (e) => {
@@ -32,13 +44,17 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
 
     // Simulate fast submission & local persistence
     setTimeout(() => {
-      const existing = JSON.parse(localStorage.getItem('aspire_enquiries') || '[]');
-      const newRecord = {
-        id: `ENQ-${Date.now().toString().slice(-5)}`,
-        ...formData,
-        date: new Date().toISOString()
-      };
-      localStorage.setItem('aspire_enquiries', JSON.stringify([newRecord, ...existing]));
+      try {
+        const existing = JSON.parse(localStorage.getItem('aspire_enquiries') || '[]');
+        const newRecord = {
+          id: `ENQ-${Date.now().toString().slice(-5)}`,
+          ...formData,
+          date: new Date().toISOString()
+        };
+        localStorage.setItem('aspire_enquiries', JSON.stringify([newRecord, ...existing]));
+      } catch {
+        // Fallback
+      }
 
       setLoading(false);
       setSubmitted(true);
@@ -72,7 +88,13 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+      <div 
+        className="modal-dialog" 
+        role="dialog" 
+        aria-modal="true" 
+        aria-labelledby="enquiry-modal-title"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
           <X size={20} />
         </button>
@@ -86,7 +108,7 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
                   <Sparkles size={13} /> Offline Batch Admissions
                 </span>
               </div>
-              <h3 className="modal-title">Enquire for Admissions</h3>
+              <h3 id="enquiry-modal-title" className="modal-title">Enquire for Admissions</h3>
               <p className="modal-desc">
                 Fill out the quick form below. Our academic counsellor will get in touch within 2 hours to discuss batch options and arrange a free demo session.
               </p>
@@ -95,8 +117,9 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
             <form onSubmit={handleSubmit} className="modal-form">
               <div className="form-row-2">
                 <div className="form-group">
-                  <label className="input-label">Student Name *</label>
+                  <label htmlFor="enq-student-name" className="input-label">Student Name *</label>
                   <input 
+                    id="enq-student-name"
                     type="text" 
                     name="studentName"
                     required
@@ -107,8 +130,9 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
                   />
                 </div>
                 <div className="form-group">
-                  <label className="input-label">Parent / Guardian Name *</label>
+                  <label htmlFor="enq-parent-name" className="input-label">Parent / Guardian Name *</label>
                   <input 
+                    id="enq-parent-name"
                     type="text" 
                     name="parentName"
                     required
@@ -122,8 +146,9 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
 
               <div className="form-row-2">
                 <div className="form-group">
-                  <label className="input-label">Mobile Number *</label>
+                  <label htmlFor="enq-phone" className="input-label">Mobile Number *</label>
                   <input 
+                    id="enq-phone"
                     type="tel" 
                     name="phone"
                     required
@@ -135,8 +160,9 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
                   />
                 </div>
                 <div className="form-group">
-                  <label className="input-label">Email Address (Optional)</label>
+                  <label htmlFor="enq-email" className="input-label">Email Address (Optional)</label>
                   <input 
+                    id="enq-email"
                     type="email" 
                     name="email"
                     placeholder="name@email.com"
@@ -149,8 +175,9 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
 
               <div className="form-row-2">
                 <div className="form-group">
-                  <label className="input-label">Interested Course *</label>
+                  <label htmlFor="enq-course" className="input-label">Interested Course *</label>
                   <select 
+                    id="enq-course"
                     name="course" 
                     className="input-field"
                     value={formData.course}
@@ -166,8 +193,9 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
                 </div>
 
                 <div className="form-group">
-                  <label className="input-label">Preferred Batch Slot</label>
+                  <label htmlFor="enq-timing" className="input-label">Preferred Batch Slot</label>
                   <select 
+                    id="enq-timing"
                     name="batchTiming" 
                     className="input-field"
                     value={formData.batchTiming}
@@ -184,8 +212,9 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
               </div>
 
               <div className="form-group">
-                <label className="input-label">Any specific questions or current school/board?</label>
+                <label htmlFor="enq-message" className="input-label">Any specific questions or current school/board?</label>
                 <textarea 
+                  id="enq-message"
                   name="message" 
                   rows={2}
                   placeholder="e.g. CBSE board student, interested in demo class for Physics & Maths..."

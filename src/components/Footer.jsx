@@ -85,12 +85,23 @@ export default function Footer({ onOpenEnquiry }) {
 
         {/* Follow & Newsletter */}
         <div className="footer-col footer-col-newsletter">
-          <h4 className="footer-col-title">Follow Us</h4>
+          <h4 className="footer-col-title">Admissions & Social</h4>
+          <p style={{ fontSize: '0.875rem', color: '#94A3B8', marginBottom: '1rem', lineHeight: '1.5' }}>
+            Admissions open for JEE, NEET, Foundation, 10th & 9th. Register for diagnostic counselling today.
+          </p>
+          <button 
+            type="button"
+            onClick={onOpenEnquiry} 
+            className="btn btn-primary btn-sm"
+            style={{ width: '100%', marginBottom: '1.25rem', justifyContent: 'center' }}
+          >
+            Enquire for Admission
+          </button>
           <div className="footer-social-row">
             <a 
               href="https://instagram.com" 
               target="_blank" 
-              rel="noreferrer" 
+              rel="noopener noreferrer" 
               className="social-btn"
               aria-label="Instagram"
             >
@@ -99,7 +110,7 @@ export default function Footer({ onOpenEnquiry }) {
             <a 
               href="https://youtube.com" 
               target="_blank" 
-              rel="noreferrer" 
+              rel="noopener noreferrer" 
               className="social-btn"
               aria-label="YouTube"
             >
@@ -108,7 +119,7 @@ export default function Footer({ onOpenEnquiry }) {
             <a 
               href="https://wa.me/917021220449" 
               target="_blank" 
-              rel="noreferrer" 
+              rel="noopener noreferrer" 
               className="social-btn"
               aria-label="WhatsApp"
             >
@@ -117,7 +128,7 @@ export default function Footer({ onOpenEnquiry }) {
             <a 
               href="https://facebook.com" 
               target="_blank" 
-              rel="noreferrer" 
+              rel="noopener noreferrer" 
               className="social-btn"
               aria-label="Facebook"
             >

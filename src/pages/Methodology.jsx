@@ -7,12 +7,18 @@ import {
 } from 'lucide-react';
 import Badge from '../components/Badge';
 import CtaBanner from '../components/CtaBanner';
+import PageSEO from '../components/PageSEO';
 import { methodologySteps } from '../data/methodologyData';
 import './Methodology.css';
 
 export default function Methodology({ onOpenEnquiry }) {
   return (
     <div className="methodology-page">
+      <PageSEO
+        title="Teaching Methodology | 5-Step Learning Cycle | ASPIRE Learning Centre"
+        description="Discover the 5-step ASPIRE academic learning cycle: Concept Mastery, Rigorous Practice, Weekly Testing, Error Analysis, and Target Improvement for JEE, NEET & Board exams."
+        canonicalPath="/methodology"
+      />
       {/* Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">

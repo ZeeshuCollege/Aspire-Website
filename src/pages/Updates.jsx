@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import Badge from '../components/Badge';
 import CtaBanner from '../components/CtaBanner';
+import PageSEO from '../components/PageSEO';
 import { updatesData } from '../data/updatesData';
 import './Updates.css';
 
@@ -22,6 +23,11 @@ export default function Updates({ onOpenEnquiry }) {
 
   return (
     <div className="updates-page">
+      <PageSEO
+        title="Latest Updates, Admissions & Announcements | ASPIRE Learning Centre"
+        description="Official notices and announcements from ASPIRE Learning Centre, Kausa, Mumbra. Batch commencement dates, scholarship tests (ATSE), and academic timetables."
+        canonicalPath="/updates"
+      />
       {/* Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">
@@ -87,13 +93,23 @@ export default function Updates({ onOpenEnquiry }) {
 
       {/* Notice Modal */}
       {activeNotice && (
-        <div className="modal-backdrop" onClick={() => setActiveNotice(null)}>
-          <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+        <div 
+          className="modal-backdrop" 
+          onClick={() => setActiveNotice(null)}
+          onKeyDown={(e) => { if (e.key === 'Escape') setActiveNotice(null); }}
+        >
+          <div 
+            className="modal-dialog" 
+            role="dialog" 
+            aria-modal="true" 
+            aria-labelledby="notice-dialog-title" 
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="modal-content-wrap">
               <span className={`badge badge-${activeNotice.badgeColor}`}>
                 {activeNotice.category} Notice
               </span>
-              <h2 style={{ fontSize: '1.5rem', color: 'var(--color-navy)', margin: '0.75rem 0' }}>
+              <h2 id="notice-dialog-title" style={{ fontSize: '1.5rem', color: 'var(--color-navy)', margin: '0.75rem 0' }}>
                 {activeNotice.title}
               </h2>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-subtle)', marginBottom: '1.25rem' }}>
@@ -103,7 +119,7 @@ export default function Updates({ onOpenEnquiry }) {
               <div style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.65', marginBottom: '2rem' }}>
                 <p>{activeNotice.summary}</p>
                 <p style={{ marginTop: '1rem' }}>
-                  All registered students and parents are requested to review the schedule. For any clarifications, please contact the admissions desk at Sunrise Complex, Andheri (E) or call <a href="tel:+917021220449" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>+91 70212 20449</a>.
+                  All registered students and parents are requested to review the schedule. For any clarifications, please contact the admissions desk at Falah Building, Room No. 102, Kausa, Mumbra, Thane or call <a href="tel:+917021220449" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>+91 70212 20449</a>.
                 </p>
               </div>
 

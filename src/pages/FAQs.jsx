@@ -3,6 +3,7 @@ import { Search, Phone, MessageCircle, ArrowRight } from 'lucide-react';
 import Badge from '../components/Badge';
 import FAQAccordion from '../components/FAQAccordion';
 import CtaBanner from '../components/CtaBanner';
+import PageSEO from '../components/PageSEO';
 import { faqData } from '../data/faqData';
 import './FAQs.css';
 
@@ -21,6 +22,11 @@ export default function FAQs({ onOpenEnquiry }) {
 
   return (
     <div className="faqs-page">
+      <PageSEO
+        title="Frequently Asked Questions (FAQ) | ASPIRE Learning Centre"
+        description="Have questions about admissions, fees, batch timings, scholarships, study materials, or trial classes at ASPIRE? Read our comprehensive FAQ answers."
+        canonicalPath="/faqs"
+      />
       {/* Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">

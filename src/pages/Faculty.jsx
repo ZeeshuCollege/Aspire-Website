@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { GraduationCap } from 'lucide-react';
 import CtaBanner from '../components/CtaBanner';
+import PageSEO from '../components/PageSEO';
 import { facultyData } from '../data/facultyData';
 import './Faculty.css';
 
@@ -16,6 +17,11 @@ export default function Faculty({ onOpenEnquiry }) {
 
   return (
     <div className="faculty-page">
+      <PageSEO 
+        title="Expert Faculty & Mentors — IITian & Subject Specialists"
+        description="Meet the experienced faculty at ASPIRE Learning Centre, Mumbra. Full-time subject specialists in Mathematics, Physics, Chemistry, and Biology dedicated to 1-on-1 mentorship."
+        canonicalPath="/faculty"
+      />
       {/* Header */}
       <section className="page-header-section section-bg-soft-blue">
         <div className="container text-center">
@@ -41,8 +47,8 @@ export default function Faculty({ onOpenEnquiry }) {
               <p>Faculty members are available daily in our doubt cubicles for personal assistance.</p>
             </div>
             <div className="fac-phil-box reveal-on-scroll reveal-right stagger-3">
-              <span className="fac-phil-num">100+ Yrs</span>
-              <strong>Average Teaching Experience</strong>
+              <span className="fac-phil-num">50+ Yrs</span>
+              <strong>Combined Educator Experience</strong>
               <p>Seasoned educators who know common student pitfalls and exam marking schemes.</p>
             </div>
           </div>
@@ -53,7 +59,7 @@ export default function Faculty({ onOpenEnquiry }) {
       <section className="section">
         <div className="container">
           <div className="faculty-filter-tabs reveal-on-scroll reveal-bottom">
-            {subjectTabs.map((sub) => (
+            {subjects.map((sub) => (
               <button
                 key={sub}
                 onClick={() => setSubjectFilter(sub)}
@@ -100,7 +106,7 @@ export default function Faculty({ onOpenEnquiry }) {
                     <span>{faculty.specialization}</span>
                   </div>
 
-                  <button onClick={onOpenEnquiry} className="btn btn-secondary btn-sm full-width-btn" style={{ marginTop: '1.25rem' }}>
+                  <button onClick={() => onOpenEnquiry()} className="btn btn-secondary btn-sm full-width-btn" style={{ marginTop: '1.25rem' }}>
                     Request Demo Class with {faculty.name.split(' ')[1]} Sir/Ma'am
                   </button>
                 </div>

@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BookX, ArrowRight, Home, Compass } from 'lucide-react';
+import PageSEO from '../components/PageSEO';
 
 export default function NotFound() {
   return (
     <div className="not-found-page section text-center" style={{ padding: '6rem 1rem' }}>
+      <PageSEO
+        title="404 - Page Not Found | ASPIRE Learning Centre"
+        description="The page you requested could not be found. Return to ASPIRE Learning Centre homepage or explore our coaching courses."
+        canonicalPath="/404"
+        noindex={true}
+      />
       <div className="container" style={{ maxWidth: '600px' }}>
         <div style={{ 
           width: '72px', 

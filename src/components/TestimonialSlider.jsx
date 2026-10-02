@@ -1,12 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Star, Quote } from 'lucide-react';
 import { testimonialsData } from '../data/testimonialsData';
 import './TestimonialSlider.css';
 
 export default function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 3;
+  const [itemsPerPage, setItemsPerPage] = useState(3);
+
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      if (typeof window !== 'undefined') {
+        if (window.innerWidth <= 640) {
+          setItemsPerPage(1);
+        } else if (window.innerWidth <= 1100) {
+          setItemsPerPage(2);
+        } else {
+          setItemsPerPage(3);
+        }
+      }
+    };
+    updateItemsPerPage();
+    window.addEventListener('resize', updateItemsPerPage);
+    return () => window.removeEventListener('resize', updateItemsPerPage);
+  }, []);
+
   const maxIndex = Math.max(0, testimonialsData.length - itemsPerPage);
+  const effectiveIndex = Math.min(currentIndex, maxIndex);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
@@ -49,7 +68,7 @@ export default function TestimonialSlider() {
                 {Array.from({ length: maxIndex + 1 }).map((_, i) => (
                   <button 
                     key={i} 
-                    className={`dot ${i === currentIndex ? 'active' : ''}`}
+                    className={`dot ${i === effectiveIndex ? 'active' : ''}`}
                     onClick={() => setCurrentIndex(i)}
                     aria-label={`Go to slide ${i + 1}`}
                   />
@@ -63,7 +82,7 @@ export default function TestimonialSlider() {
             <div 
               className="testimonials-track"
               style={{
-                transform: `translateX(-${currentIndex * 33.333}%)`
+                transform: `translateX(-${effectiveIndex * (100 / itemsPerPage)}%)`
               }}
             >
               {testimonialsData.map((item) => (
