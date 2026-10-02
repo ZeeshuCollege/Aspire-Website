@@ -94,15 +94,15 @@ export default function About({ onOpenEnquiry }) {
                 “When a student grasps the fundamental concept behind a formula, fear disappears and confidence takes over. Our goal at ASPIRE is never rote memorization — it is developing structured analytical reasoning that empowers students to crack Board examinations, NEET, and JEE with calm composure.”
               </blockquote>
               <div className="director-signature-block">
-                <strong>Er. Rohit Sharma</strong>
+                <strong>HMD Sir</strong>
                 <span>Founder & Academic Director, ASPIRE Learning Centre</span>
-                <span className="director-creds">B.Tech, IIT Delhi | 12+ Years Teaching Experience</span>
+                <span className="director-creds">M.Sc in Physics and Mathematics | Expert for JEE (Adv) | 12+ Years Teaching Experience</span>
               </div>
             </div>
             <div className="director-photo-col reveal-on-scroll reveal-right stagger-2">
               <img 
-                src="/images/faculty-rohit.png" 
-                alt="Director Rohit Sharma" 
+                src="/images/hm_sir_cutout.png" 
+                alt="HMD Sir - Founder & Academic Director" 
                 className="director-img"
               />
             </div>

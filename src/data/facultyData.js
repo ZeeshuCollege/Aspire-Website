@@ -13,16 +13,16 @@ export const facultyData = [
     bio: "Dedicated senior educator and faculty mentor specializing in analytical problem-solving and foundational concept building for board and competitive examinations."
   },
   {
-    id: "fac-rohit",
-    name: "Mr. Rohit Sharma",
-    subject: "Mathematics",
+    id: "fac-hmd",
+    name: "HMD Sir",
+    subject: "Physics & Mathematics",
     tagColor: "blue",
     experience: "12+ Years Experience",
-    quote: "Mathematics is not just a subject, it's a way of thinking.",
-    degree: "B.Tech, IIT Delhi",
-    specialization: "Calculus, Coordinate Geometry & JEE Advanced Problem Solving",
-    image: "/images/faculty-rohit.png",
-    bio: "Ex-IIT Delhi with over 12 years of coaching students for JEE Main, Advanced, and Board exams. Rohit sir has mentored 140+ students into the IITs and NITs."
+    quote: "When concepts are clear, solving advanced problems becomes second nature.",
+    degree: "M.Sc in Physics and Mathematics",
+    specialization: "Expert for JEE (Adv) & Advanced Problem Solving",
+    image: "/images/hm_sir_cutout.png",
+    bio: "Academic Director & Senior Mentor with 12+ years of coaching students for JEE Advanced, JEE Main, and Board exams with top percentiles."
   },
   {
     id: "fac-priya",

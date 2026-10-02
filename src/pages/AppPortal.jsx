@@ -502,7 +502,7 @@ export default function AppPortal({ onOpenEnquiry }) {
                         <div className="p-card lecture-card">
                           <div className="p-time-badge">6:00 PM - 7:00 PM</div>
                           <h4>Mathematics: Quadratic Equations</h4>
-                          <span>Mr. Rohit Sharma • Classroom A-2</span>
+                          <span>HMD Sir • Classroom A-2</span>
                         </div>
                       </div>
                     )}

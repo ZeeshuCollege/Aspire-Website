@@ -32,7 +32,7 @@ export const updatesData = [
     date: "August 28, 2026",
     category: "Events",
     badgeColor: "violet",
-    summary: "Conducted by Rohit Sharma (B.Tech IIT Delhi) covering high-weightage topics and negative marking minimization.",
+    summary: "Conducted by HMD Sir (M.Sc in Physics & Mathematics, Expert for JEE Adv) covering high-weightage topics and negative marking minimization.",
     urgent: false
   }
 ];
