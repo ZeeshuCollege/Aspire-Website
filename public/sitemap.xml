@@ -64,14 +64,6 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Faculty -->
-  <url>
-    <loc>https://aspirelearningcentre.com/faculty</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
   <!-- About -->
   <url>
     <loc>https://aspirelearningcentre.com/about</loc>

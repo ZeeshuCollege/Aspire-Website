@@ -31,7 +31,6 @@ export default function Navbar({ onOpenEnquiry }) {
     { name: 'About', path: '/about' },
     { name: 'Courses', path: '/courses' },
     { name: 'Results', path: '/results' },
-    { name: 'Faculty', path: '/faculty' },
     { name: 'Contact', path: '/contact' }
   ];
 

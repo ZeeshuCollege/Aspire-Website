@@ -52,7 +52,6 @@ export default function Footer({ onOpenEnquiry }) {
             <li><Link to="/about">About Us</Link></li>
             <li><Link to="/courses">Courses</Link></li>
             <li><Link to="/results">Results</Link></li>
-            <li><Link to="/faculty">Faculty</Link></li>
             <li><Link to="/methodology">Teaching Methodology</Link></li>
           </ul>
         </div>

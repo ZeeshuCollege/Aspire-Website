@@ -18,7 +18,6 @@ const About = lazy(() => import('./pages/About'));
 const Courses = lazy(() => import('./pages/Courses'));
 const CourseDetail = lazy(() => import('./pages/CourseDetail'));
 const Results = lazy(() => import('./pages/Results'));
-const Faculty = lazy(() => import('./pages/Faculty'));
 const Methodology = lazy(() => import('./pages/Methodology'));
 const TestSeries = lazy(() => import('./pages/TestSeries'));
 const Updates = lazy(() => import('./pages/Updates'));
@@ -61,7 +60,7 @@ export default function App() {
                 <Route path="/courses/:courseId" element={<CourseDetail onOpenEnquiry={handleOpenEnquiry} />} />
                 <Route path="/batches" element={<Navigate to="/courses" replace />} />
                 <Route path="/results" element={<Results onOpenEnquiry={handleOpenEnquiry} />} />
-                <Route path="/faculty" element={<Faculty onOpenEnquiry={handleOpenEnquiry} />} />
+                <Route path="/faculty" element={<Navigate to="/about" replace />} />
                 <Route path="/methodology" element={<Methodology onOpenEnquiry={handleOpenEnquiry} />} />
                 <Route path="/centre" element={<Navigate to="/about" replace />} />
                 <Route path="/test-series" element={<TestSeries onOpenEnquiry={handleOpenEnquiry} />} />
