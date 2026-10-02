@@ -69,8 +69,8 @@ export default function About({ onOpenEnquiry }) {
             <div className="about-split-visual reveal-on-scroll reveal-right stagger-2">
               <div className="about-image-card">
                 <img 
-                  src="/images/student-studying.png" 
-                  alt="Students focused in ASPIRE classroom" 
+                  src="/images/aspire-classroom-students.jpg" 
+                  alt="Students studying in ASPIRE classroom, Kausa, Mumbra" 
                   className="about-main-img"
                 />
                 <div className="about-floating-experience">

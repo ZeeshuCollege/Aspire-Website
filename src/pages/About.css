@@ -73,7 +73,12 @@
 
 .about-main-img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  min-height: 380px;
+  max-height: 480px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 25%;
   display: block;
 }
 
