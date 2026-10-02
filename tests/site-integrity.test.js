@@ -46,7 +46,7 @@ describe('ASPIRE Data & Route Integrity Tests', () => {
     const { resultsData } = await import('../src/data/resultsData.js');
     const { testimonialsData } = await import('../src/data/testimonialsData.js');
 
-    assert.ok(Array.isArray(resultsData) && resultsData.length > 0, 'resultsData must be a non-empty array');
+    assert.ok(Array.isArray(resultsData), 'resultsData must be an array');
     for (const res of resultsData) {
       assert.ok(res.studentName, 'Result must have a studentName');
       assert.ok(res.score, 'Result must have a score/rank');

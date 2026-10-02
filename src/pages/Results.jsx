@@ -57,73 +57,100 @@ export default function Results({ onOpenEnquiry }) {
       {/* Results Filter & Cards */}
       <section className="section">
         <div className="container">
-          <div className="results-filters-row">
-            <div className="filter-group">
-              <span className="filter-lbl">Filter by Exam:</span>
-              <div className="filter-pills">
-                {examOptions.map((ex) => (
-                  <button
-                    key={ex}
-                    onClick={() => setSelectedExam(ex)}
-                    className={`filter-pill-btn ${selectedExam === ex ? 'active' : ''}`}
-                  >
-                    {ex}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="filter-group">
-              <span className="filter-lbl">Year:</span>
-              <div className="filter-pills">
-                {yearOptions.map((yr) => (
-                  <button
-                    key={yr}
-                    onClick={() => setSelectedYear(yr)}
-                    className={`filter-pill-btn ${selectedYear === yr ? 'active' : ''}`}
-                  >
-                    {yr}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Cards Grid */}
-          <div className="results-cards-grid">
-            {filteredResults.map((res, idx) => {
-              const dir = idx % 3 === 0 ? 'reveal-left' : idx % 3 === 2 ? 'reveal-right' : 'reveal-bottom';
-              return (
-                <div key={res.id} className={`topper-result-card reveal-on-scroll ${dir} stagger-${(idx % 3) + 1}`}>
-                  <div className="topper-header">
-                    <span className="topper-exam-badge">{res.exam}</span>
-                    <span className="topper-year-tag">{res.year}</span>
+          {/* Results Filters & Cards or Empty State */}
+          {resultsData.length > 0 ? (
+            <>
+              <div className="results-filters-row">
+                <div className="filter-group">
+                  <span className="filter-lbl">Filter by Exam:</span>
+                  <div className="filter-pills">
+                    {examOptions.map((ex) => (
+                      <button
+                        key={ex}
+                        onClick={() => setSelectedExam(ex)}
+                        className={`filter-pill-btn ${selectedExam === ex ? 'active' : ''}`}
+                      >
+                        {ex}
+                      </button>
+                    ))}
                   </div>
-
-                <div className="topper-score-highlight">
-                  <span className="score-primary-val">{res.score}</span>
-                  <span className="score-secondary-val">{res.percentile}</span>
                 </div>
 
-                <div className="topper-identity-block">
-                  <h3 className="topper-name">{res.studentName}</h3>
-                  <p className="topper-course">{res.course}</p>
-                  <p className="topper-school">{res.school}</p>
-                </div>
-
-                <div className="topper-quote-box">
-                  <Quote size={18} className="topper-quote-icon" />
-                  <p className="topper-quote-p">“{res.quote}”</p>
-                </div>
-
-                <div className="topper-college-footer">
-                  <GraduationCap size={16} className="college-icon" />
-                  <span>{res.college}</span>
+                <div className="filter-group">
+                  <span className="filter-lbl">Year:</span>
+                  <div className="filter-pills">
+                    {yearOptions.map((yr) => (
+                      <button
+                        key={yr}
+                        onClick={() => setSelectedYear(yr)}
+                        className={`filter-pill-btn ${selectedYear === yr ? 'active' : ''}`}
+                      >
+                        {yr}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
-            );
-          })}
-          </div>
+
+              {filteredResults.length > 0 ? (
+                <div className="results-cards-grid">
+                  {filteredResults.map((res, idx) => {
+                    const dir = idx % 3 === 0 ? 'reveal-left' : idx % 3 === 2 ? 'reveal-right' : 'reveal-bottom';
+                    return (
+                      <div key={res.id} className={`topper-result-card reveal-on-scroll ${dir} stagger-${(idx % 3) + 1}`}>
+                        <div className="topper-header">
+                          <span className="topper-exam-badge">{res.exam}</span>
+                          <span className="topper-year-tag">{res.year}</span>
+                        </div>
+
+                        <div className="topper-score-highlight">
+                          <span className="score-primary-val">{res.score}</span>
+                          <span className="score-secondary-val">{res.percentile}</span>
+                        </div>
+
+                        <div className="topper-identity-block">
+                          <h3 className="topper-name">{res.studentName}</h3>
+                          <p className="topper-course">{res.course}</p>
+                          <p className="topper-school">{res.school}</p>
+                        </div>
+
+                        <div className="topper-quote-box">
+                          <Quote size={18} className="topper-quote-icon" />
+                          <p className="topper-quote-p">“{res.quote}”</p>
+                        </div>
+
+                        <div className="topper-college-footer">
+                          <GraduationCap size={16} className="college-icon" />
+                          <span>{res.college}</span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="results-empty-box text-center" style={{ padding: '3rem 1.5rem', background: '#F8FAFC', borderRadius: 'var(--radius-xl)', border: '1px dashed var(--border-color)', margin: '2rem 0' }}>
+                  <p style={{ color: 'var(--text-muted)' }}>No results found matching the selected filters.</p>
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="results-empty-box text-center" style={{ padding: '4.5rem 1.5rem', background: '#F8FAFC', borderRadius: 'var(--radius-xl)', border: '1px dashed var(--border-color)', margin: '1.5rem 0 3rem 0' }}>
+              <div style={{ width: '64px', height: '64px', borderRadius: '16px', background: 'var(--color-primary-light)', color: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem' }}>
+                <GraduationCap size={32} />
+              </div>
+              <h3 style={{ color: 'var(--color-navy)', fontSize: '1.45rem', marginBottom: '0.6rem' }}>Results & Achievements Updating Soon</h3>
+              <p style={{ color: 'var(--text-muted)', maxWidth: '520px', margin: '0 auto 1.75rem', lineHeight: '1.6', fontSize: '0.95rem' }}>
+                Official Board and competitive examination results for the academic session are currently being compiled and verified. Verified scorecards and student achievements will be published here shortly.
+              </p>
+              <button 
+                onClick={() => onOpenEnquiry && onOpenEnquiry()} 
+                className="btn btn-primary btn-md"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+              >
+                Enquire for Next Batch Admissions
+              </button>
+            </div>
+          )}
 
           {/* Transparency / Verifiable Notice */}
           <div className="results-policy-box">
