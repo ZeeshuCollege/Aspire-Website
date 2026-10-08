@@ -98,11 +98,11 @@ export default function Footer({ onOpenEnquiry }) {
           </button>
           <div className="footer-social-row">
             <a 
-              href="https://www.instagram.com/aspire_learning_centre" 
+              href="https://www.instagram.com/aspire__learning__centre" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="social-btn"
-              aria-label="Instagram (@aspire_learning_centre)"
+              aria-label="Instagram (@aspire__learning__centre)"
             >
               <InstagramIcon size={18} />
             </a>
