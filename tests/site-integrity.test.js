@@ -93,4 +93,40 @@ describe('ASPIRE Data & Route Integrity Tests', () => {
     assert.ok(sitemapContent.includes('<loc>https://aspirelearningcentre.com/</loc>'), 'sitemap must include homepage');
     assert.ok(sitemapContent.includes('<loc>https://aspirelearningcentre.com/courses/jee</loc>'), 'sitemap must include JEE');
   });
+
+  it('should enforce in-session enquiry lock and format email payload as table to aspirelearningcentre@outlook.com', async () => {
+    const { 
+      hasSessionEnquirySubmitted, 
+      markSessionEnquirySubmitted, 
+      getSessionSubmissionDetails,
+      _resetSessionEnquiryForTesting 
+    } = await import('../src/utils/enquirySession.js');
+
+    _resetSessionEnquiryForTesting();
+    assert.equal(hasSessionEnquirySubmitted(), false, 'Session must initially allow form submission');
+
+    const sampleSubmission = {
+      studentName: 'Zeeshan Khan',
+      parentName: 'Mr. Khan',
+      phone: '9876543210',
+      email: 'student@example.com',
+      course: 'JEE (Main + Adv.)',
+      batchTiming: 'Evening (5:00 PM - 7:00 PM)',
+      message: 'Interested in demo class'
+    };
+
+    markSessionEnquirySubmitted(sampleSubmission);
+    assert.equal(hasSessionEnquirySubmitted(), true, 'Must lock submission state within session');
+    assert.equal(getSessionSubmissionDetails().studentName, 'Zeeshan Khan');
+
+    // Simulating page refresh
+    _resetSessionEnquiryForTesting();
+    assert.equal(hasSessionEnquirySubmitted(), false, 'Refreshed session must unlock form submission');
+
+    // Verify source code enforces recipient & table template
+    const enquirySessionSrc = fs.readFileSync(path.join(rootDir, 'src', 'utils', 'enquirySession.js'), 'utf8');
+    assert.ok(enquirySessionSrc.includes('aspirelearningcentre@outlook.com'), 'Must target aspirelearningcentre@outlook.com');
+    assert.ok(enquirySessionSrc.includes("_template: 'table'") || enquirySessionSrc.includes('_template: "table"'), 'Must specify table template for email formatting');
+  });
 });
+

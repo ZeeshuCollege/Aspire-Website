@@ -2,35 +2,70 @@ import React, { useState } from 'react';
 import { 
   CheckCircle2, 
   Send, 
-  ShieldCheck
+  ShieldCheck,
+  PhoneCall
 } from 'lucide-react';
 import Badge from '../components/Badge';
 import PageSEO from '../components/PageSEO';
 import confetti from 'canvas-confetti';
+import { 
+  hasSessionEnquirySubmitted, 
+  getSessionSubmissionDetails, 
+  markSessionEnquirySubmitted, 
+  forwardEnquiryToEmail 
+} from '../utils/enquirySession';
 import './Admissions.css';
 
 export default function Admissions() {
-  const [formData, setFormData] = useState({
-    studentName: '',
-    parentName: '',
-    phone: '',
-    email: '',
-    currentClass: 'Class 10',
-    interestedCourse: 'JEE (Main + Adv.)',
-    previousSchool: '',
-    board: 'CBSE',
-    batchTiming: 'Evening (5:00 PM - 7:00 PM)',
-    message: ''
+  const isAlreadySubmitted = hasSessionEnquirySubmitted();
+  const sessionData = getSessionSubmissionDetails();
+
+  const [formData, setFormData] = useState(() => {
+    if (sessionData) {
+      return {
+        studentName: sessionData.studentName || '',
+        parentName: sessionData.parentName || '',
+        phone: sessionData.phone || '',
+        email: sessionData.email || '',
+        currentClass: sessionData.currentClass || 'Class 10',
+        interestedCourse: sessionData.course || sessionData.interestedCourse || 'JEE (Main + Adv.)',
+        previousSchool: sessionData.previousSchool || '',
+        board: sessionData.board || 'CBSE',
+        batchTiming: sessionData.batchTiming || 'Evening (5:00 PM - 7:00 PM)',
+        message: sessionData.message || ''
+      };
+    }
+    return {
+      studentName: '',
+      parentName: '',
+      phone: '',
+      email: '',
+      currentClass: 'Class 10',
+      interestedCourse: 'JEE (Main + Adv.)',
+      previousSchool: '',
+      board: 'CBSE',
+      batchTiming: 'Evening (5:00 PM - 7:00 PM)',
+      message: ''
+    };
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(isAlreadySubmitted);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading || submitted) return;
     setLoading(true);
 
-    setTimeout(() => {
+    try {
+      // 1. Forward to aspirelearningcentre@outlook.com in table format
+      await forwardEnquiryToEmail(formData, 'Admissions Page Application');
+    } catch {
+      // Fail-safe network handling
+    }
+
+    try {
+      // 2. Local storage backup
       const existing = JSON.parse(localStorage.getItem('aspire_enquiries') || '[]');
       const newRecord = {
         id: `ADM-${Date.now().toString().slice(-5)}`,
@@ -38,18 +73,22 @@ export default function Admissions() {
         date: new Date().toISOString()
       };
       localStorage.setItem('aspire_enquiries', JSON.stringify([newRecord, ...existing]));
+    } catch {
+      // Fail-safe
+    }
 
-      setLoading(false);
-      setSubmitted(true);
+    // 3. Mark in-session lock (clears only on website refresh)
+    markSessionEnquirySubmitted(formData);
+    setLoading(false);
+    setSubmitted(true);
 
-      try {
-        confetti({
-          particleCount: 100,
-          spread: 80,
-          origin: { y: 0.6 }
-        });
-      } catch {}
-    }, 600);
+    try {
+      confetti({
+        particleCount: 100,
+        spread: 80,
+        origin: { y: 0.6 }
+      });
+    } catch {}
   };
 
   const steps = [
@@ -319,12 +358,11 @@ export default function Admissions() {
                 <div className="adm-call-reminder">
                   <span>Our academic counsellor will call you on <strong>{formData.phone}</strong> within 2 hours.</span>
                 </div>
-                <button 
-                  onClick={() => setSubmitted(false)} 
-                  className="btn btn-primary btn-md"
-                >
-                  Submit Another Enquiry
-                </button>
+                <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                  <a href="tel:+919820598205" className="btn btn-primary btn-md">
+                    <PhoneCall size={16} /> Call Admissions Helpline
+                  </a>
+                </div>
               </div>
             )}
           </div>

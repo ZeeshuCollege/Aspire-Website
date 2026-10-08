@@ -1,21 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, Phone, Sparkles, Send, Calendar, MapPin } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { 
+  hasSessionEnquirySubmitted, 
+  getSessionSubmissionDetails, 
+  markSessionEnquirySubmitted, 
+  forwardEnquiryToEmail 
+} from '../utils/enquirySession';
 import './EnquiryModal.css';
 
 export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
-  const [formData, setFormData] = useState({
-    studentName: '',
-    parentName: '',
-    phone: '',
-    email: '',
-    course: initialCourse || 'JEE (Main + Adv.)',
-    batchTiming: 'Evening (5:00 PM - 7:00 PM)',
-    message: ''
+  const isAlreadySubmitted = hasSessionEnquirySubmitted();
+  const sessionData = getSessionSubmissionDetails();
+
+  const [formData, setFormData] = useState(() => {
+    if (sessionData) {
+      return sessionData;
+    }
+    return {
+      studentName: '',
+      parentName: '',
+      phone: '',
+      email: '',
+      course: initialCourse || 'JEE (Main + Adv.)',
+      batchTiming: 'Evening (5:00 PM - 7:00 PM)',
+      message: ''
+    };
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(isAlreadySubmitted);
   const [loading, setLoading] = useState(false);
+
+  // Sync state with in-session status on open
+  useEffect(() => {
+    if (!isOpen) return;
+
+    if (hasSessionEnquirySubmitted()) {
+      setSubmitted(true);
+      const data = getSessionSubmissionDetails();
+      if (data) setFormData(data);
+    } else if (initialCourse && !formData.studentName) {
+      setFormData(prev => ({ ...prev, course: initialCourse }));
+    }
+  }, [isOpen, initialCourse]);
 
   // Handle Escape key to close modal
   useEffect(() => {
@@ -38,51 +65,49 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading || submitted) return;
     setLoading(true);
 
-    // Simulate fast submission & local persistence
-    setTimeout(() => {
-      try {
-        const existing = JSON.parse(localStorage.getItem('aspire_enquiries') || '[]');
-        const newRecord = {
-          id: `ENQ-${Date.now().toString().slice(-5)}`,
-          ...formData,
-          date: new Date().toISOString()
-        };
-        localStorage.setItem('aspire_enquiries', JSON.stringify([newRecord, ...existing]));
-      } catch {
-        // Fallback
-      }
+    try {
+      // 1. Forward enquiry form data formatted as a table to aspirelearningcentre@outlook.com
+      await forwardEnquiryToEmail(formData, 'Enquire Now Modal');
+    } catch {
+      // Fail-safe network handling
+    }
 
-      setLoading(false);
-      setSubmitted(true);
+    try {
+      // 2. Persist local backup record
+      const existing = JSON.parse(localStorage.getItem('aspire_enquiries') || '[]');
+      const newRecord = {
+        id: `ENQ-${Date.now().toString().slice(-5)}`,
+        ...formData,
+        date: new Date().toISOString()
+      };
+      localStorage.setItem('aspire_enquiries', JSON.stringify([newRecord, ...existing]));
+    } catch {
+      // Fallback
+    }
 
-      // Trigger celebration confetti
-      try {
-        confetti({
-          particleCount: 80,
-          spread: 70,
-          origin: { y: 0.6 }
-        });
-      } catch {
-        // Confetti fallback
-      }
-    }, 600);
+    // 3. Mark session submission lock (clears only upon browser website refresh)
+    markSessionEnquirySubmitted(formData);
+    setLoading(false);
+    setSubmitted(true);
+
+    // 4. Trigger celebration confetti
+    try {
+      confetti({
+        particleCount: 80,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    } catch {
+      // Fallback
+    }
   };
 
-  const handleReset = () => {
-    setSubmitted(false);
-    setFormData({
-      studentName: '',
-      parentName: '',
-      phone: '',
-      email: '',
-      course: 'Class 10',
-      batchTiming: 'Evening (5:00 PM - 7:00 PM)',
-      message: ''
-    });
+  const handleClose = () => {
     onClose();
   };
 
@@ -269,7 +294,7 @@ export default function EnquiryModal({ isOpen, onClose, initialCourse = "" }) {
               </ul>
             </div>
 
-            <button onClick={handleReset} className="btn btn-primary btn-md">
+            <button onClick={handleClose} className="btn btn-primary btn-md">
               Done / Return to Website
             </button>
           </div>
