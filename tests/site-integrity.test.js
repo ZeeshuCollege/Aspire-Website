@@ -66,11 +66,25 @@ describe('ASPIRE Data & Route Integrity Tests', () => {
     const sitemapPath = path.join(rootDir, 'public', 'sitemap.xml');
     const manifestPath = path.join(rootDir, 'public', 'site.webmanifest');
     const vercelConfigPath = path.join(rootDir, 'vercel.json');
+    const cloudflareRedirectsPath = path.join(rootDir, 'public', '_redirects');
+    const cloudflareHeadersPath = path.join(rootDir, 'public', '_headers');
+    const nodeVersionPath = path.join(rootDir, '.node-version');
+    const wranglerConfigPath = path.join(rootDir, 'wrangler.toml');
 
     assert.ok(fs.existsSync(robotsPath), 'robots.txt must exist in public/');
     assert.ok(fs.existsSync(sitemapPath), 'sitemap.xml must exist in public/');
     assert.ok(fs.existsSync(manifestPath), 'site.webmanifest must exist in public/');
     assert.ok(fs.existsSync(vercelConfigPath), 'vercel.json must exist in root');
+    assert.ok(fs.existsSync(cloudflareRedirectsPath), '_redirects must exist in public/ for Cloudflare Pages SPA routing');
+    assert.ok(fs.existsSync(cloudflareHeadersPath), '_headers must exist in public/ for Cloudflare Pages security & caching');
+    assert.ok(fs.existsSync(nodeVersionPath), '.node-version must exist for Cloudflare build environment');
+    assert.ok(fs.existsSync(wranglerConfigPath), 'wrangler.toml must exist for Cloudflare Pages config');
+
+    const redirectsContent = fs.readFileSync(cloudflareRedirectsPath, 'utf8');
+    assert.ok(redirectsContent.includes('/*    /index.html   200'), '_redirects must route /* to /index.html 200');
+
+    const headersContent = fs.readFileSync(cloudflareHeadersPath, 'utf8');
+    assert.ok(headersContent.includes('X-Frame-Options'), '_headers must include security headers');
 
     const robotsContent = fs.readFileSync(robotsPath, 'utf8');
     assert.ok(robotsContent.includes('Sitemap:'), 'robots.txt must specify sitemap location');
