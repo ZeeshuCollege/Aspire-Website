@@ -261,21 +261,44 @@
 @media (max-width: 900px) {
   .about-split-grid {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
   .director-message-card {
     grid-template-columns: 1fr;
   }
   .director-photo-col {
-    height: 320px;
+    height: 300px;
+    min-height: unset;
+  }
+  .director-quote-col {
+    padding: 2rem 1.5rem;
   }
 }
 
 @media (max-width: 640px) {
+  .about-floating-experience {
+    position: static;
+    margin-top: 1rem;
+    padding: 0.85rem 1rem;
+    justify-content: center;
+  }
+  .about-main-img {
+    min-height: unset;
+    height: 240px;
+  }
   .values-cards-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .value-card {
+    padding: 1.5rem 1.25rem;
   }
   .about-location-strip {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .about-location-strip .btn {
+    width: 100%;
   }
 }

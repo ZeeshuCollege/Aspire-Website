@@ -181,11 +181,30 @@
 @media (max-width: 800px) {
   .faculty-philosophy-row {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
   .faculty-detail-profile-card {
     grid-template-columns: 1fr;
   }
   .profile-img-wrap {
     height: 240px;
+    min-height: unset;
+  }
+}
+
+@media (max-width: 640px) {
+  .faculty-filter-tabs {
+    gap: 0.35rem;
+    margin-bottom: 1.75rem;
+  }
+  .fac-filter-btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.825rem;
+  }
+  .fac-phil-box {
+    padding: 1.5rem 1.25rem;
+  }
+  .profile-info-body {
+    padding: 1.25rem;
   }
 }

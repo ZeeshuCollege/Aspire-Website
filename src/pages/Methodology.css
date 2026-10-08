@@ -153,3 +153,17 @@
     align-items: flex-start;
   }
 }
+
+@media (max-width: 640px) {
+  .methodology-step-detail-card {
+    padding: 1.5rem 1.25rem;
+    gap: 1.5rem;
+  }
+  .ddrc-feature-card {
+    padding: 1.5rem 1.25rem;
+    gap: 1.5rem;
+  }
+  .big-step-num {
+    font-size: 2.25rem;
+  }
+}

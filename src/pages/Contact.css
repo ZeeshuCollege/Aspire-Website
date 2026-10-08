@@ -197,8 +197,24 @@
 @media (max-width: 768px) {
   .contact-full-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   .contact-form-panel {
     grid-column: span 1;
+  }
+  .form-card-container {
+    padding: 1.5rem 1.25rem;
+  }
+  .contact-box-item {
+    padding: 1.25rem;
+  }
+  .map-view-container {
+    min-height: 320px;
+  }
+  .map-floating-pin-card {
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    padding: 0.85rem 1rem;
   }
 }

@@ -246,12 +246,33 @@
 @media (max-width: 768px) {
   .results-stats-row {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
   .results-cards-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
   .results-filters-row {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .filter-group {
+    width: 100%;
+  }
+  .filter-pills {
+    width: 100%;
+  }
+  .topper-result-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .results-policy-box {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .results-stats-row {
+    grid-template-columns: 1fr;
   }
 }

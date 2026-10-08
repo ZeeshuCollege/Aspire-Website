@@ -63,7 +63,8 @@
   font-weight: 700;
   color: var(--color-navy);
   margin-bottom: 0.2rem;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .highlight-desc {
@@ -83,11 +84,19 @@
 }
 
 @media (max-width: 640px) {
+  .highlights-strip-wrap {
+    margin-top: -1rem;
+    padding-bottom: 1.5rem;
+  }
   .highlights-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
   .highlights-strip-card {
-    padding: 1.25rem 1.5rem;
+    padding: 1.25rem 1.15rem;
+  }
+  .highlight-item {
+    justify-content: flex-start;
+    text-align: left;
   }
 }

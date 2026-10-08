@@ -207,16 +207,36 @@
 @media (max-width: 640px) {
   .classes-slideshow-viewport {
     --slide-gap: 12px;
-    --slide-width: 82%;
+    --slide-width: 86%;
+    padding: 0.75rem 0 1.5rem;
   }
   .classes-slide-item {
-    height: 330px;
+    height: 300px;
     border-radius: 16px;
   }
   .classes-header-row {
     margin-bottom: 1.5rem;
   }
   .classes-slide-img-container {
-    padding: 0.85rem;
+    padding: 0.75rem;
+  }
+  .classes-slide-overlay {
+    padding: 1.75rem 1rem 0.85rem;
+  }
+  .classes-overlay-title {
+    font-size: 0.975rem;
+  }
+  .classes-overlay-desc {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .classes-slideshow-viewport {
+    --slide-width: 90%;
+    --slide-gap: 8px;
+  }
+  .classes-slide-item {
+    height: 270px;
   }
 }

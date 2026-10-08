@@ -165,8 +165,13 @@
 }
 
 @media (max-width: 640px) {
+  .footer-wrap {
+    padding-top: 2.5rem;
+  }
   .footer-main {
     grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
   }
   .footer-col-brand {
     grid-column: span 1;
@@ -174,5 +179,9 @@
   .footer-bottom-inner {
     flex-direction: column;
     text-align: center;
+    gap: 0.75rem;
+  }
+  .bottom-links {
+    justify-content: center;
   }
 }

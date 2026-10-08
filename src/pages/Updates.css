@@ -113,3 +113,17 @@
   font-weight: 600;
   font-size: 0.875rem;
 }
+
+@media (max-width: 640px) {
+  .update-card-item {
+    padding: 1.25rem;
+  }
+  .update-meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .update-card-title {
+    font-size: 1.15rem;
+  }
+}

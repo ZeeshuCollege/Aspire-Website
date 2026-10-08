@@ -17,15 +17,26 @@ html {
   text-rendering: optimizeLegibility;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
 body {
   min-height: 100vh;
   overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
   line-height: 1.6;
   font-size: 16px;
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+#root, .app-shell {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
 /* Accessibility: Skip to Content */
@@ -81,25 +92,31 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-navy);
   font-weight: 700;
   line-height: 1.2;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 h1 {
-  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-size: clamp(1.85rem, 5vw, 3.75rem);
   letter-spacing: -0.025em;
 }
 
 h2 {
-  font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+  font-size: clamp(1.45rem, 3.5vw, 2.6rem);
   letter-spacing: -0.02em;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-size: clamp(1.15rem, 2.5vw, 1.75rem);
   letter-spacing: -0.015em;
 }
 
 h4 {
   font-size: 1.25rem;
+}
+
+p, span, a, label, strong {
+  overflow-wrap: break-word;
 }
 
 p {
@@ -206,7 +223,9 @@ img {
   cursor: pointer;
   transition: all var(--transition-normal);
   border: 1px solid transparent;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
 }
 
 .btn-sm {
@@ -501,12 +520,35 @@ img {
 .reveal-on-scroll.stagger-6 { transition-delay: 300ms; }
 
 /* Responsive adjustments for Mobile */
-@media (max-width: 640px) {
-  .reveal-on-scroll.reveal-left {
-    transform: translateX(-20px);
-  }
+@media (max-width: 768px) {
+  /* Replace horizontal animation with vertical slide on mobile to prevent overflow cut-offs */
+  .reveal-on-scroll.reveal-left,
   .reveal-on-scroll.reveal-right {
-    transform: translateX(20px);
+    transform: translateY(22px);
+  }
+
+  .section-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .card {
+    padding: 1.25rem;
+  }
+
+  .btn-lg {
+    padding: 0.85rem 1.4rem;
+    font-size: 0.95rem;
+  }
+
+  .btn-md {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.885rem;
+  }
+
+  .container {
+    padding-left: clamp(0.85rem, 4vw, 1.25rem);
+    padding-right: clamp(0.85rem, 4vw, 1.25rem);
   }
 }
 
@@ -516,17 +558,5 @@ img {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
-  }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .section-header-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .card {
-    padding: 1.35rem;
   }
 }
