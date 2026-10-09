@@ -24,7 +24,7 @@ import { coursesData } from '../data/coursesData';
 import { methodologySteps } from '../data/methodologyData';
 import { faqData } from '../data/faqData';
 
-import hmSirImg from '../assets/images/hm_sir_cutout.png';
+import heroStudentImg from '../assets/images/hero_student_enhanced.png';
 import './Home.css';
 
 export default function Home({ onOpenEnquiry }) {
@@ -111,9 +111,12 @@ export default function Home({ onOpenEnquiry }) {
           <div className="hero-visual-col">
             <div className="hero-poster-wrapper">
               <img 
-                src={hmSirImg} 
-                alt="Hamiuddin Khan (HM Sir) - JEE/NEET Specialist" 
+                src={heroStudentImg} 
+                alt="Aspire Student - Better Learning, Brighter Future" 
                 className="hero-poster-img animate-fade-in"
+                width="600"
+                height="600"
+                fetchPriority="high"
               />
             </div>
           </div>
