@@ -24,7 +24,7 @@ export default function FAQs({ onOpenEnquiry }) {
     <div className="faqs-page">
       <PageSEO
         title="Frequently Asked Questions (FAQ) | ASPIRE Learning Centre"
-        description="Have questions about admissions, fees, batch timings, scholarships, study materials, or trial classes at ASPIRE? Read our comprehensive FAQ answers."
+        description="Have questions about admissions, fees, batch timings, study materials, or trial classes at ASPIRE? Read our comprehensive FAQ answers."
         canonicalPath="/faqs"
       />
       {/* Header */}

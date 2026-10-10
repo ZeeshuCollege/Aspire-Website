@@ -117,8 +117,8 @@ export default function Admissions() {
   return (
     <div className="admissions-page">
       <PageSEO
-        title="Admissions 2026–27 | Enrolment Process & Scholarship | ASPIRE Kausa, Mumbra"
-        description="Apply for admissions at ASPIRE Learning Centre in Kausa, Mumbra for JEE, NEET, Class 9 & 10 State & CBSE boards. Transparent fees, scholarship test, and 2 free trial lectures."
+        title="Admissions 2026–27 | Enrolment Process | ASPIRE Kausa, Mumbra"
+        description="Apply for admissions at ASPIRE Learning Centre in Kausa, Mumbra for JEE, NEET, Class 9 & 10 State & CBSE boards. Transparent fees, focused batches, and 2 free trial lectures."
         canonicalPath="/admissions"
       />
       {/* Header */}
@@ -127,7 +127,7 @@ export default function Admissions() {
           <Badge icon="graduation" text="Admission Portal 2026–27" variant="blue" />
           <h1 className="page-header-title">Admissions & Enrolment Process</h1>
           <p className="page-header-subtitle">
-            Take the first step towards academic transformation. We maintain transparent fees, merit scholarships, and limited 25-student batches.
+            Take the first step towards academic transformation. We maintain transparent fees, personalized mentoring, and limited 25-student batches.
           </p>
         </div>
       </section>
@@ -151,35 +151,6 @@ export default function Admissions() {
                 <p>{st.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Scholarship ATSE Section */}
-      <section className="section-tight section-bg-navy">
-        <div className="container">
-          <div className="atse-banner-card">
-            <div className="atse-text-side">
-              <span className="badge badge-orange">Scholarship Opportunity</span>
-              <h2>ASPIRE Talent Search Examination (ATSE)</h2>
-              <p>
-                Deserving and meritorious students can earn up to <strong>100% fee concession</strong> based on our diagnostic aptitude test conducted every alternate Sunday.
-              </p>
-              <div className="atse-perks">
-                <span>✓ Evaluates NCERT Science & Maths fundamentals</span>
-                <span>✓ Diagnostic gap-analysis report provided free</span>
-                <span>✓ Direct admission into Apex batches for top 5% scorers</span>
-              </div>
-            </div>
-            <div className="atse-cta-side">
-              <div className="atse-box-highlight">
-                <span className="atse-call-text">Next Test Date:</span>
-                <strong>Upcoming Sunday, 10:00 AM</strong>
-                <a href="#admission-form" className="btn btn-white btn-md" style={{ marginTop: '1rem' }}>
-                  Register for ATSE
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>

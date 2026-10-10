@@ -41,59 +41,6 @@
   line-height: 1.5;
 }
 
-/* ATSE Banner */
-.atse-banner-card {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-
-.atse-text-side h2 {
-  font-size: clamp(1.85rem, 3vw, 2.35rem);
-  color: #ffffff;
-  margin: 0.75rem 0;
-}
-
-.atse-text-side p {
-  color: #CBD5E1;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.atse-perks {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  color: #38BDF8;
-  font-weight: 500;
-}
-
-.atse-box-highlight {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-xl);
-  padding: 2.25rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.atse-call-text {
-  font-size: 0.85rem;
-  color: #94A3B8;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.atse-box-highlight strong {
-  font-size: 1.35rem;
-  color: var(--color-orange);
-  margin-top: 0.35rem;
-}
 
 /* Form Wrapper */
 .admission-form-wrapper {
@@ -177,9 +124,6 @@
 @media (max-width: 1024px) {
   .admission-steps-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .atse-banner-card {
-    grid-template-columns: 1fr;
   }
 }
 

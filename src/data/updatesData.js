@@ -10,11 +10,11 @@ export const updatesData = [
   },
   {
     id: "up-2",
-    title: "ASPIRE Talent Search Exam (ATSE) — Up to 100% Scholarship",
+    title: "Parent-Teacher Review & Academic Progress Meetings Scheduled",
     date: "September 10, 2026",
-    category: "Scholarship",
-    badgeColor: "orange",
-    summary: "Test date scheduled for the upcoming Sunday. Open for students enrolling in JEE, NEET, Foundation, 10th, 9th, 11th and 12th.",
+    category: "Academic",
+    badgeColor: "teal",
+    summary: "One-on-one parent-faculty sessions scheduled for this weekend. Faculty will review student attendance, chapter test performance, and individual focus areas.",
     urgent: false
   },
   {

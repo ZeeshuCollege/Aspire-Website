@@ -33,7 +33,7 @@ export const faqData = [
     id: "faq-6",
     category: "Admissions",
     question: "What is the fee structure?",
-    answer: "Fee structures vary depending on the course (JEE, NEET, Foundation, 10th, or 9th). We offer transparent, competitive offline coaching fees with flexible quarterly installment plans and merit scholarships based on our ASPIRE Talent Search Exam (ATSE)."
+    answer: "Fee structures vary depending on the course (JEE, NEET, Foundation, 10th, or 9th). We offer transparent, competitive offline coaching fees with flexible quarterly installment plans. Contact our admissions desk or submit an enquiry for exact batch fee schedules."
   },
   {
     id: "faq-7",

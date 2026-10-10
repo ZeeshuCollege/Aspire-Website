@@ -41,9 +41,9 @@ export default function Terms() {
           </section>
 
           <section>
-            <h3 style={{ color: 'var(--color-navy)', marginBottom: '0.5rem' }}>3. Fee & Scholarship Rules</h3>
+            <h3 style={{ color: 'var(--color-navy)', marginBottom: '0.5rem' }}>3. Fee & Payment Rules</h3>
             <p style={{ color: 'var(--text-muted)' }}>
-              Fee schedules, installment options, and scholarship concessions under ATSE are communicated transparently before final registration. Any fee receipt generated is recorded under the student's roll number.
+              Fee schedules and installment options are communicated transparently before final registration. Any fee receipt generated is recorded under the student's roll number.
             </p>
           </section>
 

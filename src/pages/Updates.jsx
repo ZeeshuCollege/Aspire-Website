@@ -14,7 +14,7 @@ export default function Updates({ onOpenEnquiry }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [activeNotice, setActiveNotice] = useState(null);
 
-  const categories = ['All', 'Admissions', 'Scholarship', 'Academic', 'Events'];
+  const categories = ['All', 'Admissions', 'Academic', 'Events'];
 
   const filteredUpdates = updatesData.filter((u) => {
     if (selectedCategory === 'All') return true;
@@ -25,7 +25,7 @@ export default function Updates({ onOpenEnquiry }) {
     <div className="updates-page">
       <PageSEO
         title="Latest Updates, Admissions & Announcements | ASPIRE Learning Centre"
-        description="Official notices and announcements from ASPIRE Learning Centre, Kausa, Mumbra. Batch commencement dates, scholarship tests (ATSE), and academic timetables."
+        description="Official notices and announcements from ASPIRE Learning Centre, Kausa, Mumbra. Batch commencement dates, workshops, and academic timetables."
         canonicalPath="/updates"
       />
       {/* Header */}
@@ -34,7 +34,7 @@ export default function Updates({ onOpenEnquiry }) {
           <Badge icon="sparkles" text="Notices & Bulletins" variant="blue" />
           <h1 className="page-header-title">Institute Announcements</h1>
           <p className="page-header-subtitle">
-            Stay up to date with new batch inaugurations, scholarship examination dates (ATSE), mock test timetables, and academic guidelines.
+            Stay up to date with new batch inaugurations, classroom workshops, mock test timetables, and academic guidelines.
           </p>
         </div>
       </section>
